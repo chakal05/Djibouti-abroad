@@ -1,0 +1,25 @@
+// use clamp(min, preferred, max)
+
+
+@mixin small {
+    @media screen and (min-width: 0px) and (max-width: 650px) {
+        @content;
+    }
+}
+@mixin medium {
+    @media screen and (min-width: 651px)  {
+        @content;
+    }
+}
+@mixin large {
+    @media screen and (min-width: 1050px)  {
+        @content;
+    }
+}
+@mixin extraLarge {
+    @media screen and (min-width: 1201px){
+        @content;
+    }
+}
+ 
+$base-color: #234924;
