@@ -10,14 +10,51 @@ import {
 	Select,
 	InputLabel,
 } from '@material-ui/core';
+import { useRouter } from 'next/router';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({}))
+const useStyles = makeStyles((theme: Theme) => createStyles({}));
 export default function Countries() {
-    const [age, setAge] = React.useState('');
+	const [country, setCountry] = React.useState('');
 	const classes = useStyles();
+	const router = useRouter();
 	const handleChange = (event) => {
-		setAge(event.target.value);
+		setCountry(event.target.value);
+		if (
+			country !== undefined &&
+			countries.includes(event.target.value)
+		)
+			router.push({
+				pathname: '/countryInfo',
+				query: { country: event.target.value },
+			});
 	};
+
+	const countries = [
+		'E.A.U',
+		'China',
+		'Belgium', 
+		'Netherland',
+		'Luxemburg',
+		'U.E',
+		'Egypt',
+		'Erythree',
+		'France',
+		'Inde',
+		'Kenya',
+		'Russie',
+		'Maroc',
+		'Sudan',
+		'Turkey',
+		'Yemen',
+		'USA',
+		'Suisse',
+		'SGermany',
+		'Cuba',
+		'Japon',
+		'UK',
+		'SaudiArabia',
+		'Qatar',
+	];
 	return (
 		<div>
 			<FormControl
@@ -32,11 +69,13 @@ export default function Countries() {
 				<Select
 					labelId='demo-simple-select-label'
 					id='demo-simple-select'
-					value={age}
+					value={country}
 					onChange={handleChange}>
-					<MenuItem value={10}>Andalouse</MenuItem>
-					<MenuItem value={20}>Algerie</MenuItem>
-					<MenuItem value={30}>Albanie</MenuItem>
+					{countries.map((item) => (
+						<MenuItem key={item} value={item}>
+							{item}
+						</MenuItem>
+					))}
 				</Select>
 			</FormControl>{' '}
 		</div>

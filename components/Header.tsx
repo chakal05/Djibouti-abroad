@@ -64,7 +64,7 @@ export default function Header() {
 	);
 	const sections = [
 		{ id: 0, url: '/', title: 'Home' },
-		{ id: 1, url: '/theMinistry', title: 'The Ministry' },
+		{ id: 1, url: '/consularReg', title: 'Consular registration' },
 		{ id: 2, url: '/foreignPol', title: 'Foreign politic' },
 		{ id: 3, url: '/visitDjib', title: 'Visit Djibouti' },
 		{ id: 4, url: '/diploMiss', title: 'Diplomatic missions' },

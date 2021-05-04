@@ -8,7 +8,7 @@ import {
 	Container,
 	Grid,
 	Typography,
-	Accordion,
+	Accordion, 
 	AccordionSummary,
 	AccordionDetails,
 	Card,
@@ -353,7 +353,7 @@ export default function forDjiboutian() {
 																	faArrowAltCircleRight
 																}
 															/>
-															{item.title}
+								 							{item.title}
 														</a>
 													</Link>
 												</Typography>

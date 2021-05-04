@@ -1,4 +1,3 @@
-//import styles from '../styles/index.module.scss';
 import {
 	makeStyles,
 	createStyles,
@@ -20,11 +19,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faChevronDown,
 	faArrowAltCircleRight,
+	faArrowCircleDown,
 } from '@fortawesome/free-solid-svg-icons';
-import Countries from '../components/countries'
+import Countries from '../components/countries';
+import Link from 'next/link';
+
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
-	
 		topColorWhite: {
 			[theme.breakpoints.down(650)]: {
 				marginBottom: '-9rem',
@@ -50,10 +51,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		imgContainer: {
 			width: '50%',
 			[theme.breakpoints.up(651)]: {
-				width: '250px',
+				width: '300px',
 				position: 'absolute',
-				left: '50%',
-				right: 0,
+				right: '3rem',
 				top: '30%',
 				marginLeft: '1rem',
 			},
@@ -97,10 +97,81 @@ const useStyles = makeStyles((theme: Theme) =>
 			width: '400px',
 			margin: '1rem',
 		},
+		url: {
+			' &:hover': {
+				fontWeight: 'bold',
+			},
+		},
 	})
 );
 
-export default function forForeigners() {
+const questions = [
+	{
+		id: 1,
+		title: '	Do i need visa to visit Djibouti ?',
+		description: `	Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Suspendisse malesuada
+lacus ex, sit amet blandit leo lobortis
+eget.`,
+	},
+	{
+		id: 2,
+		title: '	Did your passport expire ?',
+		description: `	Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Suspendisse malesuada
+lacus ex, sit amet blandit leo lobortis
+eget.`,
+	},
+	{
+		id: 3,
+		title: '	Do you have questions about visa?',
+		description: `	Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Suspendisse malesuada
+lacus ex, sit amet blandit leo lobortis
+eget.`,
+	},
+	{
+		id: 4,
+		title: 'Which countries to avoid due to Coronavirus ?',
+		description: `	Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Suspendisse malesuada
+lacus ex, sit amet blandit leo lobortis
+eget.`,
+	},
+	{
+		id: 5,
+		title: '	Will you travel with a child ?',
+		description: `	Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Suspendisse malesuada
+lacus ex, sit amet blandit leo lobortis
+eget.`,
+	},
+	{
+		id: 6,
+		title: 'When does the embassy open and close ?',
+		description: `	Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Suspendisse malesuada
+lacus ex, sit amet blandit leo lobortis
+eget.`,
+	},
+];
+
+const travelInfoLinks = [
+	{ id: '1', title: 'About the Coronavirus', url: '/foreignPol' },
+	{ id: '2', title: 'Travel documents', url: '/foreignPol' },
+	{ id: '3', title: 'Prepare your trip', url: '/foreignPol' },
+	{ id: '4', title: 'Terrorism and tourism', url: '/foreignPol' },
+	{ id: '5', title: 'If something happens', url: '/foreignPol' },
+];
+const helpInfoLinks = [
+	{ id: '1', title: 'Consular registration', url: '#' },
+	{ id: '2', title: 'Passports', url: '#' },
+	{ id: '3', title: 'Civil status documents', url: '#' },
+	{ id: '4', title: 'Legislations', url: '#' },
+	{ id: '5', title: 'Students', url: '#' },
+];
+
+export default function forDjiboutian() {
 	const [age, setAge] = React.useState('');
 	const classes = useStyles();
 	const handleChange = (event) => {
@@ -121,16 +192,17 @@ export default function forForeigners() {
 								variant='h5'
 								style={{ marginTop: '2rem' }}
 								component='h5'>
-								Djibout abroad offers service and help to
-								Djibouti nationals who are traveling or are
-								already abroad.
+								Welcome to Djibouti Abroad. It's the official
+								website of the Djiboutian embassies and
+								consulates and includes all the websites of
+								Djibouti's diplomacy abroad.
 							</Typography>
 
-						<Countries/>
+							<Countries />
 						</Grid>
 						<Grid item className={classes.imgContainer}>
 							<Image
-								src={'/Online_information.png'}
+								src={'/traveller.png'}
 								alt='Djibouti abrad information'
 								layout='responsive'
 								width={500}
@@ -145,7 +217,6 @@ export default function forForeigners() {
 						marginTop: '5rem',
 						paddingTop: '2rem ',
 						paddingBottom: '7rem',
-						backgroundColor: '#edf4ed',
 					}}>
 					<Container maxWidth='lg'>
 						<Typography
@@ -154,231 +225,158 @@ export default function forForeigners() {
 							Frequently asked questions
 						</Typography>
 						<div style={{ width: '80%', margin: '0 auto' }}>
-							<Accordion>
-								<AccordionSummary
-									expandIcon={''}
-									aria-controls='panel1a-content'
-									id='panel1a-header'>
-									<Typography>Accordion 1</Typography>
-								</AccordionSummary>
-								<AccordionDetails>
-									<Typography>
-										Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit. Suspendisse malesuada
-										lacus ex, sit amet blandit leo lobortis
-										eget.
-									</Typography>
-								</AccordionDetails>
-							</Accordion>
-							<Accordion>
-								<AccordionSummary
-									expandIcon={''}
-									aria-controls='panel2a-content'
-									id='panel2a-header'>
-									<Typography>Accordion 2</Typography>
-								</AccordionSummary>
-								<AccordionDetails>
-									<Typography>
-										Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit. Suspendisse malesuada
-										lacus ex, sit amet blandit leo lobortis
-										eget.
-									</Typography>
-								</AccordionDetails>
-							</Accordion>
+							{questions.map((item) => {
+								return (
+									<Accordion key={item.id}>
+										<AccordionSummary
+											style={{
+												backgroundColor: '#edf4ed',
+											}}
+											expandIcon={
+												<>
+													<Typography>
+														{
+															<div
+																style={{
+																	visibility:
+																		'hidden',
+																	marginTop: '-1rem',
+																}}>
+																{' '}
+																ds{' '}
+															</div>
+														}
+														<FontAwesomeIcon
+															style={{
+																color: '#000',
+															}}
+															icon={faArrowCircleDown}
+														/>{' '}
+													</Typography>
+												</>
+											}
+											aria-controls='panel1a-content'
+											id='panel1a-header'>
+											<Typography
+												style={{ fontWeight: 'bold' }}
+												variant='subtitle2'>
+												{' '}
+												{item.title}
+											</Typography>
+										</AccordionSummary>
+										<AccordionDetails>
+											<Typography>
+												{item.description}
+											</Typography>
+										</AccordionDetails>
+									</Accordion>
+								);
+							})}
 						</div>
 					</Container>
 				</div>
-				<Container
-					maxWidth='lg'
-					style={{ marginTop: '5rem', marginBottom: '3rem' }}>
-					<Grid
-						container
-						justify='center'
-						className={classes.carteContainer}>
-						<Grid item xs={12}>
-							<Typography
-								variant='h5'
-								style={{ marginBottom: '2rem' }}>
-								Information for Djibouti nationals
-							</Typography>
-						</Grid>
-						<Grid item>
-							<Card
-								className={classes.carte}
-								style={
-									{
-										// padding: '1rem',
-										// height: '300px',
-									}
-								}>
-								<Typography variant='h6' component='h1'>
-									{' '}
-									Travel information
+				<div
+					style={{
+						marginTop: '5rem',
+						paddingTop: '2rem ',
+						paddingBottom: '7rem',
+						backgroundColor: '#edf4ed',
+					}}>
+					<Container
+						maxWidth='lg'
+						style={{ marginTop: '5rem', marginBottom: '3rem' }}>
+						<Grid
+							container
+							justify='center'
+							className={classes.carteContainer}>
+							<Grid item xs={12}>
+								<Typography
+									variant='h5'
+									style={{ marginBottom: '2rem' }}>
+									Information for Djibouti nationals
 								</Typography>
-
-								<ul style={{ listStyle: 'none' }}>
-									<li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Coronavirus 
-										</Typography>
-									</li>
-									<li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Travel documents
-										</Typography>
-									</li>
-									<li>
-										<Typography>
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Prepare your trip
-										</Typography>
-									</li>
-									<li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-                                            Terrorism and Tourism
-										</Typography>
-									</li>
-                                    <li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-                                           If something happens
-										</Typography>
-									</li>
-								</ul>
-							</Card>
+							</Grid>
+							<Grid item>
+								<Card className={classes.carte}>
+									<Typography
+										variant='h6'
+										style={{ marginBottom: '1rem' }}>
+										{' '}
+										Travel information
+									</Typography>
+									<ul style={{ listStyle: 'none' }}>
+										{travelInfoLinks.map((item) => {
+											return (
+												<li key={item.id}>
+													<Typography
+														className={classes.url}>
+														<Link href={item.url}>
+															<a>
+																<FontAwesomeIcon
+																	style={{
+																		marginRight:
+																			'1rem',
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+																{item.title}
+															</a>
+														</Link>
+													</Typography>
+												</li>
+											);
+										})}
+									</ul>
+								</Card>
+							</Grid>
+							<Grid item>
+								<Card
+									className={classes.carte}
+									style={
+										{
+											// padding: '1rem',
+											// height: '300px',
+										}
+									}>
+									<Typography variant='h6' component='h1'>
+										{' '}
+										Help for djiboutians abroad
+									</Typography>
+									<ul style={{ listStyle: 'none' }}>
+										{helpInfoLinks.map((item) => {
+											return (
+												<li key={item.id}>
+													<Typography>
+														<Link href={item.url}>
+															<a>
+																<FontAwesomeIcon
+																	style={{
+																		marginRight:
+																			'1rem',
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+																{item.title}
+															</a>
+														</Link>
+													</Typography>
+												</li>
+											);
+										})}
+									</ul>
+								</Card>
+							</Grid>
 						</Grid>
-						<Grid item>
-							<Card
-								className={classes.carte}
-								style={
-									{
-										// padding: '1rem',
-										// height: '300px',
-									}
-								}>
-								<Typography variant='h6' component='h1'>
-									{' '}
-									Help for djiboutians abroad 
-								</Typography>
-
-								<ul style={{ listStyle: 'none' }}>
-									<li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Consular registration
-										</Typography>
-									</li>
-									<li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Passports
-										</Typography>
-									</li>
-									<li>
-										<Typography>
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Civil status documents
-										</Typography>
-									</li>
-									<li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Legislations
-										</Typography>
-									</li>
-                                    <li>
-										<Typography>
-											{' '}
-											<FontAwesomeIcon
-												style={{
-													marginRight: '1rem',
-													height: '15px',
-													width: '15px',
-												}}
-												icon={faArrowAltCircleRight}
-											/>
-											Students
-										</Typography>
-									</li>
-								</ul>
-							</Card>
-						</Grid>
-					</Grid>
-				</Container>
+					</Container>
+				</div>
 			</main>
 		</>
 	);
