@@ -21,17 +21,17 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		titleContainer: {
 			padding: '1rem',
-			// width: '70%',
+			width: '100%',
 			// paddingTop: '3rem',
 			// paddingLeft: '1rem',
 			// paddingRight: '1rem',
 			// [theme.breakpoints.up(1100)]: {
 			// 	//	paddingTop: '5rem',
 			// },
-			// [theme.breakpoints.up(651)]: {
-			// 	width: '50%',
-			// 	//paddingTop: '2rem',
-			// },
+			[theme.breakpoints.up(751)]: {
+				width: '70%',
+				//paddingTop: '2rem',
+			},
 		},
 
 		imgContainer: {
@@ -39,15 +39,14 @@ const useStyles = makeStyles((theme: Theme) =>
 			padding: '1rem',
 			borderBottomRightRadius: '1rem',
 			borderBottomLeftRadius: '1rem',
-
-			//	width: '30%',
-			// [theme.breakpoints.up(651)]: {
-			// 	width: '300px',
-			// 	position: 'absolute',
-			// 	right: '3rem',
-			// 	top: '30%',
-			// 	marginLeft: '1rem',
-			// },
+			width: '100%',
+			[theme.breakpoints.up(751)]: {
+				width: '30%',
+				// 	position: 'absolute',
+				// 	right: '3rem',
+				// 	top: '30%',
+				// 	marginLeft: '1rem',
+			},
 			// [theme.breakpoints.up(900)]: {
 			// 	top: '20%',
 			// },
@@ -137,6 +136,13 @@ export default function diploMiss() {
 	const router = useRouter();
 	const country = router.query.country;
 	const classes = useStyles();
+
+	/**
+	 * * TODO
+	 * ! Use getStaticProps (with context) or something for better performance
+	 *
+	 */
+
 	return (
 		<main>
 			<Container maxWidth='lg'>
@@ -154,7 +160,7 @@ export default function diploMiss() {
 							Presentation of {country}
 						</Typography>
 					</Grid>
-					<Grid item xs={6} className={classes.titleContainer}>
+					<Grid item className={classes.titleContainer}>
 						{countriesInfo.map((item) => {
 							if (item.name === country) {
 								return (
@@ -185,7 +191,7 @@ export default function diploMiss() {
 												gutterBottom
 												variant='body2'>
 												{' '}
-												Head of state:{item.headOfState}
+												Head of state: {item.headOfState}
 											</Typography>
 										</div>
 										<div>
@@ -205,7 +211,7 @@ export default function diploMiss() {
 												gutterBottom
 												variant='body2'>
 												{' '}
-												Capital:{item.capital}
+												Capital: {item.capital}
 											</Typography>
 											<Typography
 												gutterBottom
@@ -296,7 +302,7 @@ export default function diploMiss() {
 							}
 						})}
 					</Grid>
-					<Grid item xs={6} className={classes.imgContainer}>
+					<Grid item className={classes.imgContainer}>
 						{' '}
 						<div>
 							<Typography

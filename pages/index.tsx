@@ -166,7 +166,7 @@ export default function Home() {
 								<Link href='/forForeigners'>
 									<Button
 										className={classes.btn}
-										variant='contained'
+			 							variant='contained'
 										style={{
 											backgroundColor: '#fff',
 											color: '#234924',

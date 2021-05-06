@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			backgroundColor: theme.palette.background.paper,
 			// marginTop: theme.spacing(8),
 			padding: theme.spacing(6, 0),
-			margin: '1rem',
+			margin: '3rem 0',
 		},
 
 		icon: {
