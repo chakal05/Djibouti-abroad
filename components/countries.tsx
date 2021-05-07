@@ -41,19 +41,20 @@ export default function Countries() {
 		'France',
 		'Inde',
 		'Kenya',
-		'Russie',
+		'Russie', 
 		'Maroc',
 		'Sudan',
 		'Turkey',
 		'Yemen',
 		'USA',
 		'Suisse',
-		'SGermany',
+		'Germany',
 		'Cuba',
 		'Japon',
 		'UK',
 		'SaudiArabia',
-		'Qatar',
+        'Qatar',
+        'Ethiopia'
 	];
 	return (
 		<div>

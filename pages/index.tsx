@@ -25,6 +25,7 @@ import {
 	faInfo,
 	faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons';
+
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		topColorWhite: {
@@ -123,7 +124,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default function Home() {
+export default function Home( ) {
 	const [age, setAge] = React.useState('');
 	const classes = useStyles();
 	const handleChange = (event) => {
@@ -166,7 +167,7 @@ export default function Home() {
 								<Link href='/forForeigners'>
 									<Button
 										className={classes.btn}
-			 							variant='contained'
+										variant='contained'
 										style={{
 											backgroundColor: '#fff',
 											color: '#234924',
@@ -433,3 +434,5 @@ export default function Home() {
 		</>
 	);
 }
+
+

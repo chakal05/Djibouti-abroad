@@ -10,7 +10,7 @@ import {
 	createStyles,
 	Theme,
 } from '@material-ui/core/styles';
-
+import { connectToDatabase } from '../util/mongodb'
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		topColorGreen: {
@@ -139,7 +139,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default function theMinistry() {
+export default function ConsularRegistration({isConnected}) {
 	const classes = useStyles();
 	return (
 		<main>
@@ -425,4 +425,17 @@ export default function theMinistry() {
 			</Container>
 		</main>
 	);
+}
+
+
+
+
+export async function getServerSideProps(context) {
+	const { client } = await connectToDatabase();
+
+	const isConnected = await client.isConnected();
+
+	return {
+		props: { isConnected },
+	};
 }

@@ -64,10 +64,25 @@ export default function Header() {
 	);
 	const sections = [
 		{ id: 0, url: '/', title: 'Home' },
+
+		{
+			id: 2,
+			url: '/forDjiboutian',
+			title: 'For Djiboutian citizens',
+        },
+        {
+			id: 3,
+			url: '/forForeigners',
+			title: 'For non-Djiboutian citizens',
+		},
+
 		{ id: 1, url: '/consularReg', title: 'Consular registration' },
-		{ id: 2, url: '/foreignPol', title: 'Foreign politic' },
-		{ id: 3, url: '/visitDjib', title: 'Visit Djibouti' },
-		{ id: 4, url: '/diploMiss', title: 'Diplomatic missions' },
+		
+		{
+			id: 4,
+			url: '/countryInfo',
+			title: 'Embassies and consulates',
+		},
 	];
 	const handleClick = (
 		event: React.MouseEvent<HTMLButtonElement>
@@ -77,7 +92,7 @@ export default function Header() {
 
 	const handleClose = () => {
 		setAnchorEl(null);
-	}; 
+	};
 
 	return (
 		<div>
