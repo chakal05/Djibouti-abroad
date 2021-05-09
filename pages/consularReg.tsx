@@ -10,7 +10,11 @@ import {
 	createStyles,
 	Theme,
 } from '@material-ui/core/styles';
-import { connectToDatabase } from '../util/mongodb'
+import React from 'react';
+import connectDB from '../util/mongodb';
+import axios from 'axios';
+import { count } from 'console';
+
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		topColorGreen: {
@@ -139,7 +143,28 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default function ConsularRegistration({isConnected}) {
+export default function ConsularRegistration() {
+	const [firstName, setFirstName] = React.useState('');
+	const [name, setName] = React.useState('');
+	const [country, setCountry] = React.useState('');
+	const [tel, setTel] = React.useState('');
+	const [password, setPassword] = React.useState('');
+	const [email, setEmail] = React.useState('');
+	const [arrival, setArrival] = React.useState('');
+	const [departure, setDeparture] = React.useState('');
+	const [personToContact, setPersonToContact] = React.useState('');
+	const [city, setCity] = React.useState('');
+	const [partnerName, setpartnerName] = React.useState('');
+	const [partnerFirstName, setPartnerFirstName] = React.useState('');
+	const [partnerTel, setpartnerTel] = React.useState('');
+	const [partnerEmail, setPartnerEmail] = React.useState('');
+	const [partnerCitizenship, setPartnerCitizenship] = React.useState(
+		''
+	);
+	const [kidName, setKidName] = React.useState('');
+	const [kidFirstName, setKidFirstName] = React.useState('');
+	const [kidCitizenship, setKidCitizenship] = React.useState('');
+
 	const classes = useStyles();
 	return (
 		<main>
@@ -178,7 +203,37 @@ export default function ConsularRegistration({isConnected}) {
 					</Grid>
 					<Grid item className={classes.imgContainer}>
 						<Grid container justify='center'>
-							<form>
+							<form
+								onSubmit={async (e) => {
+									e.preventDefault();
+									const payload = {
+										name,
+										password,
+										firstName,
+										email,
+										tel,
+										personToContact,
+										country,
+										city,
+										arrival,
+										departure,
+										partnerName,
+										partnerFirstName,
+										partnerTel,
+										partnerEmail,
+										partnerCitizenship,
+										kidName,
+										kidFirstName,
+										kidCitizenship,
+									};
+									fetch('/api/user', {
+										method: 'POST',
+										headers: {
+											'Content-Type': 'application/json',
+										},
+										body: JSON.stringify(payload),
+									});
+								}}>
 								<Grid item>
 									<div
 										style={{
@@ -199,14 +254,22 @@ export default function ConsularRegistration({isConnected}) {
 									<TextField
 										className={classes.textField}
 										id='outlined-basic'
-										label='Name'
+										label='First name'
 										variant='outlined'
+										value={firstName}
+										onChange={(e) =>
+											setFirstName(e.target.value)
+										}
 									/>
 									<TextField
 										className={classes.secondTextField}
 										id='outlined-basic'
 										label='Name'
 										variant='outlined'
+										value={name}
+										onChange={(e) =>
+											setName(e.target.value)
+										}
 									/>
 								</Grid>
 								<Grid item className={classes.gridSpace}>
@@ -220,19 +283,29 @@ export default function ConsularRegistration({isConnected}) {
 										className={classes.textField}
 										id='outlined-basic'
 										label='Email'
+										value={email}
+										onChange={(e) =>
+											setEmail(e.target.value)
+										}
 										variant='outlined'
 									/>
 									<TextField
 										className={classes.secondTextField}
 										id='outlined-basic'
-										label='Mobil number'
+										label='Telephone'
 										variant='outlined'
+										value={tel}
+										onChange={(e) => setTel(e.target.value)}
 									/>
 									<TextField
 										className={classes.secondTextField}
 										id='outlined-basic'
 										label='Contact person number '
 										variant='outlined'
+										value={personToContact}
+										onChange={(e) =>
+											setPersonToContact(e.target.value)
+										}
 									/>
 								</Grid>
 								<Grid item className={classes.gridSpace}>
@@ -247,12 +320,20 @@ export default function ConsularRegistration({isConnected}) {
 										id='outlined-basic'
 										label='Country'
 										variant='outlined'
+										value={country}
+										onChange={(e) =>
+											setCountry(e.target.value)
+										}
 									/>
 									<TextField
 										className={classes.secondTextField}
 										id='outlined-basic'
 										label='City'
 										variant='outlined'
+										value={city}
+										onChange={(e) =>
+											setCity(e.target.value)
+										}
 									/>
 								</Grid>
 								<Grid item className={classes.gridSpace}>
@@ -267,12 +348,30 @@ export default function ConsularRegistration({isConnected}) {
 										id='outlined-basic'
 										label='Arrival'
 										variant='outlined'
+										value={arrival}
+										onChange={(e) =>
+											setArrival(e.target.value)
+										}
 									/>
 									<TextField
 										className={classes.secondTextField}
 										id='outlined-basic'
 										label='Departure'
 										variant='outlined'
+										value={departure}
+										onChange={(e) =>
+											setDeparture(e.target.value)
+										}
+									/>
+									<TextField
+										className={classes.secondTextField}
+										id='outlined-basic'
+										label='Password'
+										variant='outlined'
+										value={password}
+										onChange={(e) =>
+											setPassword(e.target.value)
+										}
 									/>
 								</Grid>
 								<div
@@ -305,16 +404,26 @@ export default function ConsularRegistration({isConnected}) {
 											<TextField
 												className={classes.textField}
 												id='outlined-basic'
-												label='Arrival'
+												label='Name'
 												variant='outlined'
+												value={partnerName}
+												onChange={(e) =>
+													setpartnerName(e.target.value)
+												}
 											/>
 											<TextField
 												className={
 													classes.secondTextField
 												}
 												id='outlined-basic'
-												label='Departure'
+												label='First name'
 												variant='outlined'
+												value={partnerFirstName}
+												onChange={(e) =>
+													setPartnerFirstName(
+														e.target.value
+													)
+												}
 											/>
 										</Grid>
 										<Grid
@@ -329,16 +438,38 @@ export default function ConsularRegistration({isConnected}) {
 											<TextField
 												className={classes.textField}
 												id='outlined-basic'
-												label='Arrival'
+												label='Citizenship'
 												variant='outlined'
+												value={partnerCitizenship}
+												onChange={(e) =>
+													setPartnerCitizenship(
+														e.target.value
+													)
+												}
 											/>
 											<TextField
 												className={
 													classes.secondTextField
 												}
 												id='outlined-basic'
-												label='Departure'
+												label='Email'
 												variant='outlined'
+												value={partnerEmail}
+												onChange={(e) =>
+													setPartnerEmail(e.target.value)
+												}
+											/>
+											<TextField
+												className={
+													classes.secondTextField
+												}
+												id='outlined-basic'
+												label='Telephone'
+												variant='outlined'
+												value={partnerTel}
+												onChange={(e) =>
+													setpartnerTel(e.target.value)
+												}
 											/>
 										</Grid>
 									</div>
@@ -370,46 +501,45 @@ export default function ConsularRegistration({isConnected}) {
 											<TextField
 												className={classes.textField}
 												id='outlined-basic'
-												label='Arrival'
+												label='Name'
 												variant='outlined'
+												value={kidName}
+												onChange={(e) =>
+													setKidName(e.target.value)
+												}
 											/>
 											<TextField
 												className={
 													classes.secondTextField
 												}
 												id='outlined-basic'
-												label='Departure'
+												label='First name'
 												variant='outlined'
-											/>
-										</Grid>
-										<Grid
-											item
-											className={classes.gridSpace}>
-											<div className={classes.titleSpace}>
-												<Typography variant='h6'>
-													{' '}
-													Contact information{' '}
-												</Typography>
-											</div>
-											<TextField
-												className={classes.textField}
-												id='outlined-basic'
-												label='Arrival'
-												variant='outlined'
+												value={kidFirstName}
+												onChange={(e) =>
+													setKidFirstName(e.target.value)
+												}
 											/>
 											<TextField
 												className={
 													classes.secondTextField
 												}
 												id='outlined-basic'
-												label='Departure'
+												label='Citizenship'
 												variant='outlined'
+												value={kidCitizenship}
+												onChange={(e) =>
+													setKidCitizenship(
+														e.target.value
+													)
+												}
 											/>
 										</Grid>
 									</div>
 								</div>
 								<div>
 									<Button
+										type='submit'
 										className={classes.btn}
 										size='large'
 										style={{ marginTop: '1rem' }}
@@ -425,17 +555,4 @@ export default function ConsularRegistration({isConnected}) {
 			</Container>
 		</main>
 	);
-}
-
-
-
-
-export async function getServerSideProps(context) {
-	const { client } = await connectToDatabase();
-
-	const isConnected = await client.isConnected();
-
-	return {
-		props: { isConnected },
-	};
 }
