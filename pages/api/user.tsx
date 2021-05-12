@@ -6,24 +6,26 @@ const handler = async (req, res) => {
 	if (req.method === 'POST') {
 		// Check if name, email or password is provided
 		const {
-            name,
-            firstName,
-            email,
-            tel,
-            personToContact,
-            country,
-            city,
-            password,
-            arrival,
-            departure,
-            partnerName,
-            partnerFirstName,
-            partnerTel,
-            partnerEmail,
-            partnerCitizenship,
-            kidName,
-            kidFirstName,
-            kidCitizenship,
+			name,
+			firstName,
+			email,
+			tel,
+			personToContact,
+			country,
+			city,
+			password,
+			arrival,
+			departure,
+			partnerName,
+			partnerFirstName,
+			partnerTel,
+			partnerEmail,
+			partnerCitizenship,
+			kidName,
+			kidFirstName,
+			kidCitizenship,
+			identifier,
+			pass,
 		} = req.body;
 		if (
 			name &&
@@ -34,31 +36,31 @@ const handler = async (req, res) => {
 			country &&
 			city &&
 			arrival &&
-            departure&&
-            password
+			departure &&
+			password
 		) {
 			try {
 				//     Hash password to store it in DB
-				//var passwordhash = await bcrypt.sign(password);
+				//	var passwordhash = await bcrypt.sign(password);
 				var user = new User({
-                    name,
-                    firstName,
-                    email,
-                    tel,
-                    personToContact,
-                    country,
-                    city,
-                    arrival,
-                    departure,
-                    password,
-                    partnerName,
-                    partnerFirstName,
-                    partnerTel,
-                    partnerEmail,
-                    partnerCitizenship,
-                    kidName,
-                    kidFirstName,
-                    kidCitizenship,
+					name,
+					firstName,
+					email,
+					tel,
+					personToContact,
+					country,
+					city,
+					arrival,
+					departure,
+					password,
+					partnerName,
+					partnerFirstName,
+					partnerTel,
+					partnerEmail,
+					partnerCitizenship,
+					kidName,
+					kidFirstName,
+					kidCitizenship,
 				});
 				// Create new user
 				var usercreated = await user.save();
@@ -66,8 +68,28 @@ const handler = async (req, res) => {
 			} catch (error) {
 				return res.status(500).send(error.message);
 			}
-		} else {
-			res.status(422).send('data_incomplete');
+		}
+		// else {
+		// 	res.status(422).send('data_incomplete');
+		// }
+
+		if (identifier && pass) {
+			try {
+				var user = new User({});
+				var findUser = await User.find(
+					{
+						name: identifier,
+						password: pass,
+					},
+					function (err, docs) {
+						if (err) res.status(500).send(err);
+						else if (docs.length > 0)
+							res.status(200).send(docs[0]);
+					}
+				);
+			} catch (error) {
+				return res.status(500).send(error.message);
+			}
 		}
 	} else {
 		res.status(422).send('req_method_not_supported');
