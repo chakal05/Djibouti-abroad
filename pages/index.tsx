@@ -124,7 +124,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default function Home( ) {
+export default function Home() {
 	const [age, setAge] = React.useState('');
 	const classes = useStyles();
 	const handleChange = (event) => {
@@ -133,7 +133,7 @@ export default function Home( ) {
 
 	return (
 		<>
-			<main style={{ fontFamily: 'Roboto' }}>
+			<main >
 				<Container maxWidth='lg'>
 					<Grid container className={classes.topColorWhite}>
 						<Grid item className={classes.titleContainer}>
@@ -229,7 +229,7 @@ export default function Home( ) {
 													className={classes.icon}
 													icon={faArrowAltCircleRight}
 												/>
-												Embassies' travel information
+												Travel information
 											</Typography>
 										</li>
 										<li>
@@ -281,32 +281,45 @@ export default function Home( ) {
 									</Typography>
 									<ul style={{ listStyle: 'none' }}>
 										<li>
-											<Typography>
-												{' '}
-												<FontAwesomeIcon
-													className={classes.icon}
-													icon={faArrowAltCircleRight}
-												/>
-												Visiting Djibouti
-											</Typography>
+											<Link href='https://guide.visitdjibouti.dj/'>
+												<a target='blank'>
+													<Typography>
+														{' '}
+														<FontAwesomeIcon
+															className={classes.icon}
+															icon={
+																faArrowAltCircleRight
+															}
+														/>
+														Visiting Djibouti
+													</Typography>
+												</a>
+											</Link>
+										</li>
+										<li>
+											<Link href='/investInDjib'>
+												<a target='blank'>
+													<Typography>
+														{' '}
+														<FontAwesomeIcon
+															className={classes.icon}
+															icon={
+																faArrowAltCircleRight
+															}
+														/>
+														investing in Djibouti
+													</Typography>
+												</a>
+											</Link>
 										</li>
 										<li>
 											<Typography>
+												{' '}
 												<FontAwesomeIcon
 													className={classes.icon}
 													icon={faArrowAltCircleRight}
 												/>
 												Working in Djibouti
-											</Typography>
-										</li>
-										<li>
-											<Typography>
-												{' '}
-												<FontAwesomeIcon
-													className={classes.icon}
-													icon={faArrowAltCircleRight}
-												/>
-												Studying in Djibouti
 											</Typography>
 										</li>
 									</ul>
@@ -359,13 +372,10 @@ export default function Home( ) {
 							<br />
 							<Typography variant='body1'>
 								The Ministry of Foreign Affairs advises
-								against unnecessary travel to all countries
-								outside the EU, EEA and Schengen area until 15
-								April 2021. The Ministry of Foreign Affairs
-								has, through previous decisions, repealed
-								advised against unnecessary travel to most
-								European countries. click on the link below to
-								read more.
+								against unnecessary travel to all countries .
+								The Ministry of Foreign Affairs has, through
+								previous decisions, repealed advised against
+								unnecessary travel to most countries.
 							</Typography>
 							<Button
 								size='large'
@@ -376,7 +386,7 @@ export default function Home( ) {
 								}}
 								variant='contained'>
 								{' '}
-								Read more{' '}
+								<Link href='/aboutCovid'>Read more</Link>
 							</Button>
 						</Card>
 					</Grid>
@@ -413,9 +423,9 @@ export default function Home( ) {
 									other countries and international
 									organizations and responsible for
 									internationally development cooperation and
-									trade policy. Sweden's foreign
-									representation consists of about 100
-									foreign authorities.
+									trade policy. Djibouti's foreign
+									representation consists of about 30 foreign
+									authorities.
 								</Typography>
 								<div>
 									<Typography
@@ -434,5 +444,3 @@ export default function Home( ) {
 		</>
 	);
 }
-
-
