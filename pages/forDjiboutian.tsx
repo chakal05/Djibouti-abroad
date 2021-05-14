@@ -209,7 +209,7 @@ export default function forDjiboutian() {
 								className={classes.img}
 							/>
 						</Grid>
-					</Grid>
+	 				</Grid>
 				</Container>
 				<div
 					style={{

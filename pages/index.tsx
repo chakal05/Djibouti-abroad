@@ -10,21 +10,17 @@ import {
 	Card,
 	Grid,
 	Typography,
-	FormControl,
-	InputLabel,
-	Select,
-	MenuItem,
 	Container,
 } from '@material-ui/core';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Countries from '../components/countries';
 import {
 	faArrowAltCircleRight,
 	faInfo,
 	faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+import Image from 'next/image';
+import Countries from '../components/countries';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -60,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				position: 'absolute',
 				left: '50%',
 				right: '50%',
-				top: '30%',
+				top: '40%',
 			},
 			[theme.breakpoints.up(900)]: {
 				top: '20%',
@@ -76,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 
 		img: {
-			[theme.breakpoints.down(650)]: {
+			[theme.breakpoints.down(651)]: {
 				display: 'none !important',
 			},
 
@@ -104,9 +100,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 
 		carte: {
-			padding: '1rem',
-			height: '300px',
-			width: '400px',
+			padding: '2rem',
+			height: '230px',
+			width: '350px',
 		},
 
 		btn: {
@@ -121,8 +117,54 @@ const useStyles = makeStyles((theme: Theme) =>
 			height: '15px',
 			width: '15px',
 		},
+		url: {
+			' &:hover': {
+				fontWeight: 'bold',
+			},
+		},
 	})
 );
+
+const travelInfoLinks = [
+	{
+		id: '2',
+		title: 'Travel information',
+		url: '/foreignPol',
+		target: '',
+	},
+	{
+		id: '3',
+		title: 'Help for Djibouti nationals',
+		url: '/forDjiboutian',
+		target: '',
+	},
+	{
+		id: '1',
+		title: 'About the Coronavirus',
+		url: '/aboutCovid',
+		target: '',
+	},
+];
+const forForeignersLinks = [
+	{
+		id: '2',
+		title: 'Visiting Djibouti',
+		url: 'https://guide.visitdjibouti.dj/',
+		target: '_blank',
+	},
+	{
+		id: '3',
+		title: 'Investing in Djibouti',
+		url: '/investInDjib',
+		target: '',
+	},
+	{
+		id: '1',
+		title: 'Working in Djibouti',
+		url: '/workingInDjib',
+		target: '',
+	},
+];
 
 export default function Home() {
 	const [age, setAge] = React.useState('');
@@ -133,7 +175,7 @@ export default function Home() {
 
 	return (
 		<>
-			<main >
+			<main>
 				<Container maxWidth='lg'>
 					<Grid container className={classes.topColorWhite}>
 						<Grid item className={classes.titleContainer}>
@@ -223,51 +265,32 @@ export default function Home() {
 										Here you will find:
 									</Typography>
 									<ul style={{ listStyle: 'none' }}>
-										<li>
-											<Typography>
-												<FontAwesomeIcon
-													className={classes.icon}
-													icon={faArrowAltCircleRight}
-												/>
-												Travel information
-											</Typography>
-										</li>
-										<li>
-											<Typography>
-												<FontAwesomeIcon
-													className={classes.icon}
-													icon={faArrowAltCircleRight}
-												/>
-												Help for djiboutians abroad
-											</Typography>
-										</li>
-
-										<li>
-											<Typography>
-												<FontAwesomeIcon
-													className={classes.icon}
-													icon={faArrowAltCircleRight}
-												/>
-												About covid-19
-											</Typography>
-										</li>
+										{travelInfoLinks.map((item) => {
+											return (
+												<li key={item.id}>
+													<Typography
+														className={classes.url}>
+														<Link href={item.url}>
+															<a target={item.target}>
+																<FontAwesomeIcon
+																	style={{
+																		marginRight:
+																			'1rem',
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+																{item.title}
+															</a>
+														</Link>
+													</Typography>
+												</li>
+											);
+										})}
 									</ul>
-									<div
-										style={{
-											textAlign: 'center',
-											paddingTop: '1rem',
-										}}>
-										<Button
-											style={{
-												backgroundColor: '#234924',
-												color: '#fff',
-											}}
-											variant='contained'>
-											<Link href='/forDjiboutian'>
-												Read more
-											</Link>
-										</Button>
-									</div>
 								</Card>
 							</Grid>
 							<Grid item className={classes.carteContainer}>
@@ -280,65 +303,32 @@ export default function Home() {
 										Visas and immigration
 									</Typography>
 									<ul style={{ listStyle: 'none' }}>
-										<li>
-											<Link href='https://guide.visitdjibouti.dj/'>
-												<a target='blank'>
-													<Typography>
-														{' '}
-														<FontAwesomeIcon
-															className={classes.icon}
-															icon={
-																faArrowAltCircleRight
-															}
-														/>
-														Visiting Djibouti
+										{forForeignersLinks.map((item) => {
+											return (
+												<li key={item.id}>
+													<Typography
+														className={classes.url}>
+														<Link href={item.url}>
+															<a target={item.target}>
+																<FontAwesomeIcon
+																	style={{
+																		marginRight:
+																			'1rem',
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+																{item.title}
+															</a>
+														</Link>
 													</Typography>
-												</a>
-											</Link>
-										</li>
-										<li>
-											<Link href='/investInDjib'>
-												<a target='blank'>
-													<Typography>
-														{' '}
-														<FontAwesomeIcon
-															className={classes.icon}
-															icon={
-																faArrowAltCircleRight
-															}
-														/>
-														investing in Djibouti
-													</Typography>
-												</a>
-											</Link>
-										</li>
-										<li>
-											<Typography>
-												{' '}
-												<FontAwesomeIcon
-													className={classes.icon}
-													icon={faArrowAltCircleRight}
-												/>
-												Working in Djibouti
-											</Typography>
-										</li>
+												</li>
+											);
+										})}
 									</ul>
-									<div
-										style={{
-											textAlign: 'center',
-											paddingTop: '1rem',
-										}}>
-										<Button
-											style={{
-												backgroundColor: '#234924',
-												color: '#fff',
-											}}
-											variant='contained'>
-											<Link href='/forForeigners'>
-												Read more
-											</Link>
-										</Button>
-									</div>
 								</Card>
 							</Grid>
 						</Grid>
@@ -376,18 +366,20 @@ export default function Home() {
 								The Ministry of Foreign Affairs has, through
 								previous decisions, repealed advised against
 								unnecessary travel to most countries.
-							</Typography>
-							<Button
-								size='large'
-								style={{
-									backgroundColor: '#234924',
-									color: '#fff',
-									marginTop: '1rem',
-								}}
-								variant='contained'>
-								{' '}
-								<Link href='/aboutCovid'>Read more</Link>
-							</Button>
+							</Typography>{' '}
+							<Link href='/aboutCovid'>
+								<Button
+									size='large'
+									style={{
+										backgroundColor: '#234924',
+										color: '#fff',
+										marginTop: '2rem',
+									}}
+									variant='contained'>
+									{' '}
+									Read more
+								</Button>
+							</Link>
 						</Card>
 					</Grid>
 				</Container>

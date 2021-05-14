@@ -68,12 +68,12 @@ export default function Header() {
 		{
 			id: 2,
 			url: '/forDjiboutian',
-			title: 'For Djiboutian citizens',
+			title: 'For citizens',
         },
         {
 			id: 3,
 			url: '/forForeigners',
-			title: 'For non-Djiboutian citizens',
+			title: 'For non-citizens',
 		},
 
 		{ id: 1, url: '/consularReg', title: 'Consular registration' },
