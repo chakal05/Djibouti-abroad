@@ -6,9 +6,9 @@ import {
 	Button,
 } from '@material-ui/core';
 import {
-    createStyles,
-    Theme,
-    makeStyles,
+	createStyles,
+	Theme,
+	makeStyles,
 } from '@material-ui/core/styles';
 import React from 'react';
 import { useRouter } from 'next/router';
@@ -169,16 +169,18 @@ export default function ConsularRegistration() {
 	const [identifier, setIdentifier] = React.useState('');
 	const [pass, setPass] = React.useState('');
 
-    const classes = useStyles();
-    const router = useRouter()
+	const classes = useStyles();
+	const router = useRouter();
 	return (
-		<main>
+		<>
 			<Container maxWidth='lg'>
 				{' '}
 				<Grid container>
 					<Grid item xs={12} className={classes.topColorGreen}>
 						{' '}
-						<Typography variant='h3'>
+						<Typography
+							variant='h2'
+							style={{ fontWeight: 'bold' }}>
 							{' '}
 							{`Consular registration`}
 						</Typography>
@@ -279,7 +281,7 @@ export default function ConsularRegistration() {
 											kidCitizenship,
 										};
 										if (payload.country) {
-										await fetch('/api/user', {
+											await fetch('/api/user', {
 												method: 'POST',
 												headers: {
 													'Content-Type':
@@ -290,23 +292,26 @@ export default function ConsularRegistration() {
 										}
 
 										if (!payload.country) {
-											let response = await fetch('/api/user', {
-												method: 'POST',
-												headers: {
-													'Content-Type':
-														'application/json',
-												},
-												body: JSON.stringify({
-													identifier: identifier,
-													pass: pass,
-												}),
-											});
+											let response = await fetch(
+												'/api/user',
+												{
+													method: 'POST',
+													headers: {
+														'Content-Type':
+															'application/json',
+													},
+													body: JSON.stringify({
+														identifier: identifier,
+														pass: pass,
+													}),
+												}
+											);
 
 											if (response.status === 200) {
-                                                router.push({
-                                                    pathname: '/userInfo',
-                                                    query: {},
-                                                })
+												router.push({
+													pathname: '/userInfo',
+													query: {},
+												});
 											}
 										}
 									}}>
@@ -696,6 +701,6 @@ export default function ConsularRegistration() {
 					</Grid>
 				</Grid>
 			</Container>
-		</main>
+		</>
 	);
 }

@@ -181,193 +181,189 @@ export default function forDjiboutian() {
 
 	return (
 		<>
-			<main>
-				<Container maxWidth='lg'>
-					<Grid container className={classes.topColorWhite}>
-						<Grid item className={classes.titleContainer}>
-							<Typography variant='h2'>
-								{' '}
-								{'Djibouti Abroad '}
-							</Typography>
-							<Typography
-								variant='h5'
-								style={{ marginTop: '2rem' }}
-								component='h5'>
-								Djibout abroad offers service and help to
-								Djibouti nationals who are traveling or are
-								already abroad.
-							</Typography>
+			<Container maxWidth='lg'>
+				<Grid container className={classes.topColorWhite}>
+					<Grid item className={classes.titleContainer}>
+						<Typography
+							variant='h2'
+							style={{ fontWeight: 'bold' }}>
+							{' '}
+							{'Djibouti Abroad '}
+						</Typography>
+						<Typography
+							variant='h5'
+							style={{ marginTop: '2rem' }}
+							component='h5'>
+							Djibout abroad offers service and help to
+							Djibouti nationals who are traveling or are
+							already abroad.
+						</Typography>
 
-							<Countries />
-						</Grid>
-						<Grid item className={classes.imgContainer}>
-							<Image
-								src={'/Online_information.png'}
-								alt='Djibouti abrad information'
-								layout='responsive'
-								width={500}
-								height={500}
-								className={classes.img}
-							/>
-						</Grid>
+						<Countries />
 					</Grid>
+					<Grid item className={classes.imgContainer}>
+						<Image
+							src={'/Online_information.png'}
+							alt='Djibouti abrad information'
+							layout='responsive'
+							width={500}
+							height={500}
+							className={classes.img}
+						/>
+					</Grid>
+				</Grid>
+			</Container>
+			<div
+				style={{
+					marginTop: '5rem',
+					paddingTop: '2rem ',
+					paddingBottom: '7rem',
+					backgroundColor: '#edf4ed',
+				}}>
+				<Container maxWidth='lg'>
+					<Typography
+						variant='h5'
+						style={{ marginBottom: '2rem' }}>
+						Frequently asked questions
+					</Typography>
+					<div style={{ width: '80%', margin: '0 auto' }}>
+						{questions.map((item) => {
+							return (
+								<Accordion key={item.id}>
+									<AccordionSummary
+										expandIcon={
+											<>
+												<Typography>
+													{
+														<div
+															style={{
+																visibility: 'hidden',
+																marginTop: '-1rem',
+															}}>
+															{' '}
+															ds{' '}
+														</div>
+													}
+													<FontAwesomeIcon
+														style={{
+															color: '#000',
+														}}
+														icon={faArrowCircleDown}
+													/>{' '}
+												</Typography>
+											</>
+										}
+										aria-controls='panel1a-content'
+										id='panel1a-header'>
+										<Typography
+											style={{ fontWeight: 'bold' }}
+											variant='subtitle2'>
+											{' '}
+											{item.title}
+										</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											{item.description}
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+							);
+						})}
+					</div>
 				</Container>
-				<div
-					style={{
-						marginTop: '5rem',
-						paddingTop: '2rem ',
-						paddingBottom: '7rem',
-						backgroundColor: '#edf4ed',
-					}}>
-					<Container maxWidth='lg'>
+			</div>
+			<Container
+				maxWidth='lg'
+				style={{ marginTop: '5rem', marginBottom: '3rem' }}>
+				<Grid
+					container
+					justify='center'
+					className={classes.carteContainer}>
+					<Grid item xs={12}>
 						<Typography
 							variant='h5'
 							style={{ marginBottom: '2rem' }}>
-							Frequently asked questions
+							Information for Djibouti nationals
 						</Typography>
-						<div style={{ width: '80%', margin: '0 auto' }}>
-							{questions.map((item) => {
-								return (
-									<Accordion key={item.id}>
-										<AccordionSummary
-											expandIcon={
-												<>
-													<Typography>
-														{
-															<div
-																style={{
-																	visibility:
-																		'hidden',
-																	marginTop: '-1rem',
-																}}>
-																{' '}
-																ds{' '}
-															</div>
-														}
+					</Grid>
+					<Grid item>
+						<Card className={classes.carte}>
+							<Typography
+								variant='h6'
+								style={{ marginBottom: '1rem' }}>
+								{' '}
+								Travel information
+							</Typography>
+							<ul style={{ listStyle: 'none' }}>
+								{travelInfoLinks.map((item) => {
+									return (
+										<li key={item.id}>
+											<Typography className={classes.url}>
+												<Link href={item.url}>
+													<a>
 														<FontAwesomeIcon
 															style={{
-																color: '#000',
+																marginRight: '1rem',
+																height: '15px',
+																width: '15px',
 															}}
-															icon={faArrowCircleDown}
-														/>{' '}
-													</Typography>
-												</>
-											}
-											aria-controls='panel1a-content'
-											id='panel1a-header'>
-											<Typography
-												style={{ fontWeight: 'bold' }}
-												variant='subtitle2'>
-												{' '}
-												{item.title}
+															icon={
+																faArrowAltCircleRight
+															}
+														/>
+														{item.title}
+													</a>
+												</Link>
 											</Typography>
-										</AccordionSummary>
-										<AccordionDetails>
-											<Typography>
-												{item.description}
-											</Typography>
-										</AccordionDetails>
-									</Accordion>
-								);
-							})}
-						</div>
-					</Container>
-				</div>
-				<Container
-					maxWidth='lg'
-					style={{ marginTop: '5rem', marginBottom: '3rem' }}>
-					<Grid
-						container
-						justify='center'
-						className={classes.carteContainer}>
-						<Grid item xs={12}>
-							<Typography
-								variant='h5'
-								style={{ marginBottom: '2rem' }}>
-								Information for Djibouti nationals
-							</Typography>
-						</Grid>
-						<Grid item>
-							<Card className={classes.carte}>
-								<Typography
-									variant='h6'
-									style={{ marginBottom: '1rem' }}>
-									{' '}
-									Travel information
-								</Typography>
-								<ul style={{ listStyle: 'none' }}>
-									{travelInfoLinks.map((item) => {
-										return (
-											<li key={item.id}>
-												<Typography
-													className={classes.url}>
-													<Link href={item.url}>
-														<a>
-															<FontAwesomeIcon
-																style={{
-																	marginRight:
-																		'1rem',
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={
-																	faArrowAltCircleRight
-																}
-															/>
-															{item.title}
-														</a>
-													</Link>
-												</Typography>
-											</li>
-										);
-									})}
-								</ul>
-							</Card>
-						</Grid>
-						<Grid item>
-							<Card
-								className={classes.carte}
-								style={
-									{
-										// padding: '1rem',
-										// height: '300px',
-									}
-								}>
-								<Typography variant='h6' component='h1'>
-									{' '}
-									Help for djiboutians abroad
-								</Typography>
-								<ul style={{ listStyle: 'none' }}>
-									{helpInfoLinks.map((item) => {
-										return (
-											<li key={item.id}>
-												<Typography>
-													<Link href={item.url}>
-														<a>
-															<FontAwesomeIcon
-																style={{
-																	marginRight:
-																		'1rem',
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={
-																	faArrowAltCircleRight
-																}
-															/>
-															{item.title}
-														</a>
-													</Link>
-												</Typography>
-											</li>
-										);
-									})}
-								</ul>
-							</Card>
-						</Grid>
+										</li>
+									);
+								})}
+							</ul>
+						</Card>
 					</Grid>
-				</Container>
-			</main>
+					<Grid item>
+						<Card
+							className={classes.carte}
+							style={
+								{
+									// padding: '1rem',
+									// height: '300px',
+								}
+							}>
+							<Typography variant='h6' component='h1'>
+								{' '}
+								Help for djiboutians abroad
+							</Typography>
+							<ul style={{ listStyle: 'none' }}>
+								{helpInfoLinks.map((item) => {
+									return (
+										<li key={item.id}>
+											<Typography>
+												<Link href={item.url}>
+													<a>
+														<FontAwesomeIcon
+															style={{
+																marginRight: '1rem',
+																height: '15px',
+																width: '15px',
+															}}
+															icon={
+																faArrowAltCircleRight
+															}
+														/>
+														{item.title}
+													</a>
+												</Link>
+											</Typography>
+										</li>
+									);
+								})}
+							</ul>
+						</Card>
+					</Grid>
+				</Grid>
+			</Container>
 		</>
 	);
 }

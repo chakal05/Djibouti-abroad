@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			// marginTop: theme.spacing(8),
 			padding: theme.spacing(6, 0),
             marginTop: '3rem',
-            marginBottom:'-2rem'
+          
 		},
 
 		icon: {
@@ -49,8 +49,7 @@ export default function Footer() {
 	return (
 		<footer className={classes.footer}>
 			<Container maxWidth='lg'>
-				<Grid container>
-					<Grid item>
+			
 						<Typography
 							variant='h5'
 							className={classes.contact}>
@@ -114,9 +113,6 @@ export default function Footer() {
                                 {new Date().getFullYear()}
                                 {'.'}
                             </Typography>
-					</Grid>
-					
-				</Grid>
 			</Container>
 		</footer>
 	);

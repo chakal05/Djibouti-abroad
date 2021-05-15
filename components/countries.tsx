@@ -57,7 +57,7 @@ export default function Countries() {
         'Ethiopia'
 	];
 	return (
-		<div>
+		<>
 			<FormControl
 				variant='outlined'
 				style={{
@@ -79,6 +79,6 @@ export default function Countries() {
 					))}
 				</Select>
 			</FormControl>{' '}
-		</div>
+		</>
 	);
 }

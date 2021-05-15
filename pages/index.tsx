@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme: Theme) =>
 			paddingLeft: '1rem',
 			paddingRight: '1rem',
 
-			
 			[theme.breakpoints.up(651)]: {
 				width: '50%',
 			},
@@ -47,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			[theme.breakpoints.up(651)]: {
 				width: '300px',
 				position: 'absolute',
-			//	left: '50%',
+				//	left: '50%',
 				right: '3rem',
 				top: '25%',
 			},
@@ -56,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 
 			[theme.breakpoints.up(1100)]: {
-	 			width: '500px',
+				width: '500px',
 				position: 'relative',
 				right: '0',
 				left: '0',
@@ -79,8 +78,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			marginTop: '5rem',
 			paddingTop: '2rem ',
 			paddingBottom: '7rem',
-            backgroundColor: '#edf4ed',
-           
+			backgroundColor: '#edf4ed',
 		},
 
 		carteContainer: {
@@ -169,265 +167,265 @@ export default function Home() {
 
 	return (
 		<>
-			<main>
-				<Container maxWidth='lg'>
-					<Grid container className={classes.topColorWhite}>
-						<Grid item className={classes.titleContainer}>
-							<Typography
-								variant='h2'
-								style={{ marginBottom: '2rem' }}>
-								Djibouti abroad{' '}
-							</Typography>
-							<Typography variant='h5'>
-								Welcome to the official website of Djibouti
-								embassies and consulates. Here are gathered
-								information, recommendations and contacts of
-								embassies and consulates.
-							</Typography>
-							<Typography
-								style={{
-									textAlign: 'center',
-									marginTop: '3rem',
-								}}>
-								<Link href='/forDjiboutian'>
-									<Button
-										className={classes.btn}
-										variant='contained'
-										style={{
-											backgroundColor: '#234924',
-										}}>
-										{' '}
-										For Djibouti nationals{' '}
-									</Button>
-								</Link>
-								<Link href='/forForeigners'>
-									<Button
-										className={classes.btn}
-										variant='contained'
-										style={{
-											backgroundColor: '#fff',
-											color: '#234924',
-										}}>
-										{' '}
-										For foreigners{' '}
-									</Button>
-								</Link>
-							</Typography>
-						</Grid>
-						<Grid item className={classes.imgContainer}>
-							<Image
-								src={
-									'/djibouti-watercolor-map-michael-tompsett.jpg'
-								}
-								layout='responsive'
-								width={500}
-								height={500}
-								alt='djib logo'
-								className={classes.img}
-							/>
-						</Grid>
-					</Grid>
-				</Container>
-				<div className={classes.secondGreen}>
-					<Container maxWidth='lg'>
-						<Grid container justify='center'>
-							<Grid item xs={12}>
-								<Typography
-									variant='h5'
-									style={{ margin: '2rem 0' }}>
-									{' '}
-									<FontAwesomeIcon
-										style={{
-											height: '40px',
-											width: '40px',
-											marginRight: '1rem',
-											position: 'relative',
-											top: '.7rem',
-										}}
-										icon={faQuestionCircle}
-									/>
-									Some of our services{' '}
-								</Typography>
-							</Grid>
-							<Grid item className={classes.carteContainer}>
-								<Card className={classes.carte}>
-									<Typography variant='h6' component='h1'>
-										{' '}
-										Travel or live abroad{' '}
-									</Typography>
-									<Typography variant='body1'>
-										Here you will find:
-									</Typography>
-									<ul style={{ listStyle: 'none' }}>
-										{travelInfoLinks.map((item) => {
-											return (
-												<li key={item.id}>
-													<Typography
-														className={classes.url}>
-														<Link href={item.url}>
-															<a target={item.target}>
-																<FontAwesomeIcon
-																	style={{
-																		marginRight:
-																			'1rem',
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-																{item.title}
-															</a>
-														</Link>
-													</Typography>
-												</li>
-											);
-										})}
-									</ul>
-								</Card>
-							</Grid>
-							<Grid item className={classes.carteContainer}>
-								<Card className={classes.carte}>
-									<Typography variant='h6'>
-										{' '}
-										Going to Djibouti?
-									</Typography>
-									<Typography variant='body1'>
-										Visas and immigration
-									</Typography>
-									<ul style={{ listStyle: 'none' }}>
-										{forForeignersLinks.map((item) => {
-											return (
-												<li key={item.id}>
-													<Typography
-														className={classes.url}>
-														<Link href={item.url}>
-															<a target={item.target}>
-																<FontAwesomeIcon
-																	style={{
-																		marginRight:
-																			'1rem',
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-																{item.title}
-															</a>
-														</Link>
-													</Typography>
-												</li>
-											);
-										})}
-									</ul>
-								</Card>
-							</Grid>
-						</Grid>
-					</Container>
-				</div>
-				<Container maxWidth='lg'>
-					<Grid item xs={12} style={{ marginBottom: '11rem' }}>
+			<Container maxWidth='lg'>
+				<Grid container className={classes.topColorWhite}>
+					<Grid item className={classes.titleContainer}>
 						<Typography
-							variant='h5'
+							variant='h2'
 							style={{
-								marginTop: '5rem ',
-								marginBottom: '3rem',
+								marginBottom: '2rem',
+								fontWeight: 'bold',
 							}}>
-							<FontAwesomeIcon
-								style={{
-									height: '40px',
-									width: '40px',
-									marginRight: '1rem',
-									position: 'relative',
-									top: '.5rem',
-								}}
-								icon={faInfo}
-							/>{' '}
-							Information{' '}
+							Djibouti abroad{' '}
 						</Typography>
-						<Card elevation={2} style={{ padding: '3rem' }}>
-							<Typography variant='h5'>
-								Information about the Ministry of Foreign
-								Affairs' advice due to covid-19
-							</Typography>
-							<br />
-							<Typography variant='body1'>
-								The Ministry of Foreign Affairs advises
-								against unnecessary travel to all countries .
-								The Ministry of Foreign Affairs has, through
-								previous decisions, repealed advised against
-								unnecessary travel to most countries.
-							</Typography>{' '}
-							<Link href='/aboutCovid'>
+						<Typography variant='h5'>
+							Welcome to the official website of Djibouti
+							embassies and consulates. Here are gathered
+							information, recommendations and contacts of
+							embassies and consulates.
+						</Typography>
+						<Typography
+							style={{
+								textAlign: 'center',
+								marginTop: '3rem',
+							}}>
+							<Link href='/forDjiboutian'>
 								<Button
-									size='large'
+									className={classes.btn}
+									variant='contained'
 									style={{
 										backgroundColor: '#234924',
-										color: '#fff',
-										marginTop: '2rem',
-									}}
-									variant='contained'>
-									{' '}
-									Read more
-								</Button>
-							</Link>
-						</Card>
-					</Grid>
-				</Container>
-				<div
-					style={{
-						marginTop: '5rem',
-						paddingTop: '6rem ',
-						paddingBottom: '7rem',
-                        backgroundColor: '#edf4ed',
-                      textAlign:'center',
-                        paddingLeft:'2rem',
-                        paddingRight:'2rem'
-					}}>
-					<Container maxWidth='lg'>
-						<Grid
-							container
-							style={{
-								padding: '1rem',
-							}}>
-							<Grid item xs={12}>
-								<Typography
-									variant='h5'
-									style={{
-										marginBottom: '2rem',
 									}}>
 									{' '}
-									Embassies and Consulates General
-								</Typography>
-								<Typography
-									variant='body1'
-									style={{ paddingRight: ' 2rem' }}>
-									Djibouti has through the Ministry of
-									Foreign Affairs diplomatic relations with
-									other countries and international
-									organizations and responsible for
-									internationally development cooperation and
-									trade policy. Djibouti's foreign
-									representation consists of about 30 foreign
-									authorities.
-								</Typography>
-								<div>
-									<Typography
-										variant='h5'
-										style={{ marginTop: '2rem' }}>
-										Find embassies, consulates general and
-										representations:{' '}
-									</Typography>
-									<Countries />
-								</div>
-							</Grid>
+									For Djibouti nationals{' '}
+								</Button>
+							</Link>
+							<Link href='/forForeigners'>
+								<Button
+									className={classes.btn}
+									variant='contained'
+									style={{
+										backgroundColor: '#fff',
+										color: '#234924',
+									}}>
+									{' '}
+									For foreigners{' '}
+								</Button>
+							</Link>
+						</Typography>
+					</Grid>
+					<Grid item className={classes.imgContainer}>
+						<Image
+							src={
+								'/djibouti-watercolor-map-michael-tompsett.jpg'
+							}
+							layout='responsive'
+							width={500}
+							height={500}
+							alt='djib logo'
+							className={classes.img}
+						/>
+					</Grid>
+				</Grid>
+			</Container>
+			<div className={classes.secondGreen}>
+				<Container maxWidth='lg'>
+					<Grid container justify='center'>
+						<Grid item xs={12}>
+							<Typography
+								variant='h5'
+								style={{ margin: '2rem 0' }}>
+								{' '}
+								<FontAwesomeIcon
+									style={{
+										height: '40px',
+										width: '40px',
+										marginRight: '1rem',
+										position: 'relative',
+										top: '.7rem',
+									}}
+									icon={faQuestionCircle}
+								/>
+								Some of our services{' '}
+							</Typography>
 						</Grid>
-					</Container>
-				</div>
-			</main>
+						<Grid item className={classes.carteContainer}>
+							<Card className={classes.carte}>
+								<Typography variant='h6' component='h1'>
+									{' '}
+									Travel or live abroad{' '}
+								</Typography>
+								<Typography variant='body1'>
+									Here you will find:
+								</Typography>
+								<ul style={{ listStyle: 'none' }}>
+									{travelInfoLinks.map((item) => {
+										return (
+											<li key={item.id}>
+												<Typography
+													className={classes.url}>
+													<Link href={item.url}>
+														<a target={item.target}>
+															<FontAwesomeIcon
+																style={{
+																	marginRight:
+																		'1rem',
+																	height: '15px',
+																	width: '15px',
+																}}
+																icon={
+																	faArrowAltCircleRight
+																}
+															/>
+															{item.title}
+														</a>
+													</Link>
+												</Typography>
+											</li>
+										);
+									})}
+								</ul>
+							</Card>
+						</Grid>
+						<Grid item className={classes.carteContainer}>
+							<Card className={classes.carte}>
+								<Typography variant='h6'>
+									{' '}
+									Going to Djibouti?
+								</Typography>
+								<Typography variant='body1'>
+									Visas and immigration
+								</Typography>
+								<ul style={{ listStyle: 'none' }}>
+									{forForeignersLinks.map((item) => {
+										return (
+											<li key={item.id}>
+												<Typography
+													className={classes.url}>
+													<Link href={item.url}>
+														<a target={item.target}>
+															<FontAwesomeIcon
+																style={{
+																	marginRight:
+																		'1rem',
+																	height: '15px',
+																	width: '15px',
+																}}
+																icon={
+																	faArrowAltCircleRight
+																}
+															/>
+															{item.title}
+														</a>
+													</Link>
+												</Typography>
+											</li>
+										);
+									})}
+								</ul>
+							</Card>
+						</Grid>
+					</Grid>
+				</Container>
+			</div>
+			<Container maxWidth='lg'>
+				<Grid item xs={12} style={{ marginBottom: '11rem' }}>
+					<Typography
+						variant='h5'
+						style={{
+							marginTop: '5rem ',
+							marginBottom: '3rem',
+						}}>
+						<FontAwesomeIcon
+							style={{
+								height: '40px',
+								width: '40px',
+								marginRight: '1rem',
+								position: 'relative',
+								top: '.5rem',
+							}}
+							icon={faInfo}
+						/>{' '}
+						Information{' '}
+					</Typography>
+					<Card elevation={2} style={{ padding: '3rem' }}>
+						<Typography variant='h5'>
+							Information about the Ministry of Foreign
+							Affairs' advice due to covid-19
+						</Typography>
+						<br />
+						<Typography variant='body1'>
+							The Ministry of Foreign Affairs advises against
+							unnecessary travel to all countries . The
+							Ministry of Foreign Affairs has, through previous
+							decisions, repealed advised against unnecessary
+							travel to most countries.
+						</Typography>{' '}
+						<Link href='/aboutCovid'>
+							<Button
+								size='large'
+								style={{
+									backgroundColor: '#234924',
+									color: '#fff',
+									marginTop: '2rem',
+								}}
+								variant='contained'>
+								{' '}
+								Read more
+							</Button>
+						</Link>
+					</Card>
+				</Grid>
+			</Container>
+			<div
+				style={{
+					marginTop: '5rem',
+					paddingTop: '6rem ',
+					paddingBottom: '7rem',
+					backgroundColor: '#edf4ed',
+					textAlign: 'center',
+					paddingLeft: '2rem',
+					paddingRight: '2rem',
+				}}>
+				<Container maxWidth='lg'>
+					<Grid
+						container
+						style={{
+							padding: '1rem',
+						}}>
+						<Grid item xs={12}>
+							<Typography
+								variant='h5'
+								style={{
+									marginBottom: '2rem',
+								}}>
+								{' '}
+								Embassies and Consulates General
+							</Typography>
+							<Typography
+								variant='body1'
+								style={{ paddingRight: ' 2rem' }}>
+								Djibouti has through the Ministry of Foreign
+								Affairs diplomatic relations with other
+								countries and international organizations and
+								responsible for internationally development
+								cooperation and trade policy. Djibouti's
+								foreign representation consists of about 30
+								foreign authorities.
+							</Typography>
+							<div>
+								<Typography
+									variant='h5'
+									style={{ marginTop: '2rem' }}>
+									Find embassies, consulates general and
+									representations:{' '}
+								</Typography>
+								<Countries />
+							</div>
+						</Grid>
+					</Grid>
+				</Container>
+			</div>
 		</>
 	);
 }

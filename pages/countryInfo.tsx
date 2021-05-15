@@ -144,7 +144,9 @@ function Search() {
 			{country === undefined && (
 				<Grid item className={classes.topColorWhite} xs={12}>
 					{' '}
-					<Typography variant='h3'>
+					<Typography
+						variant='h2'
+						style={{ fontWeight: 'bold' }}>
 						Diplomatic Missions
 					</Typography>
 				</Grid>
@@ -161,6 +163,7 @@ function Search() {
 					style={{
 						marginTop: '2rem',
 						marginBottom: '2rem',
+						fontWeight: 'bold',
 					}}>
 					{' '}
 					Embassies and Consulates General
@@ -187,17 +190,13 @@ function Search() {
 	);
 }
 
-/**
- * TODO -- Change classe names and var names
- */
-
 export default function diploMiss() {
 	const router = useRouter();
 	const country = router.query.country;
 	const classes = useStyles();
 
 	return (
-		<main>
+		<>
 			<Container maxWidth='lg'>
 				{country === undefined && <Search />}
 
@@ -208,14 +207,19 @@ export default function diploMiss() {
 							className={classes.topColorWhite}
 							xs={12}>
 							{' '}
-							<Typography variant='h3'>
+							<Typography
+								variant='h3'
+								style={{ fontWeight: 'bold' }}>
 								{' '}
 								{`Djibouti & ${country}`}
 							</Typography>
 							<Typography
 								gutterBottom
 								variant='h5'
-								style={{ marginTop: '2rem' }}>
+								style={{
+									marginTop: '2rem',
+									fontWeight: 'bold',
+								}}>
 								Presentation of {country}
 							</Typography>
 						</Grid>
@@ -465,6 +469,6 @@ export default function diploMiss() {
 					</Grid>
 				)}
 			</Container>
-		</main>
+		</>
 	);
 }

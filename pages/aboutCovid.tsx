@@ -150,13 +150,20 @@ export default function AboutCovid() {
 			<Grid container>
 				<Grid item xs={12} className={classes.topColorGreen}>
 					{' '}
-					<Typography variant='h3'> About Covid</Typography>
+					<Typography variant='h2' 	style={{
+		
+								fontWeight: 'bold',
+							}}> About Covid</Typography>
 				</Grid>
 
 				<Grid item xs={12} className={classes.imgContainer}>
 					<Typography
 						variant='h5'
-						style={{ marginBottom: '1rem' }}>
+						style={{
+							marginBottom: '1rem',
+							textAlign: 'center',
+							fontWeight: 'bold',
+						}}>
 						TRAVEL ADVICE IN RESPECT OF THE CORONAVIRUS
 					</Typography>
 					<Typography variant='h6'>
@@ -168,7 +175,7 @@ export default function AboutCovid() {
 						scheduled flights. The train service to and from
 						Addis Ababa in Ethiopia has reopened but only for
 						freight. No date has been advertised for the
-				 		reopening of passenger services. When leaving
+						reopening of passenger services. When leaving
 						Djibouti, you may need to provide evidence of a
 						negative test to airport authorities prior to
 						departure, if required at your destination or for

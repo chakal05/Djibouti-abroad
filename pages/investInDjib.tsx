@@ -38,14 +38,13 @@ const useStyles = makeStyles((theme: Theme) =>
 			padding: '1rem',
 			height: '150px',
 			width: '70%',
-            margin: '0 auto',
-            
+			margin: '0 auto',
 
 			[theme.breakpoints.up(670)]: {
 				width: '300px',
 			},
 			[theme.breakpoints.up(1200)]: {
-			//	width: '30%',
+				//	width: '30%',
 			},
 		},
 
@@ -122,12 +121,16 @@ const reasons = [
 export default function investInDjib() {
 	const classes = useStyles();
 	return (
-		<main>
+		<>
 			<Container maxWidth='lg'>
 				<Grid container>
 					<Grid item xs={12} className={classes.topColorGreen}>
 						{' '}
-						<Typography variant='h3'>
+						<Typography
+							variant='h2'
+							style={{
+								fontWeight: 'bold',
+							}}>
 							{' '}
 							Why invest in Djibouti ?{' '}
 						</Typography>
@@ -167,6 +170,6 @@ export default function investInDjib() {
 					</Grid>
 				</Grid>
 			</Container>
-		</main>
+		</>
 	);
 }

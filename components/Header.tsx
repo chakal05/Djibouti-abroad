@@ -69,15 +69,15 @@ export default function Header() {
 			id: 2,
 			url: '/forDjiboutian',
 			title: 'For citizens',
-        },
-        {
+		},
+		{
 			id: 3,
 			url: '/forForeigners',
 			title: 'For non-citizens',
 		},
 
 		{ id: 1, url: '/consularReg', title: 'Consular registration' },
-		
+
 		{
 			id: 4,
 			url: '/countryInfo',
@@ -95,7 +95,7 @@ export default function Header() {
 	};
 
 	return (
-		<div>
+		<>
 			<Container maxWidth='lg'>
 				<AppBar
 					position='static'
@@ -187,6 +187,6 @@ export default function Header() {
 					</Toolbar>
 				</AppBar>
 			</Container>
-		</div>
+		</>
 	);
 }
