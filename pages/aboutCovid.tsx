@@ -11,7 +11,6 @@ import {
 	makeStyles,
 } from '@material-ui/core/styles';
 import React from 'react';
-import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -21,6 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			borderTopLeftRadius: '1rem',
 			borderTopRightRadius: '1rem',
 			borderBottomLeftRadius: '1rem',
+			borderBottomRightRadius: '1rem',
 			// [theme.breakpoints.down(650)]: {
 			// 	marginBottom: '-9rem',
 			// 	paddingTop: '2rem',
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 		imgContainer: {
 			// backgroundColor: '#edf4ed',
-			marginTop: '2rem',
+			marginTop: '1rem',
 			padding: '2rem',
 			// borderBottomRightRadius: '1rem',
 			// borderBottomLeftRadius: '1rem',
@@ -152,7 +152,13 @@ export default function AboutCovid() {
 					{' '}
 					<Typography variant='h3'> About Covid</Typography>
 				</Grid>
+
 				<Grid item xs={12} className={classes.imgContainer}>
+					<Typography
+						variant='h5'
+						style={{ marginBottom: '1rem' }}>
+						TRAVEL ADVICE IN RESPECT OF THE CORONAVIRUS
+					</Typography>
 					<Typography variant='h6'>
 						International Restrictions:
 					</Typography>
@@ -162,7 +168,7 @@ export default function AboutCovid() {
 						scheduled flights. The train service to and from
 						Addis Ababa in Ethiopia has reopened but only for
 						freight. No date has been advertised for the
-						reopening of passenger services. When leaving
+				 		reopening of passenger services. When leaving
 						Djibouti, you may need to provide evidence of a
 						negative test to airport authorities prior to
 						departure, if required at your destination or for

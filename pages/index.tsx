@@ -36,16 +36,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			paddingLeft: '1rem',
 			paddingRight: '1rem',
 
-			[theme.breakpoints.up(1050)]: {
-				//paddingTop: '2%',
-			},
-			[theme.breakpoints.up(1201)]: {
-				//paddingTop: '3%',
-			},
-
+			
 			[theme.breakpoints.up(651)]: {
 				width: '50%',
-				//paddingTop: '2rem',
 			},
 		},
 
@@ -54,16 +47,16 @@ const useStyles = makeStyles((theme: Theme) =>
 			[theme.breakpoints.up(651)]: {
 				width: '300px',
 				position: 'absolute',
-				left: '50%',
-				right: '50%',
-				top: '40%',
+			//	left: '50%',
+				right: '3rem',
+				top: '25%',
 			},
 			[theme.breakpoints.up(900)]: {
 				top: '20%',
 			},
 
 			[theme.breakpoints.up(1100)]: {
-				width: '500px',
+	 			width: '500px',
 				position: 'relative',
 				right: '0',
 				left: '0',
@@ -86,7 +79,8 @@ const useStyles = makeStyles((theme: Theme) =>
 			marginTop: '5rem',
 			paddingTop: '2rem ',
 			paddingBottom: '7rem',
-			backgroundColor: '#edf4ed',
+            backgroundColor: '#edf4ed',
+           
 		},
 
 		carteContainer: {
@@ -335,7 +329,7 @@ export default function Home() {
 					</Container>
 				</div>
 				<Container maxWidth='lg'>
-					<Grid item xs={12} style={{ marginBottom: '13rem' }}>
+					<Grid item xs={12} style={{ marginBottom: '11rem' }}>
 						<Typography
 							variant='h5'
 							style={{
@@ -386,22 +380,23 @@ export default function Home() {
 				<div
 					style={{
 						marginTop: '5rem',
-						paddingTop: '2rem ',
-						paddingBottom: '5rem',
-						backgroundColor: '#edf4ed',
+						paddingTop: '6rem ',
+						paddingBottom: '7rem',
+                        backgroundColor: '#edf4ed',
+                      textAlign:'center',
+                        paddingLeft:'2rem',
+                        paddingRight:'2rem'
 					}}>
 					<Container maxWidth='lg'>
 						<Grid
 							container
 							style={{
 								padding: '1rem',
-								marginTop: '2rem',
 							}}>
 							<Grid item xs={12}>
 								<Typography
 									variant='h5'
 									style={{
-										marginTop: '2rem',
 										marginBottom: '2rem',
 									}}>
 									{' '}

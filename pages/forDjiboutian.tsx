@@ -8,7 +8,7 @@ import {
 	Container,
 	Grid,
 	Typography,
-	Accordion, 
+	Accordion,
 	AccordionSummary,
 	AccordionDetails,
 	Card,
@@ -50,15 +50,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 		imgContainer: {
 			width: '50%',
-			[theme.breakpoints.up(651)]: {
+
+			[theme.breakpoints.up(650)]: {
 				width: '300px',
 				position: 'absolute',
 				right: '3rem',
 				top: '30%',
-				marginLeft: '1rem',
 			},
 			[theme.breakpoints.up(900)]: {
-				top: '20%',
+				//top: '20%',
 			},
 
 			[theme.breakpoints.up(1100)]: {
@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				right: '0',
 				left: '0',
 				top: '0',
+				border: 'none',
 			},
 		},
 
@@ -75,7 +76,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				display: 'none !important',
 			},
 
-			[theme.breakpoints.up(651)]: {
+			[theme.breakpoints.up(650)]: {
 				position: 'absolute',
 				top: '50%',
 			},
@@ -164,11 +165,11 @@ const travelInfoLinks = [
 	{ id: '5', title: 'If something happens', url: '/foreignPol' },
 ];
 const helpInfoLinks = [
-	{ id:'1',title: 'Consular registration', url: '#' },
-	{ id:'2',title: 'Passports', url: '#' },
-	{ id:'3',title: 'Civil status documents', url: '#' },
-	{ id:'4',title: 'Legislations', url: '#' },
-	{ id:'5',title: 'Students', url: '#' },
+	{ id: '1', title: 'Consular registration', url: '#' },
+	{ id: '2', title: 'Passports', url: '#' },
+	{ id: '3', title: 'Civil status documents', url: '#' },
+	{ id: '4', title: 'Legislations', url: '#' },
+	{ id: '5', title: 'Students', url: '#' },
 ];
 
 export default function forDjiboutian() {
@@ -209,7 +210,7 @@ export default function forDjiboutian() {
 								className={classes.img}
 							/>
 						</Grid>
-	 				</Grid>
+					</Grid>
 				</Container>
 				<div
 					style={{
@@ -298,9 +299,10 @@ export default function forDjiboutian() {
 									{travelInfoLinks.map((item) => {
 										return (
 											<li key={item.id}>
-												<Typography className={classes.url}>
-													<Link  href={item.url}>
-														<a >
+												<Typography
+													className={classes.url}>
+													<Link href={item.url}>
+														<a>
 															<FontAwesomeIcon
 																style={{
 																	marginRight:
@@ -353,7 +355,7 @@ export default function forDjiboutian() {
 																	faArrowAltCircleRight
 																}
 															/>
-								 							{item.title}
+															{item.title}
 														</a>
 													</Link>
 												</Typography>

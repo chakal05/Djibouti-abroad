@@ -51,11 +51,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		imgContainer: {
 			width: '50%',
 			[theme.breakpoints.up(651)]: {
-				width: '300px',
+                width: '250px',
 				position: 'absolute',
 				right: '3rem',
-				top: '30%',
-				marginLeft: '1rem',
+				top: '25%',
 			},
 			[theme.breakpoints.up(900)]: {
 				top: '20%',
@@ -75,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				display: 'none !important',
 			},
 
-			[theme.breakpoints.up(651)]: {
+			[theme.breakpoints.up(650)]: {
 				position: 'absolute',
 				top: '50%',
 			},

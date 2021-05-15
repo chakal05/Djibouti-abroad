@@ -12,17 +12,7 @@ import {
 	faMapMarker,
 	faFax,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-	Grid,
-	Container,
-	Typography,
-	Paper,
-	Button,
-} from '@material-ui/core';
-import {
-	faFacebook,
-	faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
+import { Grid, Container, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -30,7 +20,8 @@ const useStyles = makeStyles((theme: Theme) =>
 			backgroundColor: theme.palette.background.paper,
 			// marginTop: theme.spacing(8),
 			padding: theme.spacing(6, 0),
-			margin: '3rem 0',
+            marginTop: '3rem',
+            marginBottom:'-2rem'
 		},
 
 		icon: {
@@ -58,25 +49,13 @@ export default function Footer() {
 	return (
 		<footer className={classes.footer}>
 			<Container maxWidth='lg'>
-	
+				<Grid container>
+					<Grid item>
 						<Typography
 							variant='h5'
 							className={classes.contact}>
 							{' '}
 							Contact{' '}
-						</Typography>
-						<Typography
-							variant='body1'
-							className={classes.typo}>
-							{'©'}
-							<Link
-								color='inherit'
-								href='https://diplomatie.gouv.dj/'>
-								Ministère des Affaires Etrangères et de la
-								coopération internationale
-							</Link>{' '}
-							{new Date().getFullYear()}
-							{'.'}
 						</Typography>
 
 						<Typography
@@ -121,6 +100,23 @@ export default function Footer() {
 							/>
 							Email: contact@diplomatie.gouv.dj{' '}
 						</Typography>
+                        <Typography
+                            
+                            variant='body1'
+                                style={{marginTop:".5rem"}}>
+                                {'©'}
+                                <Link
+                                    color='inherit'
+                                    href='https://diplomatie.gouv.dj/'>
+                                    Ministère des Affaires Etrangères et de la
+                                    coopération internationale
+                                </Link>{' '}
+                                {new Date().getFullYear()}
+                                {'.'}
+                            </Typography>
+					</Grid>
+					
+				</Grid>
 			</Container>
 		</footer>
 	);

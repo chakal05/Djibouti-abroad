@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 			justifyContent: 'center',
 			overflowX: 'auto',
-			[theme.breakpoints.down(650)]: {
+			[theme.breakpoints.down(1000)]: {
 				display: 'none',
 			},
 		},
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 
 		secondNav: {
-			[theme.breakpoints.up(650)]: {
+			[theme.breakpoints.up(1000)]: {
 				display: 'none',
 			},
 		},
