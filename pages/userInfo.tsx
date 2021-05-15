@@ -13,7 +13,7 @@ import React from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
-		topColorGreen: {
+		greenBackground: {
 			backgroundColor: '#edf4ed',
 			padding: '3rem',
 			borderTopLeftRadius: '1rem',
@@ -60,26 +60,21 @@ export default function userInfo() {
 		<>
 			<Container maxWidth='lg'>
 				<Grid container>
-					<Grid item xs={12} className={classes.topColorGreen}>
+					<Grid item xs={12} >
 						{' '}
-						<Typography variant='h3'>
+						<Typography variant='h2' style={{
+                            fontWeight: 'bold',
+                        }}>
 							{' '}
 							Welcome to your page
 						</Typography>
 					</Grid>
-					<Grid item xs={12}>
-						<Typography
-							variant='h4'
-							style={{
-								margin: '3rem 0',
-								textAlign: 'center',
-								fontWeight: 'bold',
-							}}>
-							User info 
-						</Typography>
+					<Grid item xs={12} >
+						
 
 						<Paper
-							elevation={5}
+                            elevation={5}
+                            className={classes.greenBackground}
 							style={{
 								padding: '1rem',
 								width: '80%',
