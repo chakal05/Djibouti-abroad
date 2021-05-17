@@ -1,3 +1,4 @@
+import React from 'react';
 import {
 	Container,
 	Grid,
@@ -10,7 +11,6 @@ import {
 	Theme,
 	makeStyles,
 } from '@material-ui/core/styles';
-import React from 'react';
 import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -183,7 +183,7 @@ export default function ConsularRegistration() {
 							style={{ fontWeight: 'bold' }}>
 							{' '}
 							{`Consular registration`}
-						</Typography>
+			 			</Typography>
 					</Grid>
 					<Grid item className={classes.titleContainer}>
 						<div style={{ marginBottom: '1rem' }}>
@@ -306,6 +306,8 @@ export default function ConsularRegistration() {
 													}),
 												}
 											);
+
+                                            
 
 											if (response.status === 200) {
 												router.push({

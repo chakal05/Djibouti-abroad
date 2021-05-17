@@ -70,7 +70,7 @@ const reasons = [
 	{
 		id: 3,
 		title: '3. Politics',
-		text: `It enjoys political stability`,
+		text: `it enjoys political stability in a region plagued by tribal and civil wars `,
 	},
 	{
 		id: 4,

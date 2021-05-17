@@ -76,18 +76,18 @@ export default function workingInDjib() {
 							variant='h4'
 							style={{
 								margin: '3rem 0',
-								textAlign: 'center',
+	 							textAlign: 'center',
 								fontWeight: 'bold',
 							}}>
 							Legislation
 						</Typography>
 
-						<Paper
-							elevation={5}
+						<div
+						
 							style={{
 								padding: '1rem',
-								width: '80%',
-								margin: '0 auto',
+								// width: '80%',
+								// margin: '0 auto',
 							}}>
 							<Typography variant='h6'>Article 24:</Typography>
 							<Typography variant='body1'>
@@ -179,7 +179,7 @@ export default function workingInDjib() {
 								declared the nullity of the contract and may,
 								if necessary, claim damages.
 							</Typography>
-						</Paper>
+						</div>
 					</Grid>
 				</Grid>
 			</Container>

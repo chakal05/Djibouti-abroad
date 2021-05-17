@@ -150,10 +150,14 @@ export default function AboutCovid() {
 			<Grid container>
 				<Grid item xs={12} className={classes.topColorGreen}>
 					{' '}
-					<Typography variant='h2' 	style={{
-		
-								fontWeight: 'bold',
-							}}> About Covid</Typography>
+					<Typography
+						variant='h2'
+						style={{
+							fontWeight: 'bold',
+						}}>
+						{' '}
+						About Covid
+					</Typography>
 				</Grid>
 
 				<Grid item xs={12} className={classes.imgContainer}>

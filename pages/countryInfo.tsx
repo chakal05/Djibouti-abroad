@@ -138,7 +138,7 @@ function Search() {
 	const router = useRouter();
 	const country = router.query.country;
 	const classes = useStyles();
-
+ 
 	return (
 		<Grid container>
 			{country === undefined && (
