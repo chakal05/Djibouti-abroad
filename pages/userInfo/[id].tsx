@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { useRouter } from 'next/router';
-import withAuth from '../util/withAuth.js';
+import withAuth from '../../util/withAuth.js';
 import {
 	createStyles,
 	Theme,
@@ -103,31 +103,34 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function userInfo({ user }) {
-	const [firstName, setFirstName] = React.useState('');
-	const [name, setName] = React.useState('');
-	const [country, setCountry] = React.useState('');
-	const [tel, setTel] = React.useState('');
-	const [password, setPassword] = React.useState('');
-	const [email, setEmail] = React.useState('');
-	const [arrival, setArrival] = React.useState('');
-	const [departure, setDeparture] = React.useState('');
-	const [personToContact, setPersonToContact] = React.useState('');
-	const [city, setCity] = React.useState('');
-	const [partnerName, setpartnerName] = React.useState('');
-	const [partnerFirstName, setPartnerFirstName] = React.useState('');
-	const [partnerTel, setpartnerTel] = React.useState('');
-	const [partnerEmail, setPartnerEmail] = React.useState('');
-	const [partnerCitizenship, setPartnerCitizenship] = React.useState(
-		''
-	);
-	const [kidName, setKidName] = React.useState('');
-	const [kidFirstName, setKidFirstName] = React.useState('');
-	const [kidCitizenship, setKidCitizenship] = React.useState('');
-	const [identifier, setIdentifier] = React.useState('');
-	const [pass, setPass] = React.useState('');
+	// const [firstName, setFirstName] = React.useState('');
+	// const [name, setName] = React.useState('');
+	// const [country, setCountry] = React.useState('');
+	// const [tel, setTel] = React.useState('');
+	// const [password, setPassword] = React.useState('');
+	// const [email, setEmail] = React.useState('');
+	// const [arrival, setArrival] = React.useState('');
+	// const [departure, setDeparture] = React.useState('');
+	// const [personToContact, setPersonToContact] = React.useState('');
+	// const [city, setCity] = React.useState('');
+	// const [partnerName, setpartnerName] = React.useState('');
+	// const [partnerFirstName, setPartnerFirstName] = React.useState('');
+	// const [partnerTel, setpartnerTel] = React.useState('');
+	// const [partnerEmail, setPartnerEmail] = React.useState('');
+	// const [partnerCitizenship, setPartnerCitizenship] = React.useState(
+	// 	''
+	// );
+	// const [kidName, setKidName] = React.useState('');
+	// const [kidFirstName, setKidFirstName] = React.useState('');
+	// const [kidCitizenship, setKidCitizenship] = React.useState('');
+	// const [identifier, setIdentifier] = React.useState('');
+	// const [pass, setPass] = React.useState('');
 
 	const classes = useStyles();
 	const router = useRouter();
+	const userId = router.query.id;
+	const userInfo = JSON.parse(localStorage.getItem('accessToken'));
+	let { name, firstName } = userInfo;
 
 	return (
 		<>
@@ -141,7 +144,7 @@ function userInfo({ user }) {
 								fontWeight: 'bold',
 							}}>
 							{' '}
-							Welcome 
+							Welcome
 						</Typography>
 					</Grid>
 					<Grid item xs={12}>
@@ -155,6 +158,15 @@ function userInfo({ user }) {
 							Profil
 						</Typography>
 						<div className={classes.formContainer}>
+							<Button
+								variant='contained'
+								onClick={() => {
+									localStorage.removeItem('accessToken');
+									router.push('/');
+								}}>
+								{' '}
+								Logout{' '}
+							</Button>
 							<form>
 								<div>
 									<div className={classes.titleSpace}>
@@ -168,21 +180,21 @@ function userInfo({ user }) {
 										label='First name'
 										variant='outlined'
 										value={firstName}
-										onChange={(e) =>
-											setFirstName(e.target.value)
-										}
+										// onChange={(e) =>
+										// 	setFirstName(e.target.value)
+										// }
 									/>
 									<TextField
 										className={classes.secondTextField}
 										label='Name'
 										variant='outlined'
 										value={name}
-										onChange={(e) =>
-											setName(e.target.value)
-										}
+										// onChange={(e) =>
+										// 	setName(e.target.value)
+										// }
 									/>
 								</div>
-								<div className={classes.gridSpace}>
+								{/* <div className={classes.gridSpace}>
 									<div className={classes.titleSpace}>
 										<Typography variant='h6'>
 											{' '}
@@ -214,8 +226,8 @@ function userInfo({ user }) {
 											setPersonToContact(e.target.value)
 										}
 									/>
-								</div>
-								<div className={classes.gridSpace}>
+								</div> */}
+								{/* <div className={classes.gridSpace}>
 									<div className={classes.titleSpace}>
 										<Typography variant='h6'>
 											{' '}
@@ -256,8 +268,8 @@ function userInfo({ user }) {
 										onChange={(e) =>
 											setArrival(e.target.value)
 										}
-									/>
-									<TextField
+									/> */}
+								{/* <TextField
 										className={classes.secondTextField}
 										label='Departure'
 										variant='outlined'
@@ -275,9 +287,9 @@ function userInfo({ user }) {
 											setPassword(e.target.value)
 										}
 									/>
-								</div>
+								</div> */}
 
-								<div
+								{/* <div
 									style={{
 										margin: '2rem 0',
 									}}>
@@ -429,8 +441,8 @@ function userInfo({ user }) {
 												}
 											/>
 										</Grid>
-									</div>
-									<div>
+									</div> */}
+								{/* <div>
 										<Button
 											type='submit'
 											className={classes.btn}
@@ -442,8 +454,8 @@ function userInfo({ user }) {
 											{' '}
 											Submit
 										</Button>
-									</div>
 								</div>
+									</div> */}
 							</form>
 						</div>
 					</Grid>

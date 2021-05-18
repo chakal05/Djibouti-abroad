@@ -81,7 +81,7 @@ const handler = async (req, res) => {
 					function (err, docs) {
 						if (err) res.status(500).send(err);
 						else if (docs.length > 0) {
-							res.status(200).json(docs[0]);
+							res.status(200).send(docs[0]);
 						} else if (docs.length === 0)
 							res.status(422).send('User not found');
 					}

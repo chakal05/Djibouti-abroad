@@ -292,36 +292,37 @@ export default function ConsularRegistration() {
 										}
 
 										if (!payload.country) {
-                                            //let response =
-                                             await fetch(
-												'/api/user',
-												{
-													method: 'POST',
-													headers: {
-														'Content-Type':
-															'application/json',
-													},
-													body: JSON.stringify({
-														identifier: identifier,
-														pass: pass,
-													}),
-												}
-											).then((data) => {
-												const accessToken = data.text;
-
-												if (data.status === 200) {
+											//let response =
+											await fetch('/api/user', {
+												method: 'POST',
+												headers: {
+													'Content-Type':
+														'application/json',
+												},
+												body: JSON.stringify({
+													identifier: identifier,
+													pass: pass,
+												}),
+											}).then(async (response) => {
+												let data = await response.json();
+												let accessToken = data;
+                                                
+                                                
+                                                
+                                                
+												if (response.status === 200) {
 													localStorage.setItem(
 														'accessToken',
 														JSON.stringify(
-														 accessToken
+														accessToken
 														)
 													);
 
 													router.push({
-														pathname: '/userInfo',
-														query: {},
+														pathname: '/userInfo/[id]',
+														query: {id: accessToken._id},
 													});
-												} 
+												}
 											});
 										}
 									}}>
