@@ -40,7 +40,7 @@ const handler = async (req, res) => {
 			password
 		) {
 			try {
-				//     Hash password to store it in DB
+				//  TODO   Hash password to store it in DB
 				//	var passwordhash = await bcrypt.sign(password);
 				var user = new User({
 					name,
@@ -73,15 +73,17 @@ const handler = async (req, res) => {
 		if (identifier && pass) {
 			try {
 				var user = new User({});
-				var findUser = await User.find(
+				await User.find(
 					{
 						name: identifier,
 						password: pass,
 					},
 					function (err, docs) {
 						if (err) res.status(500).send(err);
-						else if (docs.length > 0)
-							res.status(200).send(docs[0]);
+						else if (docs.length > 0) {
+							res.status(200).json(docs[0]);
+						} else if (docs.length === 0)
+							res.status(422).send('User not found');
 					}
 				);
 			} catch (error) {

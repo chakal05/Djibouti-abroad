@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { useRouter } from 'next/router';
+import withAuth from '../util/withAuth.js';
 import {
 	createStyles,
 	Theme,
@@ -101,7 +102,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default function userInfo() {
+function userInfo({ user }) {
 	const [firstName, setFirstName] = React.useState('');
 	const [name, setName] = React.useState('');
 	const [country, setCountry] = React.useState('');
@@ -127,351 +128,329 @@ export default function userInfo() {
 
 	const classes = useStyles();
 	const router = useRouter();
-    const user = router.query.user;
-    
-    if(user){
-        alert('User found')
-    } else { 
-        router.replace('/')
-    }
-	
-		return (
-			<>
-				<Container maxWidth='lg'>
-					<Grid container>
-						<Grid
-							item
-							xs={12}
-							className={classes.greenBackground}>
-							{' '}
-							<Typography
-								variant='h2'
-								style={{
-									fontWeight: 'bold',
-								}}>
-								{' '}
-								Welcome to your page
-							</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography
-								variant='h3'
-								style={{
-									textAlign: 'center',
-									margin: '2rem 0',
-								}}>
-								{' '}
-								Profil{' '}
-							</Typography>
-							<div className={classes.formContainer}>
-								<form>
-									<div>
-										<div className={classes.titleSpace}>
-											<Typography variant='h6'>
-												{' '}
-												Personal information{' '}
-											</Typography>
-										</div>
-										<TextField
-											className={classes.textField}
-											label='First name'
-											variant='outlined'
-											value={firstName}
-											onChange={(e) =>
-												setFirstName(e.target.value)
-											}
-										/>
-										<TextField
-											className={classes.secondTextField}
-											label='Name'
-											variant='outlined'
-											value={name}
-											onChange={(e) =>
-												setName(e.target.value)
-											}
-										/>
-									</div>
-									<div className={classes.gridSpace}>
-										<div className={classes.titleSpace}>
-											<Typography variant='h6'>
-												{' '}
-												Contact information{' '}
-											</Typography>
-										</div>
-										<TextField
-											className={classes.textField}
-											label='Email'
-											value={email}
-											onChange={(e) =>
-												setEmail(e.target.value)
-											}
-											variant='outlined'
-										/>
-										<TextField
-											className={classes.secondTextField}
-											label='Telephone'
-											variant='outlined'
-											value={tel}
-											onChange={(e) =>
-												setTel(e.target.value)
-											}
-										/>
-										<TextField
-											className={classes.secondTextField}
-											label='Contact person number '
-											variant='outlined'
-											value={personToContact}
-											onChange={(e) =>
-												setPersonToContact(e.target.value)
-											}
-										/>
-									</div>
-									<div className={classes.gridSpace}>
-										<div className={classes.titleSpace}>
-											<Typography variant='h6'>
-												{' '}
-												Address information abroad{' '}
-											</Typography>
-										</div>
-										<TextField
-											className={classes.textField}
-											label='Country'
-											variant='outlined'
-											value={country}
-											onChange={(e) =>
-												setCountry(e.target.value)
-											}
-										/>
-										<TextField
-											className={classes.secondTextField}
-											label='City'
-											variant='outlined'
-											value={city}
-											onChange={(e) =>
-												setCity(e.target.value)
-											}
-										/>
-									</div>
-									<div className={classes.gridSpace}>
-										<div className={classes.titleSpace}>
-											<Typography variant='h6'>
-												{' '}
-												Arrival and departure{' '}
-											</Typography>
-										</div>
-										<TextField
-											className={classes.textField}
-											label='Arrival'
-											variant='outlined'
-											value={arrival}
-											onChange={(e) =>
-												setArrival(e.target.value)
-											}
-										/>
-										<TextField
-											className={classes.secondTextField}
-											label='Departure'
-											variant='outlined'
-											value={departure}
-											onChange={(e) =>
-												setDeparture(e.target.value)
-											}
-										/>
-										<TextField
-											className={classes.secondTextField}
-											label='Password'
-											variant='outlined'
-											value={password}
-											onChange={(e) =>
-												setPassword(e.target.value)
-											}
-										/>
-									</div>
 
-									<div
-										style={{
-											margin: '2rem 0',
-										}}>
-										<Button
-											size='large'
-											onClick={() => {
-												//	document.getElementById(
-												//		'show'
-												//	).style.display = 'block';
-											}}
-											className={classes.btn}
-											variant='outlined'>
+	return (
+		<>
+			<Container maxWidth='lg'>
+				<Grid container>
+					<Grid item xs={12} className={classes.greenBackground}>
+						{' '}
+						<Typography
+							variant='h2'
+							style={{
+								fontWeight: 'bold',
+							}}>
+							{' '}
+							Welcome 
+						</Typography>
+					</Grid>
+					<Grid item xs={12}>
+						<Typography
+							variant='h3'
+							style={{
+								textAlign: 'center',
+								margin: '2rem 0',
+							}}>
+							{' '}
+							Profil
+						</Typography>
+						<div className={classes.formContainer}>
+							<form>
+								<div>
+									<div className={classes.titleSpace}>
+										<Typography variant='h6'>
 											{' '}
-											Add accompanying partner{' '}
-										</Button>
-										<div className={classes.show}>
+											Personal information{' '}
+										</Typography>
+									</div>
+									<TextField
+										className={classes.textField}
+										label='First name'
+										variant='outlined'
+										value={firstName}
+										onChange={(e) =>
+											setFirstName(e.target.value)
+										}
+									/>
+									<TextField
+										className={classes.secondTextField}
+										label='Name'
+										variant='outlined'
+										value={name}
+										onChange={(e) =>
+											setName(e.target.value)
+										}
+									/>
+								</div>
+								<div className={classes.gridSpace}>
+									<div className={classes.titleSpace}>
+										<Typography variant='h6'>
 											{' '}
-											<Grid
-												item
-												className={classes.gridSpace}>
-												<div
-													className={classes.titleSpace}>
-													<Typography variant='h6'>
-														{' '}
-														Personal information{' '}
-													</Typography>
-												</div>
-												<TextField
-													className={classes.textField}
-													label='Name'
-													variant='outlined'
-													value={partnerName}
-													onChange={(e) =>
-														setpartnerName(
-															e.target.value
-														)
-													}
-												/>
-												<TextField
-													className={
-														classes.secondTextField
-													}
-													label='First name'
-													variant='outlined'
-													value={partnerFirstName}
-													onChange={(e) =>
-														setPartnerFirstName(
-															e.target.value
-														)
-													}
-												/>
-											</Grid>
-											<Grid
-												item
-												className={classes.gridSpace}>
-												<div
-													className={classes.titleSpace}>
-													<Typography variant='h6'>
-														{' '}
-														Contact information{' '}
-													</Typography>
-												</div>
-												<TextField
-													className={classes.textField}
-													label='Citizenship'
-													variant='outlined'
-													value={partnerCitizenship}
-													onChange={(e) =>
-														setPartnerCitizenship(
-															e.target.value
-														)
-													}
-												/>
-												<TextField
-													className={
-														classes.secondTextField
-													}
-													label='Email'
-													variant='outlined'
-													value={partnerEmail}
-													onChange={(e) =>
-														setPartnerEmail(
-															e.target.value
-														)
-													}
-												/>
-												<TextField
-													className={
-														classes.secondTextField
-													}
-													label='Telephone'
-													variant='outlined'
-													value={partnerTel}
-													onChange={(e) =>
-														setpartnerTel(
-															e.target.value
-														)
-													}
-												/>
-											</Grid>
-										</div>
+											Contact information{' '}
+										</Typography>
+									</div>
+									<TextField
+										className={classes.textField}
+										label='Email'
+										value={email}
+										onChange={(e) =>
+											setEmail(e.target.value)
+										}
+										variant='outlined'
+									/>
+									<TextField
+										className={classes.secondTextField}
+										label='Telephone'
+										variant='outlined'
+										value={tel}
+										onChange={(e) => setTel(e.target.value)}
+									/>
+									<TextField
+										className={classes.secondTextField}
+										label='Contact person number '
+										variant='outlined'
+										value={personToContact}
+										onChange={(e) =>
+											setPersonToContact(e.target.value)
+										}
+									/>
+								</div>
+								<div className={classes.gridSpace}>
+									<div className={classes.titleSpace}>
+										<Typography variant='h6'>
+											{' '}
+											Address information abroad{' '}
+										</Typography>
+									</div>
+									<TextField
+										className={classes.textField}
+										label='Country'
+										variant='outlined'
+										value={country}
+										onChange={(e) =>
+											setCountry(e.target.value)
+										}
+									/>
+									<TextField
+										className={classes.secondTextField}
+										label='City'
+										variant='outlined'
+										value={city}
+										onChange={(e) =>
+											setCity(e.target.value)
+										}
+									/>
+								</div>
+								<div className={classes.gridSpace}>
+									<div className={classes.titleSpace}>
+										<Typography variant='h6'>
+											{' '}
+											Arrival and departure{' '}
+										</Typography>
+									</div>
+									<TextField
+										className={classes.textField}
+										label='Arrival'
+										variant='outlined'
+										value={arrival}
+										onChange={(e) =>
+											setArrival(e.target.value)
+										}
+									/>
+									<TextField
+										className={classes.secondTextField}
+										label='Departure'
+										variant='outlined'
+										value={departure}
+										onChange={(e) =>
+											setDeparture(e.target.value)
+										}
+									/>
+									<TextField
+										className={classes.secondTextField}
+										label='Password'
+										variant='outlined'
+										value={password}
+										onChange={(e) =>
+											setPassword(e.target.value)
+										}
+									/>
+								</div>
+
+								<div
+									style={{
+										margin: '2rem 0',
+									}}>
+									<Button
+										size='large'
+										onClick={() => {
+											//	document.getElementById(
+											//		'show'
+											//	).style.display = 'block';
+										}}
+										className={classes.btn}
+										variant='outlined'>
+										{' '}
+										Add accompanying partner{' '}
+									</Button>
+									<div className={classes.show}>
+										{' '}
+										<Grid
+											item
+											className={classes.gridSpace}>
+											<div className={classes.titleSpace}>
+												<Typography variant='h6'>
+													{' '}
+													Personal information{' '}
+												</Typography>
+											</div>
+											<TextField
+												className={classes.textField}
+												label='Name'
+												variant='outlined'
+												value={partnerName}
+												onChange={(e) =>
+													setpartnerName(e.target.value)
+												}
+											/>
+											<TextField
+												className={
+													classes.secondTextField
+												}
+												label='First name'
+												variant='outlined'
+												value={partnerFirstName}
+												onChange={(e) =>
+													setPartnerFirstName(
+														e.target.value
+													)
+												}
+											/>
+										</Grid>
+										<Grid
+											item
+											className={classes.gridSpace}>
+											<div className={classes.titleSpace}>
+												<Typography variant='h6'>
+													{' '}
+													Contact information{' '}
+												</Typography>
+											</div>
+											<TextField
+												className={classes.textField}
+												label='Citizenship'
+												variant='outlined'
+												value={partnerCitizenship}
+												onChange={(e) =>
+													setPartnerCitizenship(
+														e.target.value
+													)
+												}
+											/>
+											<TextField
+												className={
+													classes.secondTextField
+												}
+												label='Email'
+												variant='outlined'
+												value={partnerEmail}
+												onChange={(e) =>
+													setPartnerEmail(e.target.value)
+												}
+											/>
+											<TextField
+												className={
+													classes.secondTextField
+												}
+												label='Telephone'
+												variant='outlined'
+												value={partnerTel}
+												onChange={(e) =>
+													setpartnerTel(e.target.value)
+												}
+											/>
+										</Grid>
+									</div>
+								</div>
+								<div>
+									<Button
+										size='large'
+										onClick={() => {
+											// document.getElementById(
+											// 	'show2'
+											// ).style.display = 'block';
+										}}
+										className={classes.btn}
+										variant='outlined'>
+										{' '}
+										Add accompanying child{' '}
+									</Button>
+									<div className={classes.show}>
+										<Grid
+											item
+											className={classes.gridSpace}>
+											<div className={classes.titleSpace}>
+												<Typography variant='h6'>
+													{' '}
+													Personal information{' '}
+												</Typography>
+											</div>
+											<TextField
+												className={classes.textField}
+												label='Name'
+												variant='outlined'
+												value={kidName}
+												onChange={(e) =>
+													setKidName(e.target.value)
+												}
+											/>
+											<TextField
+												className={
+													classes.secondTextField
+												}
+												label='First name'
+												variant='outlined'
+												value={kidFirstName}
+												onChange={(e) =>
+													setKidFirstName(e.target.value)
+												}
+											/>
+											<TextField
+												className={
+													classes.secondTextField
+												}
+												label='Citizenship'
+												variant='outlined'
+												value={kidCitizenship}
+												onChange={(e) =>
+													setKidCitizenship(
+														e.target.value
+													)
+												}
+											/>
+										</Grid>
 									</div>
 									<div>
 										<Button
-											size='large'
-											onClick={() => {
-												// document.getElementById(
-												// 	'show2'
-												// ).style.display = 'block';
-											}}
+											type='submit'
 											className={classes.btn}
+											size='large'
+											style={{
+												marginTop: '1rem',
+											}}
 											variant='outlined'>
 											{' '}
-											Add accompanying child{' '}
+											Submit
 										</Button>
-										<div className={classes.show}>
-											<Grid
-												item
-												className={classes.gridSpace}>
-												<div
-													className={classes.titleSpace}>
-													<Typography variant='h6'>
-														{' '}
-														Personal information{' '}
-													</Typography>
-												</div>
-												<TextField
-													className={classes.textField}
-													label='Name'
-													variant='outlined'
-													value={kidName}
-													onChange={(e) =>
-														setKidName(e.target.value)
-													}
-												/>
-												<TextField
-													className={
-														classes.secondTextField
-													}
-													label='First name'
-													variant='outlined'
-													value={kidFirstName}
-													onChange={(e) =>
-														setKidFirstName(
-															e.target.value
-														)
-													}
-												/>
-												<TextField
-													className={
-														classes.secondTextField
-													}
-													label='Citizenship'
-													variant='outlined'
-													value={kidCitizenship}
-													onChange={(e) =>
-														setKidCitizenship(
-															e.target.value
-														)
-													}
-												/>
-											</Grid>
-										</div>
-										<div>
-											<Button
-												type='submit'
-												className={classes.btn}
-												size='large'
-												style={{
-													marginTop: '1rem',
-												}}
-												variant='outlined'>
-												{' '}
-												Submit
-											</Button>
-										</div>
 									</div>
-								</form>
-							</div>
-						</Grid>
+								</div>
+							</form>
+						</div>
 					</Grid>
-				</Container>
-			</>
-		);
-	
+				</Grid>
+			</Container>
+		</>
+	);
 }
+
+export default withAuth(userInfo);

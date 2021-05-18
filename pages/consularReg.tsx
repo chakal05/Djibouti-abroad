@@ -183,7 +183,7 @@ export default function ConsularRegistration() {
 							style={{ fontWeight: 'bold' }}>
 							{' '}
 							{`Consular registration`}
-			 			</Typography>
+						</Typography>
 					</Grid>
 					<Grid item className={classes.titleContainer}>
 						<div style={{ marginBottom: '1rem' }}>
@@ -292,7 +292,8 @@ export default function ConsularRegistration() {
 										}
 
 										if (!payload.country) {
-											let response = await fetch(
+                                            //let response =
+                                             await fetch(
 												'/api/user',
 												{
 													method: 'POST',
@@ -305,16 +306,23 @@ export default function ConsularRegistration() {
 														pass: pass,
 													}),
 												}
-											);
+											).then((data) => {
+												const accessToken = data.text;
 
-                                            
+												if (data.status === 200) {
+													localStorage.setItem(
+														'accessToken',
+														JSON.stringify(
+														 accessToken
+														)
+													);
 
-											if (response.status === 200) {
-												router.push({
-													pathname: '/userInfo',
-													query: {},
-												});
-											}
+													router.push({
+														pathname: '/userInfo',
+														query: {},
+													});
+												} 
+											});
 										}
 									}}>
 									<div
