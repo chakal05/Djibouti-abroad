@@ -21,11 +21,14 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		toolbar: {
 			borderBottom: `1px solid ${theme.palette.divider}`,
+			height: '80px',
 		},
 		toolbarTitle: {
 			flexGrow: 1,
+			fontWeight: 'bold',
 		},
 		toolbarSecondary: {
+            height: '70px',
 			display: 'flex',
 			justifyContent: 'center',
 			overflowX: 'auto',
@@ -59,9 +62,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Header() {
 	const classes = useStyles();
-	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(
-		null
-	);
+	const [anchorEl, setAnchorEl] =
+		React.useState<null | HTMLElement>(null);
 	const sections = [
 		{ id: 0, url: '/', title: 'Home' },
 
@@ -117,8 +119,7 @@ export default function Header() {
 							<a className={classes.toolbarTitle}>
 								{' '}
 								<Typography
-									component='h2'
-									variant='h5'
+									variant='h4'
 									color='inherit'
 									align='center'
 									noWrap>

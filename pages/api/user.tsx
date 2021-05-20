@@ -26,68 +26,73 @@ const handler = async (req, res) => {
 			kidCitizenship,
 			identifier,
 			pass,
+			flag,
 		} = req.body;
-		if (
-			name &&
-			firstName &&
-			email &&
-			tel &&
-			personToContact &&
-			country &&
-			city &&
-			arrival &&
-			departure &&
-			password
-		) {
-			try {
-				//  TODO   Hash password to store it in DB
-				//	var passwordhash = await bcrypt.sign(password);
-				var user = new User({
-					name,
-					firstName,
-					email,
-					tel,
-					personToContact,
-					country,
-					city,
-					arrival,
-					departure,
-					password,
-					partnerName,
-					partnerFirstName,
-					partnerTel,
-					partnerEmail,
-					partnerCitizenship,
-					kidName,
-					kidFirstName,
-					kidCitizenship,
-				});
-				// Create new user
-				var usercreated = await user.save();
-				return res.status(200).send(usercreated);
-			} catch (error) {
-				return res.status(500).send(error.message);
+		if (flag === 'Register') {
+			if (
+				name &&
+				firstName &&
+				email &&
+				tel &&
+				personToContact &&
+				country &&
+				city &&
+				arrival &&
+				departure &&
+				password
+			) {
+				try {
+					//  TODO   Hash password to store it in DB
+					//	var passwordhash = await bcrypt.sign(password);
+					var user = new User({
+						name,
+						firstName,
+						email,
+						tel,
+						personToContact,
+						country,
+						city,
+						arrival,
+						departure,
+						password,
+						partnerName,
+						partnerFirstName,
+						partnerTel,
+						partnerEmail,
+						partnerCitizenship,
+						kidName,
+						kidFirstName,
+						kidCitizenship,
+					});
+					// Create new user
+					var usercreated = await user.save();
+					return res.status(200).send(usercreated);
+				} catch (error) {
+					return res.status(500).send(error.message);
+				}
 			}
 		}
 
-		if (identifier && pass) {
-			try {
-				var user = new User({});
-				await User.find(
-					{
-						name: identifier,
-						password: pass,
-					},
-					function (err, docs) {
-						if (err) res.status(500).send(err);
-						else if (docs.length > 0) {
-							res.status(200).send(docs[0]);
-						} else if (docs.length === 0)
-							res.status(422).send('User not found');
-					}
-				);
-			} catch (error) {
-				return res.status(500).send(error.message);
+		if (flag === 'Retrieve') {
+			if (identifier && pass) {
+				try {
+					var user = new User({});
+					await User.find(
+						{
+							name: identifier,
+							password: pass,
+						},
+						function (err, docs) {
+							if (err) res.status(500).send(err);
+							else if (docs.length > 0) {
+								res.status(200).send(docs[0]);
+							} else if (docs.length === 0)
+								res.status(422).send('User not found');
+						}
+					);
+				} catch (error) {
+					return res.status(500).send(error.message);
+				}
 			}
 		}
 	} else {

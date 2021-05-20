@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		titleContainer: {
 			width: '100%',
-			paddingTop: '3rem',
+			paddingTop: '1rem',
 			paddingLeft: '1rem',
 			paddingRight: '1rem',
 
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 
 			[theme.breakpoints.up(1100)]: {
-				width: '500px',
+				width: '400px',
 				position: 'relative',
 				right: '0',
 				left: '0',
@@ -92,10 +92,18 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 
 		carte: {
-			padding: '2rem',
-			height: '230px',
+			padding: '3rem 2rem',
+			height: '300px',
 			width: '350px',
 		},
+
+		listHeader: {
+			marginBottom: '1rem',
+		},
+
+        listContainer:{
+            paddingLeft:'1rem'
+        },
 
 		btn: {
 			margin: '1rem',
@@ -110,6 +118,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			width: '15px',
 		},
 		url: {
+            margin:'.3rem 0',
 			' &:hover': {
 				fontWeight: 'bold',
 			},
@@ -250,79 +259,80 @@ export default function Home() {
 							</Typography>
 						</Grid>
 						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography variant='h6' component='h1'>
-									{' '}
-									Travel or live abroad{' '}
-								</Typography>
-								<Typography variant='body1'>
-									Here you will find:
-								</Typography>
-								<ul style={{ listStyle: 'none' }}>
-									{travelInfoLinks.map((item) => {
-										return (
-											<li key={item.id}>
-												<Typography
-													className={classes.url}>
-													<Link href={item.url}>
-														<a target={item.target}>
-															<FontAwesomeIcon
-																style={{
-																	marginRight:
-																		'1rem',
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={
-																	faArrowAltCircleRight
-																}
-															/>
-															{item.title}
-														</a>
-													</Link>
-												</Typography>
-											</li>
-										);
-									})}
-								</ul>
+							<Card elevation={3} className={classes.carte}>
+								<div className={classes.listHeader}>
+									<Typography variant='h5' component='h1'>
+										{' '}
+										Travel or live abroad{' '}
+									</Typography>
+									<Typography variant='h6'>
+										Here you will find:
+									</Typography>
+								</div>
+								{travelInfoLinks.map((item) => {
+									return (
+										<div
+											className={classes.listContainer}
+											key={item.id}>
+											<Typography  className={classes.url}>
+												<Link href={item.url}>
+													<a target={item.target}>
+														<FontAwesomeIcon
+															style={{
+																marginRight: '1rem',
+																height: '15px',
+																width: '15px',
+															}}
+															icon={
+																faArrowAltCircleRight
+															}
+														/>
+														{item.title}
+													</a>
+												</Link>
+											</Typography>
+										</div>
+									);
+								})}
 							</Card>
 						</Grid>
 						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography variant='h6'>
+							<Card elevation={3} className={classes.carte}>
+								<div className={classes.listHeader}>
 									{' '}
-									Going to Djibouti?
-								</Typography>
-								<Typography variant='body1'>
-									Visas and immigration
-								</Typography>
-								<ul style={{ listStyle: 'none' }}>
-									{forForeignersLinks.map((item) => {
-										return (
-											<li key={item.id}>
-												<Typography
-													className={classes.url}>
-													<Link href={item.url}>
-														<a target={item.target}>
-															<FontAwesomeIcon
-																style={{
-																	marginRight:
-																		'1rem',
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={
-																	faArrowAltCircleRight
-																}
-															/>
-															{item.title}
-														</a>
-													</Link>
-												</Typography>
-											</li>
-										);
-									})}
-								</ul>
+									<Typography variant='h5'>
+										{' '}
+										Going to Djibouti?
+									</Typography>
+									<Typography variant='h6'>
+										Visas and immigration
+									</Typography>
+								</div>
+								{forForeignersLinks.map((item) => {
+									return (
+										<div
+											className={classes.listContainer}
+											key={item.id}>
+											<Typography className={classes.url}>
+												<Link href={item.url}>
+													<a target={item.target}>
+														<FontAwesomeIcon
+															style={{
+																marginRight: '1rem',
+																height: '15px',
+																width: '15px',
+															}}
+															icon={
+																faArrowAltCircleRight
+															}
+														/>
+														{item.title}
+													</a>
+												</Link>
+											</Typography>
+										</div>
+									);
+								})}
 							</Card>
 						</Grid>
 					</Grid>
@@ -348,13 +358,21 @@ export default function Home() {
 						/>{' '}
 						Information{' '}
 					</Typography>
-					<Card elevation={2} style={{ padding: '3rem' }}>
+					<Card
+						elevation={2}
+						style={{
+							padding: '3rem',
+							width: '90%',
+							margin: '0 auto',
+						}}>
 						<Typography variant='h5'>
 							Information about the Ministry of Foreign
 							Affairs' advice due to covid-19
 						</Typography>
 						<br />
-						<Typography variant='body1'>
+						<Typography
+							variant='body1'
+							style={{ paddingRight: '1rem' }}>
 							The Ministry of Foreign Affairs advises against
 							unnecessary travel to all countries . The
 							Ministry of Foreign Affairs has, through previous

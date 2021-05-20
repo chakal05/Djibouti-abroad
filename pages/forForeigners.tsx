@@ -34,12 +34,12 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		titleContainer: {
 			width: '100%',
-			paddingTop: '3rem',
+			paddingTop: '1rem',
 			paddingLeft: '1rem',
 			paddingRight: '1rem',
 
 			[theme.breakpoints.up(1100)]: {
-				paddingTop: '5rem',
+				paddingTop: '4rem',
 			},
 
 			[theme.breakpoints.up(651)]: {
@@ -50,22 +50,23 @@ const useStyles = makeStyles((theme: Theme) =>
 
 		imgContainer: {
 			width: '50%',
-			[theme.breakpoints.up(651)]: {
+			[theme.breakpoints.up(650)]: {
 				width: '250px',
 				position: 'absolute',
 				right: '3rem',
-				top: '25%',
+				top: '17%',
 			},
 			[theme.breakpoints.up(900)]: {
 				top: '20%',
 			},
 
 			[theme.breakpoints.up(1100)]: {
-				width: '500px',
+				width: '400px',
 				position: 'relative',
 				right: '0',
 				left: '0',
 				top: '0',
+				border: 'none',
 			},
 		},
 

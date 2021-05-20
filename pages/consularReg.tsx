@@ -18,9 +18,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		topColorGreen: {
 			backgroundColor: '#edf4ed',
 			padding: '3rem',
-			borderTopLeftRadius: '1rem',
-			borderTopRightRadius: '1rem',
+			// borderTopLeftRadius: '1rem',
+			// borderTopRightRadius: '1rem',
 			borderBottomLeftRadius: '1rem',
+			borderBottomRightRadius: '1rem',
 			// [theme.breakpoints.down(650)]: {
 			// 	marginBottom: '-9rem',
 			// 	paddingTop: '2rem',
@@ -133,10 +134,22 @@ const useStyles = makeStyles((theme: Theme) =>
 			margin: '1rem 0',
 		},
 
+		btnContainer: {
+			textAlign: 'center',
+			height: '70px',
+            paddingTop:'1rem',
+		},
+
 		btn: {
-			width: '100%',
+			width: '80%',
 			backgroundColor: '#234924',
 			color: '#fff',
+			'&:hover': {
+				backgroundColor: '#fff',
+				color: '#234924',
+				fontWeight: 'bold',
+				border: '2px solid #234924',
+			},
 		},
 
 		show: {
@@ -160,9 +173,8 @@ export default function ConsularRegistration() {
 	const [partnerFirstName, setPartnerFirstName] = React.useState('');
 	const [partnerTel, setpartnerTel] = React.useState('');
 	const [partnerEmail, setPartnerEmail] = React.useState('');
-	const [partnerCitizenship, setPartnerCitizenship] = React.useState(
-		''
-	);
+	const [partnerCitizenship, setPartnerCitizenship] =
+		React.useState('');
 	const [kidName, setKidName] = React.useState('');
 	const [kidFirstName, setKidFirstName] = React.useState('');
 	const [kidCitizenship, setKidCitizenship] = React.useState('');
@@ -186,12 +198,7 @@ export default function ConsularRegistration() {
 						</Typography>
 					</Grid>
 					<Grid item className={classes.titleContainer}>
-						<div style={{ marginBottom: '1rem' }}>
-							{' '}
-							<Typography variant='h4' gutterBottom>
-								Text de presentation
-							</Typography>
-						</div>
+						
 						<Typography
 							gutterBottom
 							variant='h6'
@@ -279,6 +286,7 @@ export default function ConsularRegistration() {
 											kidName,
 											kidFirstName,
 											kidCitizenship,
+											flag: 'Register',
 										};
 										if (payload.country) {
 											await fetch('/api/user', {
@@ -302,25 +310,23 @@ export default function ConsularRegistration() {
 												body: JSON.stringify({
 													identifier: identifier,
 													pass: pass,
+													flag: 'Retrieve',
 												}),
 											}).then(async (response) => {
 												let data = await response.json();
 												let accessToken = data;
-                                                
-                                                
-                                                
-                                                
+
 												if (response.status === 200) {
 													localStorage.setItem(
 														'accessToken',
-														JSON.stringify(
-														accessToken
-														)
+														JSON.stringify(accessToken)
 													);
 
 													router.push({
 														pathname: '/userInfo/[id]',
-														query: {id: accessToken._id},
+														query: {
+															id: accessToken._id,
+														},
 													});
 												}
 											});
@@ -426,7 +432,9 @@ export default function ConsularRegistration() {
 												}
 											/>
 										</div>
-										<div className={classes.gridSpace}>
+										<div
+											className={classes.gridSpace}
+											style={{ marginBottom: '2rem' }}>
 											<div className={classes.titleSpace}>
 												<Typography variant='h6'>
 													{' '}
@@ -466,22 +474,34 @@ export default function ConsularRegistration() {
 											/>
 										</div>
 
-										<div
-											style={{
-												margin: '2rem 0',
-											}}>
-											<Button
-												size='large'
-												onClick={() => {
-													document.getElementById(
-														'show'
-													).style.display = 'block';
-												}}
-												className={classes.btn}
-												variant='outlined'>
-												{' '}
-												Add accompanying partner{' '}
-											</Button>
+										<div>
+											<div
+												className={classes.btnContainer}>
+												<Button
+													size='large'
+													onClick={() => {
+														if (
+															document.getElementById(
+																'show'
+															).style.display ===
+															'block'
+														) {
+															document.getElementById(
+																'show'
+															).style.display = 'none';
+														} else {
+															document.getElementById(
+																'show'
+															).style.display =
+																'block';
+														}
+													}}
+													className={classes.btn}
+													variant='outlined'>
+													{' '}
+													Add accompanying partner{' '}
+												</Button>
+											</div>
 											<div
 												className={classes.show}
 												id='show'>
@@ -580,18 +600,33 @@ export default function ConsularRegistration() {
 											</div>
 										</div>
 										<div>
-											<Button
-												size='large'
-												onClick={() => {
-													document.getElementById(
-														'show2'
-													).style.display = 'block';
-												}}
-												className={classes.btn}
-												variant='outlined'>
-												{' '}
-												Add accompanying child{' '}
-											</Button>
+											<div
+												className={classes.btnContainer}>
+												<Button
+													size='large'
+													onClick={() => {
+                                                        if (
+															document.getElementById(
+																'show2'
+															).style.display ===
+															'block'
+														) {
+															document.getElementById(
+																'show2'
+															).style.display = 'none';
+														} else {
+															document.getElementById(
+																'show2'
+															).style.display =
+																'block';
+														}
+													}}
+													className={classes.btn}
+													variant='outlined'>
+													{' '}
+													Add accompanying child{' '}
+												</Button>
+											</div>
 											<div
 												className={classes.show}
 												id='show2'>
@@ -648,14 +683,13 @@ export default function ConsularRegistration() {
 													/>
 												</Grid>
 											</div>
-											<div>
+											<div
+												className={classes.btnContainer}>
 												<Button
 													type='submit'
 													className={classes.btn}
 													size='large'
-													style={{
-														marginTop: '1rem',
-													}}
+													
 													variant='outlined'>
 													{' '}
 													Submit
@@ -692,14 +726,13 @@ export default function ConsularRegistration() {
 												setPass(e.target.value)
 											}
 										/>
-										<div>
+
+										<div className={classes.btnContainer}>
 											<Button
 												type='submit'
 												className={classes.btn}
 												size='large'
-												style={{
-													marginTop: '1rem',
-												}}
+											
 												variant='outlined'>
 												{' '}
 												Submit

@@ -128,7 +128,7 @@ function userInfo({ user }) {
 
 	const classes = useStyles();
 	const router = useRouter();
-	const userId = router.query.id;
+	//	const userId = router.query.id;
 	const userInfo = JSON.parse(localStorage.getItem('accessToken'));
 	let { name, firstName } = userInfo;
 
@@ -162,7 +162,7 @@ function userInfo({ user }) {
 								variant='contained'
 								onClick={() => {
 									localStorage.removeItem('accessToken');
-									router.push('/');
+									router.push('/consularReg');
 								}}>
 								{' '}
 								Logout{' '}
