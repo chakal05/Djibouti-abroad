@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		btnContainer: {
 			textAlign: 'center',
 			height: '70px',
-            paddingTop:'1rem',
+			paddingTop: '1rem',
 		},
 
 		btn: {
@@ -180,7 +180,7 @@ export default function ConsularRegistration() {
 	const [kidCitizenship, setKidCitizenship] = React.useState('');
 	const [identifier, setIdentifier] = React.useState('');
 	const [pass, setPass] = React.useState('');
-
+	const [errorMessage, setError] = React.useState('');
 	const classes = useStyles();
 	const router = useRouter();
 	return (
@@ -198,7 +198,6 @@ export default function ConsularRegistration() {
 						</Typography>
 					</Grid>
 					<Grid item className={classes.titleContainer}>
-						
 						<Typography
 							gutterBottom
 							variant='h6'
@@ -313,13 +312,14 @@ export default function ConsularRegistration() {
 													flag: 'Retrieve',
 												}),
 											}).then(async (response) => {
-												let data = await response.json();
-												let accessToken = data;
-
 												if (response.status === 200) {
+					 								let data =
+														await response.json();
+													let accessToken = data;
+
 													localStorage.setItem(
 														'accessToken',
-														JSON.stringify(accessToken)
+								 						JSON.stringify(accessToken)
 													);
 
 													router.push({
@@ -328,6 +328,10 @@ export default function ConsularRegistration() {
 															id: accessToken._id,
 														},
 													});
+												}
+
+												if (response.status !== 200) {
+													setError('User not found ');
 												}
 											});
 										}
@@ -605,7 +609,7 @@ export default function ConsularRegistration() {
 												<Button
 													size='large'
 													onClick={() => {
-                                                        if (
+														if (
 															document.getElementById(
 																'show2'
 															).style.display ===
@@ -689,7 +693,6 @@ export default function ConsularRegistration() {
 													type='submit'
 													className={classes.btn}
 													size='large'
-													
 													variant='outlined'>
 													{' '}
 													Submit
@@ -727,12 +730,20 @@ export default function ConsularRegistration() {
 											}
 										/>
 
+										<div style={{ textAlign: 'center', marginTop:'1rem' }}>
+											<Typography
+												color='secondary'
+												variant='h6'>
+												{' '}
+												{errorMessage}{' '}
+											</Typography>
+										</div>
+
 										<div className={classes.btnContainer}>
 											<Button
 												type='submit'
 												className={classes.btn}
 												size='large'
-											
 												variant='outlined'>
 												{' '}
 												Submit

@@ -6,6 +6,7 @@ const handler = async (req, res) => {
 	if (req.method === 'POST') {
 		// Check if name, email or password is provided
 		const {
+			id,
 			name,
 			firstName,
 			email,
@@ -88,6 +89,25 @@ const handler = async (req, res) => {
 								res.status(200).send(docs[0]);
 							} else if (docs.length === 0)
 								res.status(422).send('User not found');
+						}
+					);
+				} catch (error) {
+					return res.status(500).send(error.message);
+				}
+			}
+		}
+
+		if (flag === 'delete') {
+			if (id) {
+				try {
+					var user = new User({});
+					await User.deleteOne(
+						{
+							_id: id,
+						},
+						function (err) {
+							if (err) res.send(err);
+							else res.send('Deleted user');
 						}
 					);
 				} catch (error) {

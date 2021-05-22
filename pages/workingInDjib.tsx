@@ -92,7 +92,7 @@ export default function workingInDjib() {
 							<Typography variant='h6'>Article 24:</Typography>
 							<Typography variant='body1'>
 								Any foreigner may exercise a salaried activity
-								under a fixed-term employment contract,
+		 						under a fixed-term employment contract,
 								subject to the provisions below.
 							</Typography>
 							<br />

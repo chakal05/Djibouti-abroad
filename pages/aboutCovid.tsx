@@ -161,6 +161,7 @@ export default function AboutCovid() {
 				</Grid>
 
 				<Grid item xs={12} className={classes.imgContainer}>
+                
 					<Typography
 						variant='h5'
 						style={{
@@ -189,7 +190,7 @@ export default function AboutCovid() {
 					<br />
 					<Typography variant='h6'>
 						Entry to Djibouti:
-					</Typography>
+		 			</Typography>
 					<Typography variant='body1'>
 						Passengers who started their journeys or transited
 						South Africa, India or Brazil will not be allowed to

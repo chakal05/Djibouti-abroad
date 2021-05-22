@@ -101,9 +101,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			marginBottom: '1rem',
 		},
 
-        listContainer:{
-            paddingLeft:'1rem'
-        },
+		listContainer: {
+			paddingLeft: '1rem',
+		},
 
 		btn: {
 			margin: '1rem',
@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			width: '15px',
 		},
 		url: {
-            margin:'.3rem 0',
+			margin: '.3rem 0',
 			' &:hover': {
 				fontWeight: 'bold',
 			},
@@ -128,21 +128,30 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const travelInfoLinks = [
 	{
-		id: '2',
+		id: 2,
 		title: 'Travel information',
-		url: '/foreignPol',
+		lien: {
+			pathname: `/data/[template]`,
+			query: { template: `travelInfo` },
+		},
 		target: '',
 	},
 	{
-		id: '3',
+		id: 3,
 		title: 'Help for Djibouti nationals',
-		url: '/forDjiboutian',
+		lien: {
+			pathname: `/forDjiboutian`,
+			query: '',
+		},
 		target: '',
 	},
 	{
-		id: '1',
+		id: 1,
 		title: 'About the Coronavirus',
-		url: '/aboutCovid',
+		lien: {
+			pathname: `/data/[template]`,
+			query: { template: `aboutCovid` },
+		},
 		target: '',
 	},
 ];
@@ -274,8 +283,18 @@ export default function Home() {
 										<div
 											className={classes.listContainer}
 											key={item.id}>
-											<Typography  className={classes.url}>
-												<Link href={item.url}>
+											<Typography className={classes.url}>
+												<Link
+													href={{
+														pathname:
+															item.lien.pathname,
+														query: {
+															template:
+																item.lien.query[
+																	'template'
+																],
+														},
+													}}>
 													<a target={item.target}>
 														<FontAwesomeIcon
 															style={{
