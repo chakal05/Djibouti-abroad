@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			fontWeight: 'bold',
 		},
 		toolbarSecondary: {
-            height: '70px',
+			height: '70px',
 			display: 'flex',
 			justifyContent: 'center',
 			overflowX: 'auto',
@@ -69,20 +69,24 @@ export default function Header() {
 
 		{
 			id: 2,
-			url: '/forDjiboutian',
+			url: '/forCitizens/',
 			title: 'For citizens',
 		},
 		{
 			id: 3,
-			url: '/forForeigners',
+			url: '/forForeigners/',
 			title: 'For non-citizens',
 		},
 
-		{ id: 1, url: '/consularReg', title: 'Consular registration' },
+		{
+			id: 1,
+			url: '/forCitizens/consularReg',
+			title: 'Consular registration',
+		},
 
 		{
 			id: 4,
-			url: '/countryInfo',
+			url: '/forCitizens/countryInfo',
 			title: 'Embassies and consulates',
 		},
 	];

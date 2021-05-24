@@ -6,7 +6,7 @@ import {
 	makeStyles,
 } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
-import { data } from '../../util/pagesInfo';
+import { data } from '../../util/foreignersTempInfo';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({

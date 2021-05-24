@@ -5,8 +5,8 @@ import {
 	createStyles,
 	Theme,
 } from '@material-ui/core/styles';
-import { countriesInfo } from '../components/countriesData';
-import Countries from '../components/countries';
+import { countriesInfo } from '../../components/countriesData';
+import Countries from '../../components/countries';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({

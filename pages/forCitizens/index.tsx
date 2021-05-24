@@ -21,7 +21,7 @@ import {
 	faArrowAltCircleRight,
 	faArrowCircleDown,
 } from '@fortawesome/free-solid-svg-icons';
-import Countries from '../components/countries';
+import Countries from '../../components/countries';
 import Link from 'next/link';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -84,24 +84,31 @@ const useStyles = makeStyles((theme: Theme) =>
 
 		carteContainer: {
 			padding: '1rem',
-			[theme.breakpoints.down(650)]: {
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				width: '100%',
-			},
 		},
 
 		carte: {
 			padding: '1rem',
-			height: '200px',
-			width: '400px',
-			margin: '1rem',
+			height: '250px',
+			width: '80%',
+			margin: '0 auto',
+			[theme.breakpoints.down(650)]: {
+				width: '100%',
+				marginBottom: '1rem',
+			},
 		},
 		url: {
 			' &:hover': {
 				fontWeight: 'bold',
 			},
+		},
+		carteTitle: {
+			marginBottom: '.3rem',
+			fontWeight: 'bold',
+		},
+
+		carteSecTitle: {
+			marginBottom: '1rem',
+			fontWeight: 'bold',
 		},
 	})
 );
@@ -164,12 +171,14 @@ const travelInfoLinks = [
 	{ id: '4', title: 'Terrorism and tourism', url: '/foreignPol' },
 	{ id: '5', title: 'If something happens', url: '/foreignPol' },
 ];
+
 const helpInfoLinks = [
-	{ id: '1', title: 'Consular registration', url: '#' },
-	{ id: '2', title: 'Passports', url: '#' },
-	{ id: '3', title: 'Civil status documents', url: '#' },
-	{ id: '4', title: 'Legislations', url: '#' },
-	{ id: '5', title: 'Students', url: '#' },
+	{ id: '6', title: 'Consular reg', url: '#' },
+	{ id: '7', title: 'Passports', url: '#' },
+
+	{ id: '8', title: 'Civil status documents', url: '#' },
+	{ id: '9', title: 'Legislations', url: '#' },
+	{ id: '10', title: 'Students', url: '#' },
 ];
 
 export default function forDjiboutian() {
@@ -223,7 +232,10 @@ export default function forDjiboutian() {
 				<Container maxWidth='lg'>
 					<Typography
 						variant='h5'
-						style={{ marginBottom: '2rem' }}>
+						style={{
+							marginBottom: '2rem',
+							fontWeight: 'bold',
+						}}>
 						Frequently asked questions
 					</Typography>
 					<div style={{ width: '80%', margin: '0 auto' }}>
@@ -276,93 +288,124 @@ export default function forDjiboutian() {
 			<Container
 				maxWidth='lg'
 				style={{ marginTop: '5rem', marginBottom: '3rem' }}>
-				<Grid
-					container
-					justify='center'
-					className={classes.carteContainer}>
+				<div>
 					<Grid item xs={12}>
 						<Typography
 							variant='h5'
-							style={{ marginBottom: '2rem' }}>
+							style={{
+								marginBottom: '2rem',
+								fontWeight: 'bold',
+							}}>
 							Information for Djibouti nationals
 						</Typography>
 					</Grid>
-					<Grid item>
-						<Card className={classes.carte}>
-							<Typography
-								variant='h6'
-								style={{ marginBottom: '1rem' }}>
-								{' '}
-								Travel information
-							</Typography>
-							<ul style={{ listStyle: 'none' }}>
+					<Grid container justify='center'>
+						<Grid item className={classes.carteContainer}>
+							<Card className={classes.carte}>
+								<Typography
+									variant='h5'
+									className={classes.carteTitle}>
+									{' '}
+									Travel information
+								</Typography>
+								<Typography
+									variant='body1'
+									className={classes.carteSecTitle}>
+									Here is important information before and
+									during your stay abroad.
+								</Typography>
 								{travelInfoLinks.map((item) => {
 									return (
-										<li key={item.id}>
-											<Typography className={classes.url}>
-												<Link href={item.url}>
-													<a>
-														<FontAwesomeIcon
-															style={{
-																marginRight: '1rem',
-																height: '15px',
-																width: '15px',
-															}}
-															icon={
-																faArrowAltCircleRight
-															}
-														/>
-														{item.title}
-													</a>
-												</Link>
-											</Typography>
-										</li>
+										<div key={item.id}>
+											<Link href={item.url}>
+												<a>
+													<Typography
+														variant='body1'
+														className={classes.url}>
+														<Grid container>
+															<Grid item xs={9}>
+																{item.title}
+															</Grid>
+															<Grid
+																item
+																xs={3}
+																style={{
+																	textAlign: 'right',
+																}}>
+																<FontAwesomeIcon
+																	style={{
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+															</Grid>
+														</Grid>
+													</Typography>
+												</a>
+											</Link>
+										</div>
 									);
 								})}
-							</ul>
-						</Card>
-					</Grid>
-					<Grid item>
-						<Card
-							className={classes.carte}
-							style={
-								{
-									// padding: '1rem',
-									// height: '300px',
-								}
-							}>
-							<Typography variant='h6' component='h1'>
-								{' '}
-								Help for djiboutians abroad
-							</Typography>
-							<ul style={{ listStyle: 'none' }}>
+							</Card>
+						</Grid>
+						<Grid item className={classes.carteContainer}>
+							<Card className={classes.carte}>
+								<Typography
+									variant='h5'
+									className={classes.carteTitle}>
+									{' '}
+									Travel information
+								</Typography>
+								<Typography
+									variant='body1'
+									className={classes.carteSecTitle}>
+									Here is important information before and
+									during your stay abroad.
+								</Typography>
 								{helpInfoLinks.map((item) => {
 									return (
-										<li key={item.id}>
-											<Typography>
-												<Link href={item.url}>
-													<a>
-														<FontAwesomeIcon
-															style={{
-																marginRight: '1rem',
-																height: '15px',
-																width: '15px',
-															}}
-															icon={
-																faArrowAltCircleRight
-															}
-														/>
-														{item.title}
-													</a>
-												</Link>
-											</Typography>
-										</li>
+										<div key={item.id}>
+											<Link href={item.url}>
+												<a>
+													<Typography
+														variant='body1'
+														className={classes.url}>
+														<Grid container>
+															<Grid item xs={9}>
+																{item.title}
+															</Grid>
+															<Grid
+																item
+																xs={3}
+																style={{
+																	textAlign: 'right',
+																}}>
+																<FontAwesomeIcon
+																	style={{
+																		marginRight:
+																			'0',
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+															</Grid>
+														</Grid>
+													</Typography>
+												</a>
+											</Link>
+										</div>
 									);
 								})}
-							</ul>
-						</Card>
+							</Card>
+						</Grid>
 					</Grid>
-				</Grid>
+				</div>
 			</Container>
 		</>
 	);

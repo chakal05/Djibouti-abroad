@@ -92,9 +92,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 
 		carte: {
-			padding: '3rem 2rem',
-			height: '300px',
-			width: '350px',
+			padding: '2rem 2rem',
+			height: '350px',
+			width: '370px',
 		},
 
 		listHeader: {
@@ -107,9 +107,28 @@ const useStyles = makeStyles((theme: Theme) =>
 
 		btn: {
 			margin: '1rem',
+			backgroundColor: '#234924',
 			color: '#fff',
+			'&:hover': {
+				backgroundColor: '#fff',
+				color: '#234924',
+			},
+		},
+
+		btnWhite: {
+			backgroundColor: '#fff',
+			color: '#234924',
 			width: '180px',
 			height: '70px',
+			'&:hover': {
+				backgroundColor: '#234924',
+				color: '#fff',
+			},
+		},
+
+		carteBtn: {
+			textAlign: 'center',
+			marginTop: '2rem ',
 		},
 
 		icon: {
@@ -123,25 +142,34 @@ const useStyles = makeStyles((theme: Theme) =>
 				fontWeight: 'bold',
 			},
 		},
+		carteTitle: {
+			marginBottom: '1rem',
+			fontWeight: 'bold',
+		},
+
+		carteSecTitle: {
+			marginBottom: '1rem',
+			fontWeight: 'bold',
+		},
 	})
 );
 
 const travelInfoLinks = [
 	{
 		id: 2,
-		title: 'Travel information',
+		title: 'Travel documents',
 		lien: {
-			pathname: `/data/[template]`,
-			query: { template: `travelInfo` },
+			pathname: `/forCitizens/[template]`,
+			query: { template: `travelDocuments` },
 		},
 		target: '',
 	},
 	{
 		id: 3,
-		title: 'Help for Djibouti nationals',
+		title: 'For Djibouti nationals abroad',
 		lien: {
-			pathname: `/forDjiboutian`,
-			query: '',
+			pathname: `/forCitizens/[template]`,
+			query: { template: `ifSomethingHappens` },
 		},
 		target: '',
 	},
@@ -149,7 +177,7 @@ const travelInfoLinks = [
 		id: 1,
 		title: 'About the Coronavirus',
 		lien: {
-			pathname: `/data/[template]`,
+			pathname: `/forCitizens/[template]`,
 			query: { template: `aboutCovid` },
 		},
 		target: '',
@@ -165,13 +193,15 @@ const forForeignersLinks = [
 	{
 		id: '3',
 		title: 'Investing in Djibouti',
-		url: '/investInDjib',
+		url: '/forForeigners/investInDjib',
 		target: '',
 	},
 	{
 		id: '1',
 		title: 'Working in Djibouti',
-		url: '/workingInDjib',
+		url: `/forForeigners/${encodeURIComponent(
+			'workingInDjibouti'
+		)}`,
 		target: '',
 	},
 ];
@@ -207,12 +237,13 @@ export default function Home() {
 								textAlign: 'center',
 								marginTop: '3rem',
 							}}>
-							<Link href='/forDjiboutian'>
+							<Link href='/forCitizens'>
 								<Button
 									className={classes.btn}
 									variant='contained'
 									style={{
-										backgroundColor: '#234924',
+										width: '180px',
+										height: '70px',
 									}}>
 									{' '}
 									For Djibouti nationals{' '}
@@ -220,12 +251,8 @@ export default function Home() {
 							</Link>
 							<Link href='/forForeigners'>
 								<Button
-									className={classes.btn}
 									variant='contained'
-									style={{
-										backgroundColor: '#fff',
-										color: '#234924',
-									}}>
+									className={classes.btnWhite}>
 									{' '}
 									For foreigners{' '}
 								</Button>
@@ -252,106 +279,145 @@ export default function Home() {
 						<Grid item xs={12}>
 							<Typography
 								variant='h5'
-								style={{ margin: '2rem 0' }}>
+								style={{
+									margin: '2rem 0',
+									fontWeight: 'bold',
+								}}>
 								{' '}
-								<FontAwesomeIcon
-									style={{
-										height: '40px',
-										width: '40px',
-										marginRight: '1rem',
-										position: 'relative',
-										top: '.7rem',
-									}}
-									icon={faQuestionCircle}
-								/>
 								Some of our services{' '}
 							</Typography>
 						</Grid>
 						<Grid item className={classes.carteContainer}>
-							<Card elevation={3} className={classes.carte}>
-								<div className={classes.listHeader}>
-									<Typography variant='h5' component='h1'>
-										{' '}
-										Travel or live abroad{' '}
-									</Typography>
-									<Typography variant='h6'>
-										Here you will find:
-									</Typography>
-								</div>
+							<Card className={classes.carte}>
+								<Typography
+									variant='h5'
+									className={classes.carteTitle}>
+									{' '}
+									Travelling abroad ?
+								</Typography>
+								<Typography
+									variant='body1'
+									className={classes.carteSecTitle}>
+									Here is important information before and
+									during your stay abroad.
+								</Typography>
 								{travelInfoLinks.map((item) => {
 									return (
-										<div
-											className={classes.listContainer}
-											key={item.id}>
-											<Typography className={classes.url}>
-												<Link
-													href={{
-														pathname:
-															item.lien.pathname,
-														query: {
-															template:
-																item.lien.query[
-																	'template'
-																],
-														},
-													}}>
-													<a target={item.target}>
-														<FontAwesomeIcon
-															style={{
-																marginRight: '1rem',
-																height: '15px',
-																width: '15px',
-															}}
-															icon={
-																faArrowAltCircleRight
-															}
-														/>
-														{item.title}
-													</a>
-												</Link>
-											</Typography>
+										<div key={item.id}>
+											<Link
+												href={{
+													pathname: item.lien.pathname,
+													query: {
+														template:
+															item.lien.query[
+																'template'
+															],
+													},
+												}}>
+												<a>
+													<Typography
+														variant='body1'
+														className={classes.url}>
+														<Grid container>
+															<Grid item xs={9}>
+																{item.title}
+															</Grid>
+															<Grid
+																item
+																xs={3}
+																style={{
+																	textAlign: 'right',
+																}}>
+																<FontAwesomeIcon
+																	style={{
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+															</Grid>
+														</Grid>
+													</Typography>
+												</a>
+											</Link>
 										</div>
 									);
 								})}
+								<div className={classes.carteBtn}>
+									<Link href='/forCitizens'>
+										<Button
+											size='large'
+											className={classes.btn}
+											variant='contained'>
+											{' '}
+											Read more
+										</Button>
+									</Link>
+								</div>
 							</Card>
 						</Grid>
 						<Grid item className={classes.carteContainer}>
-							<Card elevation={3} className={classes.carte}>
-								<div className={classes.listHeader}>
+							<Card className={classes.carte}>
+								<Typography
+									variant='h5'
+									className={classes.carteTitle}>
 									{' '}
-									<Typography variant='h5'>
-										{' '}
-										Going to Djibouti?
-									</Typography>
-									<Typography variant='h6'>
-										Visas and immigration
-									</Typography>
-								</div>
+									Going to Djibouti ?
+								</Typography>
+								<Typography
+									variant='body1'
+									className={classes.carteSecTitle}>
+									Here you will find information about visas
+									and immigration.
+								</Typography>
 								{forForeignersLinks.map((item) => {
 									return (
-										<div
-											className={classes.listContainer}
-											key={item.id}>
-											<Typography className={classes.url}>
-												<Link href={item.url}>
-													<a target={item.target}>
-														<FontAwesomeIcon
-															style={{
-																marginRight: '1rem',
-																height: '15px',
-																width: '15px',
-															}}
-															icon={
-																faArrowAltCircleRight
-															}
-														/>
-														{item.title}
-													</a>
-												</Link>
-											</Typography>
+										<div key={item.id}>
+											<Link href={item.url}>
+												<a>
+													<Typography
+														variant='body1'
+														className={classes.url}>
+														<Grid container>
+															<Grid item xs={9}>
+																{item.title}
+															</Grid>
+															<Grid
+																item
+																xs={3}
+																style={{
+																	textAlign: 'right',
+																}}>
+																<FontAwesomeIcon
+																	style={{
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+															</Grid>
+														</Grid>
+													</Typography>
+												</a>
+											</Link>
 										</div>
 									);
 								})}
+								<div className={classes.carteBtn}>
+									<Link href='/forCitizens'>
+										<Button
+											size='large'
+											className={classes.btn}
+											variant='contained'>
+											{' '}
+											Read more
+										</Button>
+									</Link>
+								</div>
 							</Card>
 						</Grid>
 					</Grid>
@@ -364,17 +430,8 @@ export default function Home() {
 						style={{
 							marginTop: '5rem ',
 							marginBottom: '3rem',
+							fontWeight: 'bold',
 						}}>
-						<FontAwesomeIcon
-							style={{
-								height: '40px',
-								width: '40px',
-								marginRight: '1rem',
-								position: 'relative',
-								top: '.5rem',
-							}}
-							icon={faInfo}
-						/>{' '}
 						Information{' '}
 					</Typography>
 					<Card
@@ -398,14 +455,13 @@ export default function Home() {
 							decisions, repealed advised against unnecessary
 							travel to most countries.
 						</Typography>{' '}
-						<Link href='/aboutCovid'>
+						<Link
+							href={`/forForeigners/${encodeURIComponent(
+								'aboutCovid'
+							)}`}>
 							<Button
 								size='large'
-								style={{
-									backgroundColor: '#234924',
-									color: '#fff',
-									marginTop: '2rem',
-								}}
+								className={classes.btn}
 								variant='contained'>
 								{' '}
 								Read more
@@ -420,7 +476,6 @@ export default function Home() {
 					paddingTop: '6rem ',
 					paddingBottom: '7rem',
 					backgroundColor: '#edf4ed',
-					textAlign: 'center',
 					paddingLeft: '2rem',
 					paddingRight: '2rem',
 				}}>
@@ -435,6 +490,7 @@ export default function Home() {
 								variant='h5'
 								style={{
 									marginBottom: '2rem',
+									fontWeight: 'bold',
 								}}>
 								{' '}
 								Embassies and Consulates General

@@ -24,7 +24,7 @@ export default function Countries() {
 			countries.includes(event.target.value)
 		)
 			router.push({
-				pathname: '/countryInfo',
+				pathname: '/forCitizens/countryInfo',
 				query: { country: event.target.value },
 			});
 	};
