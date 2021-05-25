@@ -11,18 +11,20 @@ import {
 	Accordion,
 	AccordionSummary,
 	AccordionDetails,
-	Card,
-	Button,
+	
 } from '@material-ui/core';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-	faChevronDown,
-	faArrowAltCircleRight,
 	faArrowCircleDown,
 } from '@fortawesome/free-solid-svg-icons';
-import Countries from '../../components/countries';
 import Link from 'next/link';
+import Countries from '../../components/countries';
+import PagesInfo from '../../components/templateFooter';
+import {
+	helpInfoLinks,
+	travelInfoLinks,
+} from '../../util/forCitizensTemplateLinks';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -44,7 +46,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 			[theme.breakpoints.up(651)]: {
 				width: '50%',
-				//paddingTop: '2rem',
 			},
 		},
 
@@ -81,35 +82,6 @@ const useStyles = makeStyles((theme: Theme) =>
 				top: '50%',
 			},
 		},
-
-		carteContainer: {
-			padding: '1rem',
-		},
-
-		carte: {
-			padding: '1rem',
-			height: '250px',
-			width: '80%',
-			margin: '0 auto',
-			[theme.breakpoints.down(650)]: {
-				width: '100%',
-				marginBottom: '1rem',
-			},
-		},
-		url: {
-			' &:hover': {
-				fontWeight: 'bold',
-			},
-		},
-		carteTitle: {
-			marginBottom: '.3rem',
-			fontWeight: 'bold',
-		},
-
-		carteSecTitle: {
-			marginBottom: '1rem',
-			fontWeight: 'bold',
-		},
 	})
 );
 
@@ -117,76 +89,62 @@ const questions = [
 	{
 		id: 1,
 		title: '	Did you loose your passport ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		description: `If you have to travel immediately, it is possible 
+        to apply for a  passport at a Djiboutian embassy and certain 
+        consulates during regular opening hours.
+        Select the nearest Djiboutian embassy for contact information
+        , opening hours above. Your passport and national ID card are a valuable
+        document, if it has been stolen, you must make a police report in the country
+        you are in. Bring a copy of the report to the embassy or consulate.
+        It is important that you contact the country's responsible authority or embassy for more information.`,
 	},
 	{
 		id: 2,
 		title: '	Did your passport expire ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		description: `A Djiboutian citizen living abroad can apply for a new passport 
+        or ID card in various ways:
+        At the Djiboutian foreign service
+        Applications for a new passport can be made at most Djiboutian foreign authorities.
+      `,
 	},
 	{
 		id: 3,
 		title: '	Do you have questions about visa?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		description: `Djiboutian embassies and the Ministry for Foreign Affairs are not responsible for other countries
+        entry regulations or any visa requirements. Keep in mind that entry and exit rules can be changed
+        with short notice.
+       Check the current entry regulations with the authorities of the country you are traveling to or
+        the country's nearest embassy.`,
 	},
 	{
 		id: 4,
 		title: 'Which countries to avoid due to Coronavirus ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		description: `Information on which countries and areas the Ministry of Foreign Affairs advises against can be found here on the website.
+        For information on current events and the embassies' general travel information, see here: The embassy's travel information
+        When the Ministry of Foreign Affairs advises against travel, it should be seen as a signal for a serious security situation 
+        and that one should carefully consider one's decision to travel. The reasons for a dissuasion may be, for example, political 
+        unrest, violence, specific threats or the risk of a serious spread of infection. The Ministry of Foreign Affairs can also 
+        advise against travel due to the consequences of a natural disaster. A dissuasion can also mean that there are very limited 
+        opportunities for the Ministry of Foreign Affairs / Embassy to help Djiboutian travelers on the ground, for example if there is 
+        a war or a war-like situation. `,
 	},
 	{
 		id: 5,
 		title: '	Will you travel with a child ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		description: `In cases where you are traveling with a minor child, a certificate may be required of the other parent's / guardian's 
+        consent to the trip. If another relative / person travels with the child, a certificate may be required of both parents '/ guardians' 
+        consent to this.
+        Check the current requirements with the authorities of the country you are traveling to or the country's nearest embassy.`,
 	},
 	{
 		id: 6,
 		title: 'When does the embassy open and close ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		description: `Information about the embassies' opening hours and telephone hours can be found on each embassy's page above.`,
 	},
 ];
 
-const travelInfoLinks = [
-	{ id: '1', title: 'About the Coronavirus', url: '/foreignPol' },
-	{ id: '2', title: 'Travel documents', url: '/foreignPol' },
-	{ id: '3', title: 'Prepare your trip', url: '/foreignPol' },
-	{ id: '4', title: 'Terrorism and tourism', url: '/foreignPol' },
-	{ id: '5', title: 'If something happens', url: '/foreignPol' },
-];
-
-const helpInfoLinks = [
-	{ id: '6', title: 'Consular reg', url: '#' },
-	{ id: '7', title: 'Passports', url: '#' },
-
-	{ id: '8', title: 'Civil status documents', url: '#' },
-	{ id: '9', title: 'Legislations', url: '#' },
-	{ id: '10', title: 'Students', url: '#' },
-];
-
 export default function forDjiboutian() {
-	const [age, setAge] = React.useState('');
 	const classes = useStyles();
-	const handleChange = (event) => {
-		setAge(event.target.value);
-	};
 
 	return (
 		<>
@@ -224,7 +182,7 @@ export default function forDjiboutian() {
 			</Container>
 			<div
 				style={{
-					marginTop: '5rem',
+					margin: '5rem 0',
 					paddingTop: '2rem ',
 					paddingBottom: '7rem',
 					backgroundColor: '#edf4ed',
@@ -285,128 +243,10 @@ export default function forDjiboutian() {
 					</div>
 				</Container>
 			</div>
-			<Container
-				maxWidth='lg'
-				style={{ marginTop: '5rem', marginBottom: '3rem' }}>
-				<div>
-					<Grid item xs={12}>
-						<Typography
-							variant='h5'
-							style={{
-								marginBottom: '2rem',
-								fontWeight: 'bold',
-							}}>
-							Information for Djibouti nationals
-						</Typography>
-					</Grid>
-					<Grid container justify='center'>
-						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{' '}
-									Travel information
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									Here is important information before and
-									during your stay abroad.
-								</Typography>
-								{travelInfoLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link href={item.url}>
-												<a>
-													<Typography
-														variant='body1'
-														className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
-														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
-							</Card>
-						</Grid>
-						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{' '}
-									Travel information
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									Here is important information before and
-									during your stay abroad.
-								</Typography>
-								{helpInfoLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link href={item.url}>
-												<a>
-													<Typography
-														variant='body1'
-														className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		marginRight:
-																			'0',
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
-														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
-							</Card>
-						</Grid>
-					</Grid>
-				</div>
-			</Container>
+			<PagesInfo
+				leftLinks={travelInfoLinks}
+				rightLinks={helpInfoLinks}
+			/>
 		</>
 	);
 }

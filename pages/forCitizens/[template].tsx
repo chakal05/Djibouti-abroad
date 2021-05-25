@@ -1,12 +1,24 @@
 import React from 'react';
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid, Typography, Card } from '@material-ui/core';
 import {
 	createStyles,
 	Theme,
 	makeStyles,
 } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
-import { data } from '../../util/foreignersTempInfo';
+import { data } from '../../util/citizensTemplateInfo';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faChevronDown,
+	faArrowAltCircleRight,
+	faArrowCircleDown,
+} from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+import PagesInfo from '../../components/templateFooter';
+import {
+	helpInfoLinks,
+	travelInfoLinks,
+} from '../../util/forCitizensTemplateLinks';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -17,27 +29,11 @@ const useStyles = makeStyles((theme: Theme) =>
 			borderTopRightRadius: '1rem',
 			borderBottomLeftRadius: '1rem',
 			borderBottomRightRadius: '1rem',
-			// [theme.breakpoints.down(650)]: {
-			// 	marginBottom: '-9rem',
-			// 	paddingTop: '2rem',
-			// },
 		},
 		titleContainer: {
 			padding: '3rem',
 			width: '100%',
 			textAlign: 'center',
-			// paddingTop: '3rem',
-			// paddingLeft: '1rem',
-			// paddingRight: '1rem',
-			// [theme.breakpoints.up(1100)]: {
-			// 	//	paddingTop: '5rem',
-			// },
-			// [theme.breakpoints.up(651)]: {
-			// 	width: '50%',
-			//     paddingTop: '20%',
-			//     paddingLeft:'2rem',
-			//     paddingRight:'2rem'
-			// },
 		},
 
 		imgContainer: {
@@ -55,28 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				// 	top: '30%',
 				// 	marginLeft: '1rem',
 			},
-			// [theme.breakpoints.up(900)]: {
-			// 	top: '20%',
-			// },
-			// [theme.breakpoints.up(1100)]: {
-			// 	width: '500px',
-			// 	position: 'relative',
-			// 	right: '0',
-			// 	left: '0',
-			// 	top: '0',
-			// },
 		},
-
-		// img: {
-		// 	[theme.breakpoints.down(650)]: {
-		// 		display: 'none !important',
-		// 	},
-
-		// 	[theme.breakpoints.up(651)]: {
-		// 		position: 'absolute',
-		// 		top: '50%',
-		// 	},
-		// },
 
 		formContainer: {
 			display: 'none',
@@ -90,18 +65,25 @@ const useStyles = makeStyles((theme: Theme) =>
 				width: '100%',
 			},
 		},
+		carteContainer: {
+			padding: '1rem',
+		},
+		carte: {
+			padding: '1rem',
+			//	height: '250px',
+			width: '80%',
+			margin: '0 auto',
+			[theme.breakpoints.down(650)]: {
+				width: '100%',
+				marginBottom: '1rem',
+			},
+		},
 
-		// carte: {
-		// 	padding: '1rem',
-		// 	height: '200px',
-		// 	width: '400px',
-		// 	margin: '1rem',
-		// },
-		// url: {
-		// 	' &:hover': {
-		// 		fontWeight: 'bold',
-		// 	},
-		// },
+		url: {
+			' &:hover': {
+				fontWeight: 'bold',
+			},
+		},
 
 		textField: {
 			margin: '0.5rem 0',
@@ -136,6 +118,16 @@ const useStyles = makeStyles((theme: Theme) =>
 		show: {
 			display: 'none',
 		},
+
+		carteTitle: {
+			marginBottom: '.3rem',
+			fontWeight: 'bold',
+		},
+
+		carteSecTitle: {
+			marginBottom: '1rem',
+			fontWeight: 'bold',
+		},
 	})
 );
 
@@ -169,9 +161,9 @@ export default function Info() {
 					<Grid container>
 						<Grid item xs={12}>
 							<Typography
-								variant='h5'
+								variant='h4'
 								style={{
-									marginBottom: '1rem',
+									marginBottom: '2rem',
 									textAlign: 'center',
 									fontWeight: 'bold',
 								}}>
@@ -183,7 +175,9 @@ export default function Info() {
 						{info.content.map((item) => {
 							return (
 								<div key={item.id}>
-									<Typography variant='h6'>
+									<Typography
+										variant='h6'
+										style={{ fontWeight: 'bold' }}>
 										{item.title}
 									</Typography>
 									<Typography variant='body1'>
@@ -194,6 +188,12 @@ export default function Info() {
 							);
 						})}
 					</Grid>
+				</Grid>
+				<Grid item>
+					<PagesInfo
+						leftLinks={travelInfoLinks}
+						rightLinks={helpInfoLinks}
+					/>
 				</Grid>
 			</Grid>
 		</Container>

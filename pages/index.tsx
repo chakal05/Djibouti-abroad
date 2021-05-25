@@ -13,9 +13,9 @@ import {
 	Container,
 } from '@material-ui/core';
 import {
-	faArrowAltCircleRight,
-	faInfo,
-	faQuestionCircle,
+	faArrowAltCircleDown,
+	faCheckCircle,
+	faCheckDouble,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
@@ -102,7 +102,8 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 
 		listContainer: {
-			paddingLeft: '1rem',
+			listStyle: 'none',
+			paddingLeft: '.5rem',
 		},
 
 		btn: {
@@ -138,9 +139,6 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		url: {
 			margin: '.3rem 0',
-			' &:hover': {
-				fontWeight: 'bold',
-			},
 		},
 		carteTitle: {
 			marginBottom: '1rem',
@@ -151,6 +149,12 @@ const useStyles = makeStyles((theme: Theme) =>
 			marginBottom: '1rem',
 			fontWeight: 'bold',
 		},
+
+		secondaryTitle: {
+			marginTop: '5rem ',
+			marginBottom: '3rem',
+			fontWeight: 'bold',
+		},
 	})
 );
 
@@ -158,29 +162,14 @@ const travelInfoLinks = [
 	{
 		id: 2,
 		title: 'Travel documents',
-		lien: {
-			pathname: `/forCitizens/[template]`,
-			query: { template: `travelDocuments` },
-		},
-		target: '',
 	},
 	{
 		id: 3,
-		title: 'For Djibouti nationals abroad',
-		lien: {
-			pathname: `/forCitizens/[template]`,
-			query: { template: `ifSomethingHappens` },
-		},
-		target: '',
+		title: 'Help abroad for citizens',
 	},
 	{
 		id: 1,
 		title: 'About the Coronavirus',
-		lien: {
-			pathname: `/forCitizens/[template]`,
-			query: { template: `aboutCovid` },
-		},
-		target: '',
 	},
 ];
 const forForeignersLinks = [
@@ -279,10 +268,7 @@ export default function Home() {
 						<Grid item xs={12}>
 							<Typography
 								variant='h5'
-								style={{
-									margin: '2rem 0',
-									fontWeight: 'bold',
-								}}>
+								className={classes.secondaryTitle}>
 								{' '}
 								Some of our services{' '}
 							</Typography>
@@ -301,50 +287,38 @@ export default function Home() {
 									Here is important information before and
 									during your stay abroad.
 								</Typography>
-								{travelInfoLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link
-												href={{
-													pathname: item.lien.pathname,
-													query: {
-														template:
-															item.lien.query[
-																'template'
-															],
-													},
-												}}>
-												<a>
-													<Typography
-														variant='body1'
-														className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
+
+								<ul className={classes.listContainer}>
+									{travelInfoLinks.map((item) => {
+										return (
+											<li key={item.id}>
+												<Typography
+													variant='body1'
+													className={classes.url}>
+													<Grid container>
+														<Grid item xs={9}>
+															{item.title}
 														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
+														<Grid
+															item
+															xs={3}
+															style={{
+																textAlign: 'right',
+															}}>
+															<FontAwesomeIcon
+																style={{
+																	height: '15px',
+																	width: '15px',
+																}}
+																icon={faCheckCircle}
+															/>
+														</Grid>
+													</Grid>
+												</Typography>
+											</li>
+										);
+									})}
+								</ul>
 								<div className={classes.carteBtn}>
 									<Link href='/forCitizens'>
 										<Button
@@ -372,41 +346,37 @@ export default function Home() {
 									Here you will find information about visas
 									and immigration.
 								</Typography>
-								{forForeignersLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link href={item.url}>
-												<a>
-													<Typography
-														variant='body1'
-														className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
+								<ul className={classes.listContainer}>
+									{forForeignersLinks.map((item) => {
+										return (
+											<li key={item.id}>
+												<Typography
+													variant='body1'
+													className={classes.url}>
+													<Grid container>
+														<Grid item xs={9}>
+															{item.title}
 														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
+														<Grid
+															item
+															xs={3}
+															style={{
+																textAlign: 'right',
+															}}>
+															<FontAwesomeIcon
+																style={{
+																	height: '15px',
+																	width: '15px',
+																}}
+																icon={faCheckCircle}
+															/>
+														</Grid>
+													</Grid>
+												</Typography>
+											</li>
+										);
+									})}
+								</ul>
 								<div className={classes.carteBtn}>
 									<Link href='/forCitizens'>
 										<Button
@@ -427,17 +397,13 @@ export default function Home() {
 				<Grid item xs={12} style={{ marginBottom: '11rem' }}>
 					<Typography
 						variant='h5'
-						style={{
-							marginTop: '5rem ',
-							marginBottom: '3rem',
-							fontWeight: 'bold',
-						}}>
+						className={classes.secondaryTitle}>
 						Information{' '}
 					</Typography>
 					<Card
 						elevation={2}
 						style={{
-							padding: '3rem',
+							padding: '2rem',
 							width: '90%',
 							margin: '0 auto',
 						}}>
@@ -448,7 +414,10 @@ export default function Home() {
 						<br />
 						<Typography
 							variant='body1'
-							style={{ paddingRight: '1rem' }}>
+							style={{
+								paddingRight: '1rem',
+								marginBottom: '1rem',
+							}}>
 							The Ministry of Foreign Affairs advises against
 							unnecessary travel to all countries . The
 							Ministry of Foreign Affairs has, through previous
@@ -472,8 +441,7 @@ export default function Home() {
 			</Container>
 			<div
 				style={{
-					marginTop: '5rem',
-					paddingTop: '6rem ',
+					paddingTop: '1rem ',
 					paddingBottom: '7rem',
 					backgroundColor: '#edf4ed',
 					paddingLeft: '2rem',
@@ -483,15 +451,12 @@ export default function Home() {
 					<Grid
 						container
 						style={{
-							padding: '1rem',
+							textAlign: 'center',
 						}}>
 						<Grid item xs={12}>
 							<Typography
 								variant='h5'
-								style={{
-									marginBottom: '2rem',
-									fontWeight: 'bold',
-								}}>
+								className={classes.secondaryTitle}>
 								{' '}
 								Embassies and Consulates General
 							</Typography>
