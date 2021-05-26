@@ -2,18 +2,14 @@ import { Container, Grid, Typography, Card } from '@material-ui/core';
 import Link from 'next/link';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faChevronDown,
-	faArrowAltCircleRight,
-	faArrowCircleDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		carteContainer: {
 			padding: '1rem',
-            width:'50%',
-            [theme.breakpoints.down(650)]: {
+			width: '50%',
+			[theme.breakpoints.down(650)]: {
 				width: '100%',
 				marginBottom: '1rem',
 			},
@@ -48,7 +44,14 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default function InfoBelow({ leftLinks, rightLinks }) {
+export default function InfoBelow({
+	leftLinks,
+	rightLinks,
+	leftFirstTitle,
+	leftSecTitle,
+	rightFirstTitle,
+	rightSecTitle,
+}) {
 	const classes = useStyles();
 	return (
 		<Container
@@ -63,130 +66,127 @@ export default function InfoBelow({ leftLinks, rightLinks }) {
 							marginBottom: '2rem',
 							fontWeight: 'bold',
 						}}>
-						Information for Djibouti nationals
+						Information for Foreigners
 					</Typography>
 				</Grid>
-                <Grid item xs={12}>
-                <Grid container justify='center'>
-					<Grid item className={classes.carteContainer}>
-						<Card elevation={3} className={classes.carte}>
-							<Typography
-								variant='h5'
-								className={classes.carteTitle}>
-								{' '}
-								Travel information
-							</Typography>
-							<Typography
-								variant='body1'
-								className={classes.carteSecTitle}>
-								Here is important information before and
-								during your stay abroad.
-							</Typography>
-							{leftLinks.map((item) => {
-								return (
-									<div key={item.id}>
-										<Link
-											href={{
-												pathname: item.lien.pathname,
-												query: {
-													template:
-														item.lien.query.template,
-												},
-											}}>
-											<a>
-												<Typography
-													variant='body1'
-													className={classes.url}>
-													<Grid container>
-														<Grid item xs={9}>
-															{item.title}
-														</Grid>
-														<Grid
-															item
-															xs={3}
-															style={{
-																textAlign: 'right',
-															}}>
-															<FontAwesomeIcon
+				<Grid item xs={12}>
+					<Grid container justify='center'>
+						<Grid item className={classes.carteContainer}>
+							<Card elevation={3} className={classes.carte}>
+								<Typography
+									variant='h5'
+									className={classes.carteTitle}>
+									{leftFirstTitle}
+								</Typography>
+								<Typography
+									variant='body1'
+									className={classes.carteSecTitle}>
+									{leftSecTitle}
+								</Typography>
+								{leftLinks.map((item) => {
+									return (
+										<div key={item.id}>
+											<Link
+												href={{
+													pathname: item.lien.pathname,
+													query: {
+														template:
+															item.lien.query.template,
+													},
+												}}>
+												<a target={item.target}>
+													<Typography
+														variant='body1'
+														className={classes.url}>
+														<Grid container>
+															<Grid item xs={9}>
+																{item.title}
+															</Grid>
+															<Grid
+																item
+																xs={3}
 																style={{
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={
-																	faArrowAltCircleRight
-																}
-															/>
+																	textAlign: 'right',
+																}}>
+																<FontAwesomeIcon
+																	style={{
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+															</Grid>
 														</Grid>
-													</Grid>
-												</Typography>
-											</a>
-										</Link>
-									</div>
-								);
-							})}
-						</Card>
-					</Grid>
-					<Grid item className={classes.carteContainer}>
-						<Card elevation={3} className={classes.carte}>
-							<Typography
-								variant='h5'
-								className={classes.carteTitle}>
-								{' '}
-								Help for Djiboutian abroad
-							</Typography>
-							<Typography
-								variant='body1'
-								className={classes.carteSecTitle}>
-								Here is information about the service you can get abroad.
-							</Typography>
-							{rightLinks.map((item) => {
-								return (
-									<div key={item.id}>
-										<Link
-											href={{
-												pathname: item.lien.pathname,
-												query: {
-													template:
-														item.lien.query.template,
-												},
-											}}>
-											<a>
-												<Typography
-													variant='body1'
-													className={classes.url}>
-													<Grid container>
-														<Grid item xs={9}>
-															{item.title}
-														</Grid>
-														<Grid
-															item
-															xs={3}
-															style={{
-																textAlign: 'right',
-															}}>
-															<FontAwesomeIcon
+													</Typography>
+												</a>
+											</Link>
+										</div>
+									);
+								})}
+							</Card>
+						</Grid>
+						<Grid item className={classes.carteContainer}>
+							<Card elevation={3} className={classes.carte}>
+								<Typography
+									variant='h5'
+									className={classes.carteTitle}>
+									{rightFirstTitle}
+								</Typography>
+								<Typography
+									variant='body1'
+									className={classes.carteSecTitle}>
+									{rightSecTitle}
+								</Typography>
+								{rightLinks.map((item) => {
+									return (
+										<div key={item.id}>
+											<Link
+												href={{
+													pathname: item.lien.pathname,
+													query: {
+														template:
+															item.lien.query.template,
+													},
+												}}>
+												<a target={item.target}>
+													<Typography
+														variant='body1'
+														className={classes.url}>
+														<Grid container>
+															<Grid item xs={9}>
+																{item.title}
+															</Grid>
+															<Grid
+																item
+																xs={3}
 																style={{
-																	marginRight: '0',
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={
-																	faArrowAltCircleRight
-																}
-															/>
+																	textAlign: 'right',
+																}}>
+																<FontAwesomeIcon
+																	style={{
+																		marginRight:
+																			'0',
+																		height: '15px',
+																		width: '15px',
+																	}}
+																	icon={
+																		faArrowAltCircleRight
+																	}
+																/>
+															</Grid>
 														</Grid>
-													</Grid>
-												</Typography>
-											</a>
-										</Link>
-									</div>
-								);
-							})}
-						</Card>
+													</Typography>
+												</a>
+											</Link>
+										</div>
+									);
+								})}
+							</Card>
+						</Grid>
 					</Grid>
 				</Grid>
-                </Grid>
-				
 			</Grid>
 		</Container>
 	);

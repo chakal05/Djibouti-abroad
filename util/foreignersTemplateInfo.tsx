@@ -26,7 +26,7 @@ export let data = [
 				body: `	Passengers who started their journeys or transited
                 South Africa, India or Brazil will not be allowed to
                 enter Djibouti due to increasing concerns about
-                COVID-19 variants. Djiboutian Nationals are not
+                 COVID-19 variants. Djiboutian Nationals are not
                 allowed to travel to those countries. Djiboutian
                 Residents should double check with their airline
                 before planning to travel to those countries.
@@ -150,4 +150,81 @@ export let data = [
 			},
 		],
 	},
+    {
+        id: 2,
+		tag: 'entreEtSejour',
+		pageTitle: 'Entrence / stay',
+		secondaryTitle: 'Entry formalities',
+		content: [
+			{
+				id: 1,
+				title: 'Basic information:',
+				body: `Access to Djibouti territory is subject to obtaining a visa.
+                It must be obtained before departure.
+                You can apply through Djiboutian diplomatic representations based abroad
+               or  using an e-visa procedure: https://www.evisa.gouv.dj/.
+                `,
+			},
+            {
+				id: 2,
+				title: 'The exceptions to these provisions concern:',
+				body: `holders of diplomatic or service passports. In this case, it is 
+                necessary to be the holder of a mission order, to have previously informed 
+                the competent Djiboutian authorities (Ministry of Foreign Affairs and International 
+                Cooperation) and to have obtained their authorization to enter the territory. ;
+                countries that have signed bilateral agreements with the Republic of   
+                Djibouti (the exhaustive list of agreement programs is available on the website
+                https://www.evisa.gouv.dj/).   `,
+			},
+            {
+				id: 3,
+				title: 'Visa rates:',
+				body: `
+                Transit visa (3 to 15 days): $ 12
+                Short stay visa (15 to 90 days): $ 23
+                Long stay visa (up to 12 months - multiple entries): $ 180
+                Persons holding valid residence cards can access Djiboutian territory without a visa 
+                and without an access authorization endorsed by the Djiboutian authorities.       
+                For more information, contact the Djiboutian authorities or the airlines concerned.
+
+                 `,
+			},
+            {
+				id: 3,
+				title: 'For travelers traveling from Ethiopia to Djibouti by road:',
+				body: `
+                The border control between Djibouti and Ethiopia is carried out in two stages: the first 
+                control is carried out by the border police, the second by customs. It is mandatory to pass 
+                these two checkpoints, in the Djibouti / Ethiopia direction and vice versa. Failure to comply 
+                with this rule exposes travelers to serious difficulties with the security services of the visited 
+                country which may result in the immobilization of the vehicle and therefore the blocking of its owner 
+                at the border for an indefinite period, without the embassy of France in Djibouti or the French Embassy 
+                in Ethiopia cannot assist travelers who contravene this obligation or who are not able to present all the
+                required documents.
+                Presentation at the border on Friday (day of rest in Djibouti) or on a public holiday    
+                involves the risk of not being able to enter Djibouti territory on the same day. It is therefore preferable
+                and strongly recommended to obtain a visa in Addis Ababa or to show up at the border on a working day.                         
+                Any foreigner must, if he stays in the Republic of Djibouti after the expiration of a    
+                period of 3 months since his entry into the territory, be in possession of a temporary residence card or a 
+                resident card issued under the conditions provided for by Law No. 201 / AN / 07 setting the conditions for entry
+                and stay. The period of validity of the temporary residence card cannot exceed 1 year and cannot exceed the validity 
+                of the travel documents. The foreigner must leave the Republic of Djibouti when the validity of his card expires, unless
+                he obtains its renewal. The resident card is issued to foreigners employed in free zone companies who can prove that they
+                are in possession of an employment contract and provide proof of the legality of their entry and stay in the territory of 
+                the Republic of Djibouti.
+                 `,
+			},
+            {
+				id: 4,
+				title: 'Useful contacts :',
+				body: `
+                Emergency police: 17
+                Firefighters: 18
+                Central police station: +253 21 35 38 91
+                National Gendarmerie: +253 21 35 10 03
+                 `,
+			},
+        ]
+    },
+ 
 ];

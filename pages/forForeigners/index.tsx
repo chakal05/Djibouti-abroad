@@ -11,18 +11,17 @@ import {
 	Accordion,
 	AccordionSummary,
 	AccordionDetails,
-	Card,
-	Button,
 } from '@material-ui/core';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faChevronDown,
-	faArrowAltCircleRight,
-	faArrowCircleDown,
-} from '@fortawesome/free-solid-svg-icons';
-import Countries from '../../components/countries';
+import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import Countries from '../../components/countries';
+import PagesInfo from '../../components/templateFooter';
+import {
+	helpInfoLinks,
+	travelInfoLinks,
+} from '../../util/forForeignersTemplateLinks';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -81,7 +80,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 
-        carteContainer: {
+		carteContainer: {
 			padding: '1rem',
 		},
 
@@ -100,7 +99,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				fontWeight: 'bold',
 			},
 		},
-        carteTitle: {
+		carteTitle: {
 			marginBottom: '.3rem',
 			fontWeight: 'bold',
 		},
@@ -115,75 +114,46 @@ const useStyles = makeStyles((theme: Theme) =>
 const questions = [
 	{
 		id: 1,
-		title: '	Do i need visa to visit Djibouti ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		title: 'Do i need visa to visit Djibouti ?',
+		description: `
+        Access to Djibouti territory is subject to obtaining a visa.
+                It must be obtained before departure.
+                You can apply through Djiboutian diplomatic representations based abroad
+               or  using an e-visa procedure: https://www.evisa.gouv.dj/.
+`,
 	},
 	{
 		id: 2,
-		title: '	Did your passport expire ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		title: 'Are you a journalist ?',
+		description: `	
+        Journalists wishing to travel to Djibouti for professional reasons must have,
+        before arriving in the country, the accreditation required by the Djiboutian 
+        authorities (contact the Djibouti embassy in your country before departure).
+        For any further information, contact the Djibouti embassy in your country or the nearest.
+`,
 	},
 	{
 		id: 3,
-		title: '	Do you have questions about visa?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
+		title: 'What are the customs and traditions of Djibouti ?',
+		description: `	
+        It should be observed, as in any Muslim country, a certain correction 
+        in dress and behavior, especially in public places, and a fortiori near
+        religious sites: no necklines, high-cut tank tops, shorts too short or
+        mini-skirts for women (plan to be able to cover up), no swim shorts or
+        sloppy clothing for men.
+        In general, it is strongly recommended to adopt an attitude of        
+        discretion in public spaces. Demonstrative acts (sign of affection, physical
+        contact in particular) should be avoided.
+        Public display, manufacture, transfer or sale of objects, images,     
+        films, sound or visual recordings of an erotic or pornographic nature is
+        punishable by imprisonment. Rape, sexual assault and pimping are very severely 
+        punished.
+`,
 	},
-	{
-		id: 4,
-		title: 'Which countries to avoid due to Coronavirus ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
-	},
-	{
-		id: 5,
-		title: '	Will you travel with a child ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
-	},
-	{
-		id: 6,
-		title: 'When does the embassy open and close ?',
-		description: `	Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Suspendisse malesuada
-lacus ex, sit amet blandit leo lobortis
-eget.`,
-	},
-];
-
-const travelInfoLinks = [
-	{ id: '1', title: 'About the Coronavirus', url: '/foreignPol' },
-	{ id: '2', title: 'Travel documents', url: '/foreignPol' },
-	{ id: '3', title: 'Prepare your trip', url: '/foreignPol' },
-	{ id: '4', title: 'Terrorism and tourism', url: '/foreignPol' },
-	{ id: '5', title: 'If something happens', url: '/foreignPol' },
-];
-const helpInfoLinks = [
-	{ id: '1', title: 'Consular registration', url: '#' },
-	{ id: '2', title: 'Passports', url: '#' },
-	{ id: '3', title: 'Civil status documents', url: '#' },
-	{ id: '4', title: 'Legislations', url: '#' },
-	{ id: '5', title: 'Students', url: '#' },
 ];
 
 export default function forDjiboutian() {
-	const [age, setAge] = React.useState('');
 	const classes = useStyles();
-	const handleChange = (event) => {
-		setAge(event.target.value);
-	};
 
 	return (
 		<>
@@ -224,12 +194,15 @@ export default function forDjiboutian() {
 				style={{
 					marginTop: '5rem',
 					paddingTop: '2rem ',
-					paddingBottom: '7rem',
+					paddingBottom: '3rem',
 				}}>
 				<Container maxWidth='lg'>
 					<Typography
-						variant='h5'
-						style={{ marginBottom: '2rem' }}>
+						variant='h4'
+						style={{
+							marginBottom: '5rem',
+							fontWeight: 'bold',
+						}}>
 						Frequently asked questions
 					</Typography>
 					<div style={{ width: '80%', margin: '0 auto' }}>
@@ -292,124 +265,15 @@ export default function forDjiboutian() {
 				<Container
 					maxWidth='lg'
 					style={{ marginTop: '5rem', marginBottom: '3rem' }}>
-					<div>
-					<Grid item xs={12}>
-						<Typography
-							variant='h5'
-							style={{
-								marginBottom: '2rem',
-								fontWeight: 'bold',
-							}}>
-							Information for Djibouti nationals
-						</Typography>
-					</Grid>
-					<Grid container justify='center'>
-						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{' '}
-									Travel information
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									Here is important information before and
-									during your stay abroad.
-								</Typography>
-								{travelInfoLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link href={item.url}>
-												<a>
-													<Typography
-														variant='body1'
-														className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
-														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
-							</Card>
-						</Grid>
-						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{' '}
-									Travel information
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									Here is important information before and
-									during your stay abroad.
-								</Typography>
-								{helpInfoLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link href={item.url}>
-												<a>
-													<Typography
-														variant='body1'
-			 											className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		marginRight:
-																			'0',
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
-														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
-							</Card>
-						</Grid>
-					</Grid>
-				</div>
+					<PagesInfo
+						leftLinks={travelInfoLinks}
+						rightLinks={helpInfoLinks}
+						leftFirstTitle={'Going to Djibouti ?'}
+						leftSecTitle={`Here is some information about Djibouti and its opportunities.`}
+						rightFirstTitle={`Help for foreigners `}
+						rightSecTitle={`Here is information about the service you
+                        can get in Djibouti.`}
+					/>
 				</Container>
 			</div>
 		</>

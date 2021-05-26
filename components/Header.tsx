@@ -15,8 +15,6 @@ import {
 	MenuItem,
 	AppBar,
 } from '@material-ui/core';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		toolbar: {
@@ -75,7 +73,7 @@ export default function Header() {
 		{
 			id: 3,
 			url: '/forForeigners/',
-			title: 'For non-citizens',
+			title: 'For Foreigners',
 		},
 
 		{

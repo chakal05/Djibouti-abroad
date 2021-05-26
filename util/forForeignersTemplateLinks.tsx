@@ -1,113 +1,64 @@
 export const travelInfoLinks = [
 	{
 		id: 6,
-		title: `Warnings from the Ministry`,
+		title: 'Visiting Djibouti',
 		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'warnings' },
+			pathname: 'https://guide.visitdjibouti.dj/',
+			query: { template: '#' },
 		},
+        target:'_blank'
 	},
 	{
-		id: 1,
-		title: 'About the Coronavirus',
+		id: 11,
+		title: 'Investing in Djibouti',
 		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'coronaForCitizens' },
+			pathname: '/forForeigners/investInDjib',
+			query: { template: '#' },
 		},
+        target:'_blank'
 	},
 
-	{
-		id: 3,
-		title: 'Prepare your trip',
+    
+    {
+		id: 12,
+		title: 'Working in Djibouti',
 		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'prepareYourTrip' },
+			pathname: '/forForeigners/[template]',
+			query: { template: 'workingInDjibouti' },
 		},
-	},
-	{
-		id: 4,
-		title: 'Terrorism and tourism',
-		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'terrorism' },
-		},
-	},
-	{
-		id: 5,
-		title: 'Double citizenship',
-		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'doubleCitizenship' },
-		},
+        target:'_blank'
 	},
 ];
 
 export const helpInfoLinks = [
-    {
-        id: 7,
-		title: 'Emergency abroad',
-		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'emergency' },
-		},
-    },
-
 	{
 		id: 7,
-		title: 'Passports',
+		title: 'Entrance / Stay',
 		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'passport' },
+			pathname: '/forForeigners/[template]',
+			query: { template: 'entreEtSejour' },
 		},
+        target:'_blank'
 	},
 	{
 		id: 8,
-		title: 'Legalization',
+		title: 'About Coronavirus',
 		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'legalization' },
+			pathname: '/forForeigners/[template]',
+			query: { template: 'aboutCovid' },
 		},
+        target:'_blank'
 	},
-	{
-		id: 9,
-		title: 'Travelling with children',
-		lien: {
-			pathname: '/forCitizens/[template]',
-			query: { template: 'children' },
-		},
-	},
+
     {
-		id: 9,
-		title: 'Consular registration',
+		id: 7,
+		title: ' Visa online application',
 		lien: {
-			pathname: '/forCitizens/consularReg',
+			pathname: 'https://www.visa-office.fr/visas/visa-djibouti/',
 			query: { template: '' },
 		},
-	},
+        target:'_blank'
+	},	
 ];
 
-
-// {
-//     id: 6,
-//     title: 'Visiting Djibouti',
-//     lien: {
-//         pathname: 'https://guide.visitdjibouti.dj/',
-//         query: { template: '#' },
-//     },
-// },
-// {
-//     id: 11,
-//     title: 'Investing in Djibouti',
-//     lien: {
-//         pathname: '/forCitizens/investInDjib',
-//         query: { template: '#' },
-//     },
-// },
-// {
-//     id: 12,
-//     title: 'Working in Djibouti',
-//     lien: {
-//         pathname: '/forCitizens/[template]',
-//         query: { template: 'workinInDjibouti' },
-//     },
-// },
+//

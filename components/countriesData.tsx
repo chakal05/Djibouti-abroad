@@ -4,7 +4,7 @@ export const countriesInfo = [
 		name: 'Kenya',
 		officicalName: 'Republic of Kenya',
 		regime: 'Republic',
-		headOfState: 'M.Uhuru Kenyatta',
+		headOfState: 'H.E Uhuru Kenyatta',
 		area: '580 367 km2',
 		capital: 'Nairobi',
 		mainCities: [
@@ -28,13 +28,13 @@ export const countriesInfo = [
 		indexOfDev: '0,579 -- 185e of 228 (2018)',
 		religions: [
 			'Protestants 45 % ',
-			'Catholiques 33 % ',
+			'Catholics 33 % ',
 			'Musulmans 10 %',
 			'Animistes 10 % ',
 			'autres 2 %',
 		],
 		djibInCountry: {
-			ambassador: 'S.E.M Yaçin Elmi Bouh',
+			ambassador: 'H.E Yaçin Elmi Bouh',
 			tel: '254 20 21 22 859',
 			fax: ' 254 20 23 13 120',
 			adress: `International House, 2nd Floor, Mama Nigima street
@@ -42,11 +42,11 @@ export const countriesInfo = [
 			email: '',
 		},
 		countryInDjib: {
-			ambassador: 'anonym',
-			tel: 'anonym',
-			fax: 'anonym',
-			adress: 'anonym',
-			email: 'anonym',
+			ambassador: '',
+			tel: '',
+			fax: '',
+			adress: '',
+			email: '',
 		},
 	},
 	{
@@ -54,7 +54,7 @@ export const countriesInfo = [
 		name: 'Ethiopia',
 		officicalName: 'Federal Democratic Republic of Ethiopia',
 		regime: ' Federal Republic',
-		headOfState: 'S.E.M Abiy Ahmed Ali',
+		headOfState: 'H.E Abiy Ahmed Ali',
 		area: '1 104 300 km2',
 		capital: 'Addis Abeba',
 		mainCities: [
@@ -79,13 +79,13 @@ export const countriesInfo = [
 		indexOfDev: '0,463 -- 211e of 228 (2019)',
 		religions: [
 			'Protestants 18.6 % ',
-			'Catholiques 0.7 % ',
+			'Catholics 0.7 % ',
 			'Musulmans 33.9 %',
 			'Animistes 2.6 % ',
 			'Orthodoxes 43.5 %',
 		],
 		djibInCountry: {
-			ambassador: 'S.E.M Mohamed Idriss Farah',
+			ambassador: 'H.E Mohamed Idriss Farah',
 			firsAdviser: 'Mr Abdi Mahamoud Eybe',
 			tel: '251 116 61 32 00 / 61 30 06 / 63 20 85',
 			fax: ' 254 20 23 13 120',
@@ -93,7 +93,7 @@ export const countriesInfo = [
             B.P: 1022`,
 			email: 'mohamed.idriss@diplomatie.gouv.dj',
 			consul: {
-				name: 'S.E.M Aden Moussa Arreh',
+				name: 'H.E Aden Moussa Arreh',
 				consulTitle: 'Consul Général de Djibouti à Dire Dawa',
 				tel: '00251928186345',
 				viceConsul: {
@@ -104,11 +104,182 @@ export const countriesInfo = [
 			},
 		},
 		countryInDjib: {
-			ambassador: 'S.E.M. Birhanu Tsegaye',
+			ambassador: 'H.E Birhanu Tsegaye',
 			tel: '21 35 07 18',
 			fax: '21 35 54 20',
-			adress: 'anonym',
-			email: 'anonym',
+			adress: '',
+			email: '',
+		},
+	},
+	{
+		id: 3,
+		name: 'Russie',
+		officicalName: 'Russian Federation',
+		regime: ' Federal Republic',
+		headOfState: 'H.E Vladimir Poutine',
+		area: '17 100 00 km2',
+		capital: 'Moscow',
+		mainCities: [
+			'Saint-Pétersbourg',
+			'Novossibirsk',
+			'Ekaterinbourg',
+		],
+		officialLanguage: ['Russian'],
+		localLanguages: ['russian'],
+		currency: 'Ruble -- 1 EUR= 90,04 ETB (May 2021)',
+		nationalDay: 'June 12',
+		population: '146,7 millions (ONU, 2018)',
+		density: '8.56 inhabitants/km2',
+		populationGrowth: '-0.01% (RosStat, 2020)',
+		lifeExpectacy: '73,3 years',
+		literacyRate: '100% (Banque Mondiale, 2018)',
+		indexOfDev: '0,824 -- 71e of 228 (2019)',
+		religions: [
+			'Hindus 0.5 % ',
+			'Christians 4.1 % ',
+			'Musulmans 6.9 %',
+			'Buddhists 0.5 % ',
+			'Orthodoxes 41 %',
+		],
+		djibInCountry: {
+			ambassador: ` H.E Dr Mohamed Ali Kamil
+            `,
+			firsAdviser: 'M Isse Abdillahi',
+			tel: '007495 7821057',
+			fax: ' 007495 7821059',
+			adress: `127006 Moscou, Russia
+            Sadovaya-Triumfalnaya Ulista, 4-10, Floor 3
+            `,
+			email: 'mohamed.kamil@diplomatie.gouv.dj',
+			consul: {
+				name: '',
+				consulTitle: '',
+				tel: '',
+				viceConsul: {
+					name: '',
+					tel: '',
+					fax: '',
+				},
+			},
+		},
+		countryInDjib: {
+			ambassador: 'H.E Mikhail Golovanov',
+			tel: '21 35 07 40',
+			fax: '21 35 59 90',
+			adress: '',
+			email: '',
+		},
+	},
+	{
+		id: 4,
+		name: 'Belgium',
+		officicalName: 'kingdom of Belgium',
+		regime: 'Federal state - constitutional monarchy',
+		headOfState: 'H.E  Alexander De Croo ',
+		area: '38 688 km2',
+		capital: 'Brussels',
+		mainCities: ['Anvers', 'Gand', 'Charleroi', 'Liège'],
+		officialLanguage: ['Russian'],
+		localLanguages: ['russian'],
+		currency: 'euro -- ',
+		nationalDay: 'July 21',
+		population: '11 476 279 (Januari 1 2020)',
+		density: '372.5 inhabitants/km2',
+		populationGrowth: '0.49% / year (2019)',
+		lifeExpectacy: '81.4 years',
+		literacyRate: '99% (Banque Mondiale, 2018)',
+		indexOfDev: '0,916 -- 26e of 228 (2019)',
+		religions: [
+			'Catholics 81 % ',
+
+			'Musulmans 400 000',
+			'Protestants 250 000 ',
+			'Juifs 12 000',
+		],
+		djibInCountry: {
+			ambassador: ` H.E Dr Omar Abdi Said
+            `,
+			firsAdviser: 'M Isse Abdillahi',
+			tel: '322 347 69 67 / 347 69 61',
+			fax: '322 347 69 63',
+			adress: `
+            Avenue Brugman 410
+            1180 Bruxelles AV des Gémeaux, 13 1410 Waterloo
+            `,
+			email: 'omar.abdi@diplomatie.gouv.dj',
+			consul: {
+				name: '',
+				consulTitle: '',
+				tel: '',
+				viceConsul: {
+					name: '',
+					tel: '',
+					fax: '',
+				},
+			},
+		},
+		countryInDjib: {
+			ambassador: '',
+			tel: '',
+			fax: '',
+			adress: '',
+			email: '',
+		},
+	},
+    {
+		id: 5,
+		name: 'E.A.U',
+		officicalName: 'United Arab Emirates State',
+		regime: 'Federation of Emirates',
+		headOfState: ' Cheikh Khalifa Bin Zayed Al Nahyan',
+		area: '82 880 km2',
+		capital: 'Abu Dhabi',
+		mainCities: ['Abu Dhabi', 'Dubai', 'Sharjah'],
+		officialLanguage: ['arabe'],
+		localLanguages: ['arabe'],
+		currency: 'UAE dirham -- ',
+		nationalDay: 'December 2',
+		population: '9.8 million in 2020 (11.5 of nationals)',
+		density: '83.6 inhabitants/km2',
+		populationGrowth: '1.4% / year (2019)',
+		lifeExpectacy: '77.81 years',
+		literacyRate: '93% (Banque Mondiale, 2018)',
+		indexOfDev: '0,83 -- 31e of 228 (2019)',
+		religions: [
+			
+
+			'Musulmans 75%',
+			'Christians 13%',
+			'Others 12%',
+		],
+		djibInCountry: {
+			ambassador: ` H.E Dr Omar Abdi Said
+            `,
+			firsAdviser: 'M Isse Abdillahi',
+			tel: '322 347 69 67 / 347 69 61',
+			fax: '322 347 69 63',
+			adress: `
+            Avenue Brugman 410
+            1180 Bruxelles AV des Gémeaux, 13 1410 Waterloo
+            `,
+			email: 'omar.abdi@diplomatie.gouv.dj',
+			consul: {
+				name: '',
+				consulTitle: '',
+				tel: '',
+				viceConsul: {
+					name: '',
+					tel: '',
+					fax: '',
+				},
+			},
+		},
+		countryInDjib: {
+			ambassador: '',
+			tel: '',
+			fax: '',
+			adress: '',
+			email: '',
 		},
 	},
 ];

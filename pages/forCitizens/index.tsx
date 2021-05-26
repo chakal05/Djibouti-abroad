@@ -11,13 +11,10 @@ import {
 	Accordion,
 	AccordionSummary,
 	AccordionDetails,
-	
 } from '@material-ui/core';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faArrowCircleDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import Countries from '../../components/countries';
 import PagesInfo from '../../components/templateFooter';
@@ -246,6 +243,12 @@ export default function forDjiboutian() {
 			<PagesInfo
 				leftLinks={travelInfoLinks}
 				rightLinks={helpInfoLinks}
+				leftFirstTitle={'Travel Information'}
+				leftSecTitle={`Here is important information before and
+                during your stay abroad.`}
+				rightFirstTitle={`Help for Djiboutian abroad`}
+				rightSecTitle={`Here is information about the service you
+                can get abroad.`}
 			/>
 		</>
 	);
