@@ -44,101 +44,16 @@ const useStyles = makeStyles((theme: Theme) =>
 			width: '100%',
 			[theme.breakpoints.up(751)]: {
 				width: '30%',
-				// 	position: 'absolute',
-				// 	right: '3rem',
-				// 	top: '30%',
-				// 	marginLeft: '1rem',
 			},
-			// [theme.breakpoints.up(900)]: {
-			// 	top: '20%',
-			// },
-			// [theme.breakpoints.up(1100)]: {
-			// 	width: '500px',
-			// 	position: 'relative',
-			// 	right: '0',
-			// 	left: '0',
-			// 	top: '0',
-			// },
 		},
-
-		// img: {
-		// 	[theme.breakpoints.down(650)]: {
-		// 		display: 'none !important',
-		// 	},
-
-		// 	[theme.breakpoints.up(651)]: {
-		// 		position: 'absolute',
-		// 		top: '50%',
-		// 	},
-		// },
-
-		// carteContainer: {
-		// 	padding: '1rem',
-		// 	[theme.breakpoints.down(650)]: {
-		// 		display: 'flex',
-		// 		justifyContent: 'center',
-		// 		alignItems: 'center',
-		// 		width: '100%',
-		// 	},
-		// },
-
-		// carte: {
-		// 	padding: '1rem',
-		// 	height: '200px',
-		// 	width: '400px',
-		// 	margin: '1rem',
-		// },
-		// url: {
-		// 	' &:hover': {
-		// 		fontWeight: 'bold',
-		// 	},
-		// },
 	})
 );
-
-// const countriesInfo = [
-// 	{
-// 		id: '1',
-// 		name: 'Kenya',
-// 		officicalName: 'Republic of Kenya',
-// 		regime: 'Republic',
-// 		headOfState: 'M.Uhuru Kenyatta',
-// 		area: '580 367 km2',
-// 		capital: 'Nairobi',
-// 		mainCities: [
-// 			'Nairobie',
-// 			'Mombasa',
-// 			'Kisumu',
-// 			'Eldoret',
-// 			'Nyeri',
-// 			'Meru',
-// 			'Embu',
-// 		],
-// 		officialLanguage: ['English', 'Swahili'],
-// 		localLanguages: ['Swahili and 40+ others languages'],
-// 		currency: 'Kenyan Shilling -- 1 EUR= 132,67 KES (Janvier 2020)',
-// 		nationalDay: 'December 12',
-// 		population: '53,8 millions (ONU, 2020)',
-// 		density: '85,3 habitants/km2',
-// 		populationGrowth: '2,3%',
-// 		lifeExpectacy: '66,2 years',
-// 		literacyRate: '87,8% (Banque Mondiale, 2018)',
-// 		indexOfDev: '0,579 -- 185e of 228 (2018)',
-// 		religions: [
-// 			'Protestants 45 % ',
-// 			'Catholiques 33 % ',
-// 			'Musulmans 10 %',
-// 			'Animistes 10 % ',
-// 			'autres 2 %',
-// 		],
-// 	},
-// ];
 
 function Search() {
 	const router = useRouter();
 	const country = router.query.country;
 	const classes = useStyles();
- 
+
 	return (
 		<Grid container>
 			{country === undefined && (
@@ -241,7 +156,7 @@ export default function diploMiss() {
 													variant='body2'>
 													{' '}
 													Official name:{' '}
-													{item.officicalName}
+													{item.officialName}
 												</Typography>
 												<Typography
 													gutterBottom
@@ -424,40 +339,54 @@ export default function diploMiss() {
 														}}>
 														{country} in Djibouti{' '}
 													</Typography>
-													<Typography
-														gutterBottom
-														variant='body2'>
-														{' '}
-														Ambassador:{' '}
-														{
-															el.countryInDjib
-																.ambassador
-														}
-													</Typography>
-													<Typography
-														gutterBottom
-														variant='body2'>
-														{' '}
-														Tel: {el.countryInDjib.tel}
-													</Typography>
-													<Typography
-														gutterBottom
-														variant='body2'>
-														{' '}
-														Fax:{el.countryInDjib.fax}
-													</Typography>
-													<Typography
-														gutterBottom
-														variant='body2'>
-														Adress:{' '}
-														{el.countryInDjib.adress}
-													</Typography>
-													<Typography
-														gutterBottom
-														variant='body2'>
-														Email:{' '}
-														{el.countryInDjib.email}
-													</Typography>
+													{el.countryInDjib
+														.ambassador && (
+														<Typography
+															gutterBottom
+															variant='body2'>
+															{' '}
+															Ambassador:{' '}
+															{
+																el.countryInDjib
+																	.ambassador
+															}
+														</Typography>
+													)}
+													{el.countryInDjib.tel && (
+														<Typography
+															gutterBottom
+															variant='body2'>
+															{' '}
+															Tel:{' '}
+															{el.countryInDjib.tel}
+														</Typography>
+													)}
+													{el.countryInDjib.fax && (
+														<Typography
+															gutterBottom
+															variant='body2'>
+															{' '}
+															Fax:
+															{el.countryInDjib.fax}
+														</Typography>
+													)}
+
+													{el.countryInDjib.adress && (
+														<Typography
+															gutterBottom
+															variant='body2'>
+															Adress:{' '}
+															{el.countryInDjib.adress}
+														</Typography>
+													)}
+													{el.countryInDjib.email && (
+														<Typography
+															gutterBottom
+															variant='body2'>
+															Adress:{' '}
+															{el.countryInDjib.email}
+														</Typography>
+													)}
 												</div>
 											)}
 										</div>

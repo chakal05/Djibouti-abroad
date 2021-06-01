@@ -30,32 +30,32 @@ export default function Countries() {
 	};
 
 	const countries = [
-		'E.A.U',
+		'Belgium',
 		'China',
-		'Belgium', 
-		'Netherland',
-		'Luxemburg',
-		'U.E',
-		'Egypt',
-		'Erythree',
-		'France',
-		'Inde',
-		'Kenya',
-		'Russie', 
-		'Maroc',
-		'Sudan',
-		'Turkey',
-		'Yemen',
-		'USA',
-		'Suisse',
-		'Germany',
 		'Cuba',
+		'E.A.U',
+		'Egypt',
+		'Eritrea',
+		'Ethiopia',
+		'France',
+		'Germany',
+		'India',
 		'Japon',
-		'UK',
+		'Kenya',
+		'Luxemburg',
+		'Maroc',
+		'Netherland',
+		'Qatar',
+		'Russia',
 		'SaudiArabia',
-        'Qatar',
-        'Ethiopia'
+		'Somalia',
+		'Sudan',
+		'Switzerland',
+		'Turkey',
+		'USA',
+		'Yemen',
 	];
+
 	return (
 		<>
 			<FormControl

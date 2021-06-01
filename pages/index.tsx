@@ -279,7 +279,7 @@ export default function Home() {
 									variant='h5'
 									className={classes.carteTitle}>
 									{' '}
-									Travelling abroad ?
+									Traveling abroad ?
 								</Typography>
 								<Typography
 									variant='body1'
