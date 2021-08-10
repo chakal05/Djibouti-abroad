@@ -228,7 +228,7 @@ export default function forDjiboutian() {
 											{' '}
 											{item.title}
 										</Typography>
-									</AccordionSummary>
+	 								</AccordionSummary>
 									<AccordionDetails>
 										<Typography>
 											{item.description}

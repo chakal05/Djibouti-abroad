@@ -257,7 +257,8 @@ function userInfo({ user }) {
 												'accessToken'
 											);
 											router.push({
-												pathname: '/consularReg',
+												pathname:
+													'/forCitizens/consularReg',
 											});
 										}
 									}}>
@@ -268,7 +269,7 @@ function userInfo({ user }) {
 									className={classes.titleBtn}
 									onClick={() => {
 										localStorage.removeItem('accessToken');
-										router.push('/consularReg');
+										router.push('/forCitizens/consularReg');
 									}}>
 									{' '}
 									Logout{' '}
@@ -289,18 +290,14 @@ function userInfo({ user }) {
 										label='First name'
 										variant='outlined'
 										value={firstName}
-										// onChange={(e) =>
-										// 	setFirstName(e.target.value)
-										// }
+									
 									/>
 									<TextField
 										className={classes.secondTextField}
 										label='Name'
 										variant='outlined'
 										value={name}
-										// onChange={(e) =>
-										// 	setName(e.target.value)
-										// }
+										
 									/>
 									<div className={classes.titleSpace}>
 										<Typography variant='h6'>
@@ -312,9 +309,7 @@ function userInfo({ user }) {
 										className={classes.textField}
 										label='Email'
 										value={email}
-										// onChange={(e) =>
-										// 	setEmail(e.target.value)
-										// }
+										
 										variant='outlined'
 									/>
 									<TextField
@@ -322,9 +317,7 @@ function userInfo({ user }) {
 										label='Telephone'
 										variant='outlined'
 										value={tel}
-										// onChange={(e) =>
-										// 	setTel(e.target.value)
-										// }
+									
 									/>
 									<TextField
 										className={classes.secondTextField}
@@ -350,18 +343,14 @@ function userInfo({ user }) {
 										label='Country'
 										variant='outlined'
 										value={country}
-										// onChange={(e) =>
-										// 	setCountry(e.target.value)
-										// }
+									
 									/>
 									<TextField
 										className={classes.secondTextField}
 										label='City'
 										variant='outlined'
 										value={city}
-										// onChange={(e) =>
-										// 	setCity(e.target.value)
-										// }
+									
 									/>
 								</div>
 								<div
@@ -378,27 +367,14 @@ function userInfo({ user }) {
 										label='Arrival'
 										variant='outlined'
 										value={arrival}
-										// onChange={(e) =>
-										// 	setArrival(e.target.value)
-										// }
+									
 									/>
 									<TextField
 										className={classes.secondTextField}
 										label='Departure'
 										variant='outlined'
 										value={departure}
-										// onChange={(e) =>
-										// 	setDeparture(e.target.value)
-										// }
-									/>
-									<TextField
-										className={classes.secondTextField}
-										label='Password'
-										variant='outlined'
-										value={password}
-										// onChange={(e) =>
-										// 	setPassword(e.target.value)
-										// }
+										
 									/>
 								</div>
 							</div>
@@ -434,11 +410,7 @@ function userInfo({ user }) {
 													label='Name'
 													variant='outlined'
 													value={partnerName}
-													// onChange={(e) =>
-													// 	setpartnerName(
-													// 		e.target.value
-													// 	)
-													// }
+												
 												/>
 												<TextField
 													className={
@@ -447,11 +419,7 @@ function userInfo({ user }) {
 													label='First name'
 													variant='outlined'
 													value={partnerFirstName}
-													// onChange={(e) =>
-													// 	setPartnerFirstName(
-													// 		e.target.value
-													// 	)
-													// }
+													
 												/>
 											</Grid>
 											<Grid
@@ -469,11 +437,7 @@ function userInfo({ user }) {
 													label='Citizenship'
 													variant='outlined'
 													value={partnerCitizenship}
-													// onChange={(e) =>
-													// 	setPartnerCitizenship(
-													// 		e.target.value
-													// 	)
-													// }
+												
 												/>
 												<TextField
 													className={
@@ -482,11 +446,7 @@ function userInfo({ user }) {
 													label='Email'
 													variant='outlined'
 													value={partnerEmail}
-													// onChange={(e) =>
-													// 	setPartnerEmail(
-													// 		e.target.value
-													// 	)
-													// }
+													
 												/>
 												<TextField
 													className={
@@ -495,11 +455,7 @@ function userInfo({ user }) {
 													label='Telephone'
 													variant='outlined'
 													value={partnerTel}
-													// onChange={(e) =>
-													// 	setpartnerTel(
-													// 		e.target.value
-													// 	)
-													// }
+												
 												/>
 											</Grid>
 										</div>
@@ -534,11 +490,7 @@ function userInfo({ user }) {
 												label='Name'
 												variant='outlined'
 												value={kidName}
-												// onChange={(e) =>
-												// 	setKidName(
-												// 		e.target.value
-												// 	)
-												// }
+											
 											/>
 											<TextField
 												className={
@@ -547,11 +499,7 @@ function userInfo({ user }) {
 												label='First name'
 												variant='outlined'
 												value={kidFirstName}
-												// onChange={(e) =>
-												// 	setKidFirstName(
-												// 		e.target.value
-												// 	)
-												// }
+											
 											/>
 											<TextField
 												className={
@@ -560,11 +508,7 @@ function userInfo({ user }) {
 												label='Citizenship'
 												variant='outlined'
 												value={kidCitizenship}
-												// onChange={(e) =>
-												// 	setKidCitizenship(
-												// 		e.target.value
-												// 	)
-												// }
+											
 											/>
 										</Grid>
 									</div>

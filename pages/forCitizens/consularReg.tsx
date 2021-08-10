@@ -181,6 +181,8 @@ export default function ConsularRegistration() {
 	const [identifier, setIdentifier] = React.useState('');
 	const [pass, setPass] = React.useState('');
 	const [errorMessage, setError] = React.useState('');
+	const [kids, setKids] = React.useState([]);
+
 	const classes = useStyles();
 	const router = useRouter();
 	return (
@@ -265,41 +267,60 @@ export default function ConsularRegistration() {
 								<form
 									onSubmit={async (e) => {
 										e.preventDefault();
-
-										const payload = {
-											name,
-											password,
-											firstName,
-											email,
-											tel,
-											personToContact,
-											country,
-											city,
-											arrival,
-											departure,
-											partnerName,
-											partnerFirstName,
-											partnerTel,
-											partnerEmail,
-											partnerCitizenship,
-											kidName,
-											kidFirstName,
-											kidCitizenship,
-											flag: 'Register',
-										};
-										if (payload.country) {
+										if (country) {
 											await fetch('/api/user', {
 												method: 'POST',
 												headers: {
 													'Content-Type':
 														'application/json',
 												},
-												body: JSON.stringify(payload),
+												body: JSON.stringify({
+													name,
+													password,
+													firstName,
+													email,
+													tel,
+													personToContact,
+													country,
+													city,
+													arrival,
+													departure,
+													partnerName,
+													partnerFirstName,
+													partnerTel,
+													partnerEmail,
+													partnerCitizenship,
+													kids,
+													flag: 'Register',
+												}),
+											}).then(() => {
+												setName('');
+												setFirstName('');
+												setPassword('');
+												setEmail('');
+												setTel('');
+												setEmail('');
+												setCity('');
+												setPersonToContact('');
+												setCountry('');
+												setArrival('');
+												setDeparture('');
+												setpartnerName('');
+												setPartnerCitizenship('');
+												setPartnerEmail('');
+												setpartnerName('');
+												setpartnerTel('');
+												setKidName('');
+												setKidCitizenship('');
+												setKidFirstName('');
+
+												document.getElementById(
+													'reg'
+												).style.display = 'none';
 											});
 										}
 
-										if (!payload.country) {
-											//let response =
+										if (!country) {
 											await fetch('/api/user', {
 												method: 'POST',
 												headers: {
@@ -313,13 +334,13 @@ export default function ConsularRegistration() {
 												}),
 											}).then(async (response) => {
 												if (response.status === 200) {
-					 								let data =
+													let data =
 														await response.json();
 													let accessToken = data;
 
 													localStorage.setItem(
 														'accessToken',
-								 						JSON.stringify(accessToken)
+														JSON.stringify(accessToken)
 													);
 
 													router.push({
@@ -331,7 +352,9 @@ export default function ConsularRegistration() {
 												}
 
 												if (response.status !== 200) {
-													setError('User not found ');
+													setError(
+														'User not found. Please check you credentials '
+													);
 												}
 											});
 										}
@@ -643,7 +666,8 @@ export default function ConsularRegistration() {
 														}>
 														<Typography variant='h6'>
 															{' '}
-															Personal information{' '}
+															kid{' '}
+															{`${kids.length || 1}`}
 														</Typography>
 													</div>
 													<TextField
@@ -653,11 +677,11 @@ export default function ConsularRegistration() {
 														label='Name'
 														variant='outlined'
 														value={kidName}
-														onChange={(e) =>
+														onChange={(e) => {
 															setKidName(
 																e.target.value
-															)
-														}
+															);
+														}}
 													/>
 													<TextField
 														className={
@@ -666,11 +690,11 @@ export default function ConsularRegistration() {
 														label='First name'
 														variant='outlined'
 														value={kidFirstName}
-														onChange={(e) =>
+														onChange={(e) => {
 															setKidFirstName(
 																e.target.value
-															)
-														}
+															);
+														}}
 													/>
 													<TextField
 														className={
@@ -679,24 +703,37 @@ export default function ConsularRegistration() {
 														label='Citizenship'
 														variant='outlined'
 														value={kidCitizenship}
-														onChange={(e) =>
+														onChange={(e) => {
 															setKidCitizenship(
 																e.target.value
-															)
-														}
+															);
+														}}
 													/>
+
+													<div>
+														<Button
+															className={classes.btn}
+															variant='outlined'
+															onClick={() => {
+																setKids([
+																	{
+																		name: kidName,
+																		firstName:
+																			kidFirstName,
+																		citizenship:
+																			kidCitizenship,
+																	},
+																]);
+
+																setKidCitizenship('');
+																setKidFirstName('');
+																setKidName('');
+															}}>
+															{' '}
+															Add another kid{' '}
+														</Button>
+													</div>
 												</Grid>
-											</div>
-											<div
-												className={classes.btnContainer}>
-												<Button
-													type='submit'
-													className={classes.btn}
-													size='large'
-													variant='outlined'>
-													{' '}
-													Submit
-												</Button>
 											</div>
 										</div>
 									</div>
@@ -730,25 +767,32 @@ export default function ConsularRegistration() {
 											}
 										/>
 
-										<div style={{ textAlign: 'center', marginTop:'1rem' }}>
+										<div
+											style={{
+												textAlign: 'center',
+												marginTop: '1rem',
+											}}>
 											<Typography
 												color='secondary'
-												variant='h6'>
+												variant='body2'>
 												{' '}
 												{errorMessage}{' '}
 											</Typography>
 										</div>
-
-										<div className={classes.btnContainer}>
-											<Button
-												type='submit'
-												className={classes.btn}
-												size='large'
-												variant='outlined'>
-												{' '}
-												Submit
-											</Button>
-										</div>
+									</div>
+									<div className={classes.btnContainer}>
+										<Button
+											type='submit'
+											style={{
+												width: '56%',
+												backgroundColor: '#234924',
+												color: '#fff',
+											}}
+											size='large'
+											variant='outlined'>
+											{' '}
+											Submit
+										</Button>
 									</div>
 								</form>
 							</Grid>

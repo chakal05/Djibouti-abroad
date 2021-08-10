@@ -132,7 +132,7 @@ const questions = [
         For any further information, contact the Djibouti embassy in your country or the nearest.
 `,
 	},
-	{
+	{ 
 		id: 3,
 		title: 'What are the customs and traditions of Djibouti ?',
 		description: `	

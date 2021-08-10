@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			// 	marginBottom: '-9rem',
 			// 	paddingTop: '2rem',
 			// },
-		},
+		}, 
 		titleContainer: {
 			padding: '3rem',
 			width: '100%',
@@ -91,17 +91,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 
-		// carte: {
-		// 	padding: '1rem',
-		// 	height: '200px',
-		// 	width: '400px',
-		// 	margin: '1rem',
-		// },
-		// url: {
-		// 	' &:hover': {
-		// 		fontWeight: 'bold',
-		// 	},
-		// },
+		
 
 		textField: {
 			margin: '0.5rem 0',

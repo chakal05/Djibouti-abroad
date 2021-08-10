@@ -10,7 +10,7 @@ import {
 	Toolbar,
 	Button,
 	Typography,
-	Container,
+	Container, 
 	Menu,
 	MenuItem,
 	AppBar,
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		toolbarTitle: {
 			flexGrow: 1,
-			fontWeight: 'bold',
+			fontWeight: 'bolder',
 		},
 		toolbarSecondary: {
 			height: '70px',
@@ -105,7 +105,7 @@ export default function Header() {
 					position='static'
 					color='transparent'
 					elevation={0}>
-					<Toolbar className={classes.toolbar}>
+					<Toolbar component='nav' variant='dense' className={classes.toolbar}>
 						<Link href='/'>
 							<a>
 								<Image
@@ -152,18 +152,16 @@ export default function Header() {
 								open={Boolean(anchorEl)}
 								onClose={handleClose}>
 								{sections.map((element) => (
-									<MenuItem
-										key={element.id}
-										value={element.url}>
-										{' '}
-										<Link href={element.url}>
-											<a>
+									<Link key={element.id} href={element.url}>
+										<a>
+											<MenuItem value={element.url}>
+												{' '}
 												<Typography variant='body1'>
 													{element.title}
 												</Typography>
-											</a>
-										</Link>
-									</MenuItem>
+											</MenuItem>
+										</a>
+									</Link>
 								))}
 							</Menu>
 						</div>
