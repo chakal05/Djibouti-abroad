@@ -268,6 +268,7 @@ export default function forDjiboutian() {
 					<PagesInfo
 						leftLinks={travelInfoLinks}
 						rightLinks={helpInfoLinks}
+                        pageTitle={'Foreigners'}
 						leftFirstTitle={'Going to Djibouti ?'}
 						leftSecTitle={`Here is some information about Djibouti and its opportunities.`}
 						rightFirstTitle={`Help for foreigners `}

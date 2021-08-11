@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function InfoBelow({
+    pageTitle,
 	leftLinks,
 	rightLinks,
 	leftFirstTitle,
@@ -66,7 +67,7 @@ export default function InfoBelow({
 							marginBottom: '2rem',
 							fontWeight: 'bold',
 						}}>
-						Information for Foreigners
+						Information for {pageTitle}
 					</Typography>
 				</Grid>
 				<Grid item xs={12}>

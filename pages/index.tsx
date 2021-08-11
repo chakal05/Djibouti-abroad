@@ -1,5 +1,6 @@
 //import styles from '../styles/index.module.scss';
 import React from 'react';
+import Head from 'next/head';
 import {
 	makeStyles,
 	createStyles,
@@ -129,7 +130,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 		carteBtn: {
 			textAlign: 'center',
-			marginTop: '2rem ',
 		},
 
 		icon: {
@@ -204,6 +204,9 @@ export default function Home() {
 
 	return (
 		<>
+			<Head>
+				<title> Home </title>
+			</Head>
 			<Container maxWidth='lg'>
 				<Grid container className={classes.topColorWhite}>
 					<Grid item className={classes.titleContainer}>
@@ -292,29 +295,29 @@ export default function Home() {
 									{travelInfoLinks.map((item) => {
 										return (
 											<li key={item.id}>
-												<Typography
-													variant='body1'
-													className={classes.url}>
-													<Grid container>
-														<Grid item xs={9}>
+												<Grid container>
+													<Grid item xs={9}>
+														<Typography
+															variant='body1'
+															className={classes.url}>
 															{item.title}
-														</Grid>
-														<Grid
-															item
-															xs={3}
-															style={{
-																textAlign: 'right',
-															}}>
-															<FontAwesomeIcon
-																style={{
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={faCheckCircle}
-															/>
-														</Grid>
+														</Typography>
 													</Grid>
-												</Typography>
+													<Grid
+														item
+														xs={3}
+														style={{
+															textAlign: 'right',
+														}}>
+														<FontAwesomeIcon
+															style={{
+																height: '15px',
+																width: '15px',
+															}}
+															icon={faCheckCircle}
+														/>
+													</Grid>
+												</Grid>
 											</li>
 										);
 									})}
@@ -350,12 +353,14 @@ export default function Home() {
 									{forForeignersLinks.map((item) => {
 										return (
 											<li key={item.id}>
-												<Typography
-													variant='body1'
-													className={classes.url}>
+											
 													<Grid container>
 														<Grid item xs={9}>
+														<Typography
+															variant='body1'
+															className={classes.url}>
 															{item.title}
+														</Typography>
 														</Grid>
 														<Grid
 															item
@@ -372,7 +377,6 @@ export default function Home() {
 															/>
 														</Grid>
 													</Grid>
-												</Typography>
 											</li>
 										);
 									})}

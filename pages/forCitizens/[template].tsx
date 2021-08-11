@@ -189,10 +189,16 @@ export default function Info() {
 						})}
 					</Grid>
 				</Grid>
-				<Grid item>
+				<Grid item xs={12} justify='center'>
 					<PagesInfo
 						leftLinks={travelInfoLinks}
 						rightLinks={helpInfoLinks}
+                        pageTitle={'Citizens'}
+						leftFirstTitle={'Travel recommendations ?'}
+						leftSecTitle={`Here is some information and recommendations from the Ministry of Foreign Affairs.`}
+						rightFirstTitle={`Emergencies and formalities `}
+						rightSecTitle={`Here is information about the services you
+                        can get abroad.`}
 					/>
 				</Grid>
 			</Grid>

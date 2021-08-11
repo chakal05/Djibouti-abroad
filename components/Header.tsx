@@ -68,7 +68,7 @@ export default function Header() {
 		{
 			id: 2,
 			url: '/forCitizens/',
-			title: 'For citizens',
+			title: 'For Citizens',
 		},
 		{
 			id: 3,
@@ -79,13 +79,13 @@ export default function Header() {
 		{
 			id: 1,
 			url: '/forCitizens/consularReg',
-			title: 'Consular registration',
+			title: 'Consular Registration',
 		},
 
 		{
 			id: 4,
 			url: '/forCitizens/countryInfo',
-			title: 'Embassies and consulates',
+			title: 'Embassies and Consulates',
 		},
 	];
 	const handleClick = (
@@ -93,6 +93,8 @@ export default function Header() {
 	) => {
 		setAnchorEl(event.currentTarget);
 	};
+
+  
 
 	const handleClose = () => {
 		setAnchorEl(null);

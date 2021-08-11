@@ -1,6 +1,6 @@
 export const travelInfoLinks = [
 	{
-		id: 6,
+		id: 1,
 		title: `Warnings from the Ministry`,
 		lien: {
 			pathname: '/forCitizens/[template]',
@@ -8,7 +8,7 @@ export const travelInfoLinks = [
 		},
 	},
 	{
-		id: 1,
+		id: 2,
 		title: 'About the Coronavirus',
 		lien: {
 			pathname: '/forCitizens/[template]',
@@ -44,7 +44,7 @@ export const travelInfoLinks = [
 
 export const helpInfoLinks = [
     {
-        id: 7,
+        id: 6,
 		title: 'Emergency abroad',
 		lien: {
 			pathname: '/forCitizens/[template]',
@@ -77,7 +77,7 @@ export const helpInfoLinks = [
 		},
 	},
     {
-		id: 9,
+		id: 10,
 		title: 'Consular registration',
 		lien: {
 			pathname: '/forCitizens/consularReg',

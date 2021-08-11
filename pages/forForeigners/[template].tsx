@@ -7,6 +7,11 @@ import {
 } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import { data } from '../../util/foreignersTemplateInfo';
+import PagesInfo from '../../components/templateFooter';
+import {
+	helpInfoLinks,
+	travelInfoLinks,
+} from '../../util/forForeignersTemplateLinks';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -21,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			// 	marginBottom: '-9rem',
 			// 	paddingTop: '2rem',
 			// },
-		}, 
+		},
 		titleContainer: {
 			padding: '3rem',
 			width: '100%',
@@ -90,8 +95,6 @@ const useStyles = makeStyles((theme: Theme) =>
 				width: '100%',
 			},
 		},
-
-		
 
 		textField: {
 			margin: '0.5rem 0',
@@ -183,6 +186,22 @@ export default function Info() {
 								</div>
 							);
 						})}
+					</Grid>
+					<Grid
+						item
+						xs={12}
+						justify='center'
+						style={{ marginTop: '7rem' }}>
+						<PagesInfo
+							leftLinks={travelInfoLinks}
+							rightLinks={helpInfoLinks}
+							pageTitle={'Foreigners'}
+							leftFirstTitle={'Going to Djibouti ?'}
+							leftSecTitle={`Here is some information about Djibouti and its opportunities.`}
+							rightFirstTitle={`Help for foreigners `}
+							rightSecTitle={`Here is information about the service you
+                        can get in Djibouti.`}
+						/>
 					</Grid>
 				</Grid>
 			</Grid>

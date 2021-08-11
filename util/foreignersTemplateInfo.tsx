@@ -151,7 +151,7 @@ export let data = [
 		],
 	},
     {
-        id: 2,
+        id: 3,
 		tag: 'entreEtSejour',
 		pageTitle: 'Entrence / stay',
 		secondaryTitle: 'Entry formalities',
@@ -190,7 +190,7 @@ export let data = [
                  `,
 			},
             {
-				id: 3,
+				id: 4,
 				title: 'For travelers traveling from Ethiopia to Djibouti by road:',
 				body: `
                 The border control between Djibouti and Ethiopia is carried out in two stages: the first 

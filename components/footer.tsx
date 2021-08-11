@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			backgroundColor: theme.palette.background.paper,
 			// marginTop: theme.spacing(8),
 			padding: theme.spacing(6, 0),
-			marginTop: '3rem',
+			marginTop: '7rem',
 		},
 
 		icon: {
@@ -50,7 +50,7 @@ export default function Footer() {
 	return (
 		<footer className={classes.footer}>
 			<Container maxWidth='lg'>
-				<Typography variant='h5' className={classes.contact}>
+				<Typography variant='h4' className={classes.contact}>
 					{' '}
 					Contact{' '}
 				</Typography>

@@ -176,8 +176,7 @@ export default function forDjiboutian() {
 						/>
 					</Grid>
 				</Grid>
-			</Container>
-			<div
+                <div
 				style={{
 					margin: '5rem 0',
 					paddingTop: '2rem ',
@@ -185,10 +184,10 @@ export default function forDjiboutian() {
 					backgroundColor: '#edf4ed',
 				}}>
 				<Container maxWidth='lg'>
-					<Typography
-						variant='h5'
+                <Typography
+						variant='h4'
 						style={{
-							marginBottom: '2rem',
+							marginBottom: '5rem',
 							fontWeight: 'bold',
 						}}>
 						Frequently asked questions
@@ -240,9 +239,11 @@ export default function forDjiboutian() {
 					</div>
 				</Container>
 			</div>
-			<PagesInfo
+            <Grid item xs={12}>
+            <PagesInfo
 				leftLinks={travelInfoLinks}
 				rightLinks={helpInfoLinks}
+                pageTitle={'Citizens'}
 				leftFirstTitle={'Travel Information'}
 				leftSecTitle={`Here is important information before and
                 during your stay abroad.`}
@@ -250,6 +251,10 @@ export default function forDjiboutian() {
 				rightSecTitle={`Here is information about the service you
                 can get abroad.`}
 			/>
+            </Grid>
+		
+			</Container>
+			
 		</>
 	);
 }

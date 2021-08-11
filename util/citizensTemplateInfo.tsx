@@ -67,7 +67,7 @@ export let data = [
 	},
 
 	{
-		id: 1,
+		id: 2,
 		tag: 'coronaForCitizens',
 		pageTitle: 'Travelling and the new Corona virus',
 		secondaryTitle: 'Travel recommendation ',
@@ -117,7 +117,7 @@ export let data = [
 	},
 
 	{
-		id: 1,
+		id: 3,
 		tag: 'prepareYourTrip',
 		pageTitle: 'Prepare your trip',
 		secondaryTitle: 'Check passports and visas ',
@@ -176,7 +176,7 @@ export let data = [
 		],
 	},
 	{
-		id: 1,
+		id: 4,
 		tag: 'terrorism',
 		pageTitle: 'Terrorism and threats abroad',
 		secondaryTitle: 'Basic information ',
@@ -249,7 +249,7 @@ export let data = [
 		],
 	},
 	{
-		id: 1,
+		id: 5,
 		tag: 'doubleCitizenship',
 		pageTitle: 'Travel with double citizenship',
 		secondaryTitle: 'Basic information ',
@@ -334,7 +334,7 @@ export let data = [
 		],
 	},
 	{
-		id: 1,
+		id: 6,
 		tag: 'passport',
 		pageTitle: 'Renewal of passport',
 		secondaryTitle: 'Basic information',
@@ -387,7 +387,7 @@ export let data = [
 		],
 	},
 	{
-		id: 1,
+		id: 7,
 		tag: 'emergency',
 		pageTitle: 'Emergency abroad',
 		secondaryTitle: 'Basic information',
@@ -414,7 +414,7 @@ export let data = [
 		],
 	},
 	{
-		id: 1,
+		id: 8,
 		tag: 'children',
 		pageTitle: 'Travelling with children',
 		secondaryTitle: 'Accompanying authorization',
@@ -435,20 +435,20 @@ export let data = [
             `,
 			},
 			{
-				id: 2,
+				id: 3,
 				title: 'Condition to be fulfilled and document to be provided:',
 				body: `Les Pièces d'Identités des Parents.
                  Les Actes de Naissances des Enfants.  `,
 			},
 			{
-				id: 2,
+				id: 4,
 				title: 'Costs incurred:',
 				body: `
                 A stamp of 1,000 DJF
             `,
 			},
 			{
-				id: 3,
+				id: 5,
 				title: 'Hours and days of deposit:',
 				body: ` 8h to 17h from Sunday to Thursday. It takes normaly 1 days 
                 before getting the new passport`,
@@ -456,7 +456,7 @@ export let data = [
 		],
 	},
     {
-		id: 1,
+		id: 9,
 		tag: 'legalization',
 		pageTitle: 'Legalization',
 		secondaryTitle: 'Basic information',
@@ -480,20 +480,20 @@ export let data = [
             `,
 			},
 			{
-				id: 2,
+				id: 3,
 				title: 'Condition to be fulfilled and document to be provided:',
 				body: `Original and copy of document.
                 Original identity document for withdrawal.`,
 			},
 			{
-				id: 2,
+				id: 4,
 				title: 'Costs incurred:',
 				body: `
                 A stamp of 1,000 DJF
             `,
 			},
 			{
-				id: 3,
+				id: 5,
 				title: 'Hours and days of deposit:',
 				body: ` 8h to 17h from Sunday to Thursday. It takes normaly 1 days 
                 before getting the new passport`,

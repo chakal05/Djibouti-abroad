@@ -1,13 +1,3 @@
-// function MyApp({ Component, pageProps }) {
-// 	return (
-// 		<Layout>
-// 			<Component {...pageProps} />
-// 		</Layout>
-// 	);
-// }
-
-// export default MyApp;
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
@@ -30,16 +20,16 @@ export default function MyApp(props) {
 
 	return (
 		<React.Fragment>
-			<Head>
-				<title>My page</title>
-				<meta
-					name='viewport'
-					content='minimum-scale=1, initial-scale=1, width=device-width'
-				/>
-			</Head>
 			<ThemeProvider theme={theme}>
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
+                <Head>
+                <link rel='icon' href='/favicon.ico' />
+                    <meta
+						name='viewport'
+						content='width=device-width, initial-scale=1.0'
+					/>
+                </Head>
 				<Layout>
 					<Component {...pageProps} />
 				</Layout>
