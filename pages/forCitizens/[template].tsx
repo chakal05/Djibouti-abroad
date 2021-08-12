@@ -1,4 +1,5 @@
 import React from 'react';
+import Head  from 'next/head'
 import { Container, Grid, Typography, Card } from '@material-ui/core';
 import {
 	createStyles,
@@ -144,6 +145,8 @@ export default function Info() {
 	});
 
 	return (
+        <>
+        <Head> <title> 	{info.pageTitle} - Djibouti Abroad </title> </Head>
 		<Container maxWidth='lg'>
 			<Grid container>
 				<Grid item xs={12} className={classes.topColorGreen}>
@@ -203,5 +206,6 @@ export default function Info() {
 				</Grid>
 			</Grid>
 		</Container>
+        </>
 	);
 }

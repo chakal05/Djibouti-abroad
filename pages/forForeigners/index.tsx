@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
 	makeStyles,
 	createStyles,
@@ -132,7 +133,7 @@ const questions = [
         For any further information, contact the Djibouti embassy in your country or the nearest.
 `,
 	},
-	{ 
+	{
 		id: 3,
 		title: 'What are the customs and traditions of Djibouti ?',
 		description: `	
@@ -157,6 +158,9 @@ export default function forDjiboutian() {
 
 	return (
 		<>
+			<Head>
+				<title>For Foreigners - Djibouti Abroad </title>
+			</Head>
 			<Container maxWidth='lg'>
 				<Grid container className={classes.topColorWhite}>
 					<Grid item className={classes.titleContainer}>
@@ -268,7 +272,7 @@ export default function forDjiboutian() {
 					<PagesInfo
 						leftLinks={travelInfoLinks}
 						rightLinks={helpInfoLinks}
-                        pageTitle={'Foreigners'}
+						pageTitle={'Foreigners'}
 						leftFirstTitle={'Going to Djibouti ?'}
 						leftSecTitle={`Here is some information about Djibouti and its opportunities.`}
 						rightFirstTitle={`Help for foreigners `}

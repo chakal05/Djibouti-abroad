@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
 	Container,
 	Grid,
@@ -122,6 +123,10 @@ export default function investInDjib() {
 	const classes = useStyles();
 	return (
 		<>
+			<Head>
+				{' '}
+				<title> Invest in Djibouti - Djibouti Abroad </title>{' '}
+			</Head>
 			<Container maxWidth='lg'>
 				<Grid container>
 					<Grid item xs={12} className={classes.topColorGreen}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { Container, Grid, Typography } from '@material-ui/core';
 import {
 	createStyles,
@@ -145,66 +146,72 @@ export default function Info() {
 	});
 
 	return (
-		<Container maxWidth='lg'>
-			<Grid container>
-				<Grid item xs={12} className={classes.topColorGreen}>
-					{' '}
-					<Typography
-						variant='h2'
-						style={{
-							fontWeight: 'bold',
-						}}>
-						{info.pageTitle}
-					</Typography>
-				</Grid>
+		<>
+			<Head>
+				{' '}
+				<title> {info.pageTitle} - Djibouti Abroad </title>{' '}
+			</Head>
+			<Container maxWidth='lg'>
+				<Grid container>
+					<Grid item xs={12} className={classes.topColorGreen}>
+						{' '}
+						<Typography
+							variant='h2'
+							style={{
+								fontWeight: 'bold',
+							}}>
+							{info.pageTitle}
+						</Typography>
+					</Grid>
 
-				<Grid item xs={12} className={classes.imgContainer}>
-					<Grid container>
+					<Grid item xs={12} className={classes.imgContainer}>
+						<Grid container>
+							<Grid item xs={12}>
+								<Typography
+									variant='h5'
+									style={{
+										marginBottom: '1rem',
+										textAlign: 'center',
+										fontWeight: 'bold',
+									}}>
+									{info.secondaryTitle}
+								</Typography>
+							</Grid>
+						</Grid>
 						<Grid item xs={12}>
-							<Typography
-								variant='h5'
-								style={{
-									marginBottom: '1rem',
-									textAlign: 'center',
-									fontWeight: 'bold',
-								}}>
-								{info.secondaryTitle}
-							</Typography>
+							{info.content.map((item) => {
+								return (
+									<div key={item.id}>
+										<Typography variant='h6'>
+											{item.title}
+										</Typography>
+										<Typography variant='body1'>
+											{item.body}
+										</Typography>
+										<br />
+									</div>
+								);
+							})}
+						</Grid>
+						<Grid
+							item
+							xs={12}
+							justify='center'
+							style={{ marginTop: '7rem' }}>
+							<PagesInfo
+								leftLinks={travelInfoLinks}
+								rightLinks={helpInfoLinks}
+								pageTitle={'Foreigners'}
+								leftFirstTitle={'Going to Djibouti ?'}
+								leftSecTitle={`Here is some information about Djibouti and its opportunities.`}
+								rightFirstTitle={`Help for foreigners `}
+								rightSecTitle={`Here is information about the service you
+                        can get in Djibouti.`}
+							/>
 						</Grid>
 					</Grid>
-					<Grid item xs={12}>
-						{info.content.map((item) => {
-							return (
-								<div key={item.id}>
-									<Typography variant='h6'>
-										{item.title}
-									</Typography>
-									<Typography variant='body1'>
-										{item.body}
-									</Typography>
-									<br />
-								</div>
-							);
-						})}
-					</Grid>
-					<Grid
-						item
-						xs={12}
-						justify='center'
-						style={{ marginTop: '7rem' }}>
-						<PagesInfo
-							leftLinks={travelInfoLinks}
-							rightLinks={helpInfoLinks}
-							pageTitle={'Foreigners'}
-							leftFirstTitle={'Going to Djibouti ?'}
-							leftSecTitle={`Here is some information about Djibouti and its opportunities.`}
-							rightFirstTitle={`Help for foreigners `}
-							rightSecTitle={`Here is information about the service you
-                        can get in Djibouti.`}
-						/>
-					</Grid>
 				</Grid>
-			</Grid>
-		</Container>
+			</Container>
+		</>
 	);
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import {
 	Container,
 	Grid,
@@ -187,6 +188,9 @@ export default function ConsularRegistration() {
 	const router = useRouter();
 	return (
 		<>
+			<Head>
+				<title> Consular Registration - Djibouti Abroad </title>
+			</Head>
 			<Container maxWidth='lg'>
 				{' '}
 				<Grid container>

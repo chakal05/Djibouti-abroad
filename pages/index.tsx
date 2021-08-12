@@ -205,7 +205,7 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title> Home </title>
+				<title>Home - Djibouti Abroad </title>
 			</Head>
 			<Container maxWidth='lg'>
 				<Grid container className={classes.topColorWhite}>

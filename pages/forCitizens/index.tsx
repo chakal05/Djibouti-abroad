@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
 	makeStyles,
 	createStyles,
@@ -145,6 +146,9 @@ export default function forDjiboutian() {
 
 	return (
 		<>
+			<Head>
+				<title> For Djiboutians  - Djibouti aAbroad</title>
+			</Head>
 			<Container maxWidth='lg'>
 				<Grid container className={classes.topColorWhite}>
 					<Grid item className={classes.titleContainer}>
@@ -176,85 +180,84 @@ export default function forDjiboutian() {
 						/>
 					</Grid>
 				</Grid>
-                <div
-				style={{
-					margin: '5rem 0',
-					paddingTop: '2rem ',
-					paddingBottom: '7rem',
-					backgroundColor: '#edf4ed',
-				}}>
-				<Container maxWidth='lg'>
-                <Typography
-						variant='h4'
-						style={{
-							marginBottom: '5rem',
-							fontWeight: 'bold',
-						}}>
-						Frequently asked questions
-					</Typography>
-					<div style={{ width: '80%', margin: '0 auto' }}>
-						{questions.map((item) => {
-							return (
-								<Accordion key={item.id}>
-									<AccordionSummary
-										expandIcon={
-											<>
-												<Typography>
-													{
-														<div
+				<div
+					style={{
+						margin: '5rem 0',
+						paddingTop: '2rem ',
+						paddingBottom: '7rem',
+						backgroundColor: '#edf4ed',
+					}}>
+					<Container maxWidth='lg'>
+						<Typography
+							variant='h4'
+							style={{
+								marginBottom: '5rem',
+								fontWeight: 'bold',
+							}}>
+							Frequently asked questions
+						</Typography>
+						<div style={{ width: '80%', margin: '0 auto' }}>
+							{questions.map((item) => {
+								return (
+									<Accordion key={item.id}>
+										<AccordionSummary
+											expandIcon={
+												<>
+													<Typography>
+														{
+															<div
+																style={{
+																	visibility:
+																		'hidden',
+																	marginTop: '-1rem',
+																}}>
+																{' '}
+																ds{' '}
+															</div>
+														}
+														<FontAwesomeIcon
 															style={{
-																visibility: 'hidden',
-																marginTop: '-1rem',
-															}}>
-															{' '}
-															ds{' '}
-														</div>
-													}
-													<FontAwesomeIcon
-														style={{
-															color: '#000',
-														}}
-														icon={faArrowCircleDown}
-													/>{' '}
-												</Typography>
-											</>
-										}
-										aria-controls='panel1a-content'
-										id='panel1a-header'>
-										<Typography
-											style={{ fontWeight: 'bold' }}
-											variant='subtitle2'>
-											{' '}
-											{item.title}
-										</Typography>
-	 								</AccordionSummary>
-									<AccordionDetails>
-										<Typography>
-											{item.description}
-										</Typography>
-									</AccordionDetails>
-								</Accordion>
-							);
-						})}
-					</div>
-				</Container>
-			</div>
-            <Grid item xs={12}>
-            <PagesInfo
-				leftLinks={travelInfoLinks}
-				rightLinks={helpInfoLinks}
-                pageTitle={'Citizens'}
-				leftFirstTitle={'Travel Information'}
-				leftSecTitle={`Here is important information before and
+																color: '#000',
+															}}
+															icon={faArrowCircleDown}
+														/>{' '}
+													</Typography>
+												</>
+											}
+											aria-controls='panel1a-content'
+											id='panel1a-header'>
+											<Typography
+												style={{ fontWeight: 'bold' }}
+												variant='subtitle2'>
+												{' '}
+												{item.title}
+											</Typography>
+										</AccordionSummary>
+										<AccordionDetails>
+											<Typography>
+												{item.description}
+											</Typography>
+										</AccordionDetails>
+									</Accordion>
+								);
+							})}
+						</div>
+					</Container>
+				</div>
+				<Grid item xs={12}>
+					<PagesInfo
+						leftLinks={travelInfoLinks}
+						rightLinks={helpInfoLinks}
+						pageTitle={'Citizens'}
+						leftFirstTitle={'Travel Information'}
+						leftSecTitle={`Here is important information before and
                 during your stay abroad.`}
-				rightFirstTitle={`Help for Djiboutian abroad`}
-				rightSecTitle={`Here is information about the service you
+						rightFirstTitle={`Help for Djiboutian abroad`}
+						rightSecTitle={`Here is information about the service you
                 can get abroad.`}
-			/>
-            </Grid>
-		
+					/>
+				</Grid>
 			</Container>
-			
 		</>
 	);
 }

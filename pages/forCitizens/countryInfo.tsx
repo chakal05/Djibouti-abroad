@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head'
 import { Container, Grid, Typography } from '@material-ui/core';
 import {
 	makeStyles,
@@ -112,6 +113,7 @@ export default function diploMiss() {
 
 	return (
 		<>
+        <Head><title> Embassies and Consulates - Djibouti Abroad  </title></Head>
 			<Container maxWidth='lg'>
 				{country === undefined && <Search />}
 
