@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Head from 'next/head'
+import Head from 'next/head';
 import { Container, Grid, Typography } from '@material-ui/core';
 import {
 	makeStyles,
@@ -46,6 +46,11 @@ const useStyles = makeStyles((theme: Theme) =>
 			[theme.breakpoints.up(751)]: {
 				width: '30%',
 			},
+		},
+
+		boldText: {
+			fontWeight: 'bold',
+            marginRight:'0.3rem'
 		},
 	})
 );
@@ -113,7 +118,12 @@ export default function diploMiss() {
 
 	return (
 		<>
-        <Head><title> Embassies and Consulates - Djibouti Abroad  </title></Head>
+			<Head>
+				<title>
+					{' '}
+					Embassies and Consulates - Djibouti Abroad{' '}
+				</title>
+			</Head>
 			<Container maxWidth='lg'>
 				{country === undefined && <Search />}
 
@@ -155,24 +165,41 @@ export default function diploMiss() {
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Official name:{' '}
-													{item.officialName}
+													variant='body1'>
+													
+													<span
+														className={
+															classes.boldText
+														}>
+														Official name:
+													</span>
+													<span>
+														{item.officialName}{' '}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Nature of the regime:{' '}
-													{item.regime}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Nature of the regime:{' '}
+													</span>
+													<span>{item.regime}</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Head of state:{' '}
-													{item.headOfState}
+													variant='body1'>
+													
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Head of state:{' '}
+													</span>
+													<span>{item.headOfState}</span>
 												</Typography>
 											</div>
 											<div>
@@ -184,54 +211,94 @@ export default function diploMiss() {
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Area: {item.area}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Area:{' '}
+													</span>
+													<span>{item.area}</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Capital: {item.capital}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Capital:{' '}
+													</span>
+													<span>{item.capital}</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													Main cities:{' '}
-													{item.mainCities.map(
-														(el) => `${el}, `
-													)}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Main cities:{' '}
+													</span>
+													<span>
+														{item.mainCities.map(
+															(el) => `${el}, `
+														)}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Official Languages:{' '}
-													{item.officialLanguage.map(
-														(el) => `${el}, `
-													)}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Official Languages:{' '}
+													</span>
+													<span>
+														{item.officialLanguage.map(
+															(el) => `${el}, `
+														)}
+													</span>
 												</Typography>{' '}
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Main spoken languages:{' '}
-													{item.localLanguages.map(
-														(el) => `${el}, `
-													)}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Main spoken languages:{' '}
+													</span>
+													<span>
+														{item.localLanguages.map(
+															(el) => `${el}, `
+														)}
+													</span>
 												</Typography>{' '}
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Currency: {item.currency}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Currency:{' '}
+													</span>
+													<span>{item.currency}</span>
 												</Typography>{' '}
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													National day:{' '}
-													{item.nationalDay}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														National day:{' '}
+													</span>
+													<span>{item.nationalDay}</span>
 												</Typography>
 											</div>
 											<div>
@@ -243,43 +310,81 @@ export default function diploMiss() {
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Population: {item.population}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Population:{' '}
+													</span>
+													<span>{item.population}</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Density: {item.density}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Density:{' '}
+													</span>
+													<span> {item.density}</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Population growth:{' '}
-													{item.populationGrowth}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Population growth:{' '}
+													</span>
+													<span>
+														{item.populationGrowth}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Life expectancy:{' '}
-													{item.lifeExpectacy}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Life expectancy:{' '}
+													</span>
+													<span>
+														{' '}
+														{item.lifeExpectacy}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Literacy rate:{' '}
-													{item.literacyRate}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Literacy rate:{' '}
+													</span>
+													<span>
+														{' '}
+														{item.literacyRate}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Index of human development:{' '}
-													{item.indexOfDev}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Index of human development:{' '}
+													</span>
+													<span>{item.indexOfDev}</span>
 												</Typography>
 											</div>
 										</>
@@ -301,33 +406,77 @@ export default function diploMiss() {
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Ambassador:{' '}
-													{el.djibInCountry.ambassador}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Ambassador:{' '}
+													</span>
+													<span>
+														{' '}
+														{
+															el.djibInCountry
+																.ambassador
+														}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Tel: {el.djibInCountry.tel}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Tel:{' '}
+													</span>
+													<span>
+														{' '}
+														{el.djibInCountry.tel}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													{' '}
-													Fax:{el.djibInCountry.fax}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Fax:
+													</span>
+													<span>
+														{' '}
+														{el.djibInCountry.fax}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													Adress:{' '}
-													{el.djibInCountry.adress}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														Adress:{' '}
+													</span>
+													<span>
+														{el.djibInCountry.adress}
+													</span>
 												</Typography>
 												<Typography
 													gutterBottom
-													variant='body2'>
-													Email: {el.djibInCountry.email}
+													variant='body1'>
+													<span
+														className={
+															classes.boldText
+														}>
+														{' '}
+														Email:
+													</span>
+													<span>
+														{' '}
+														{el.djibInCountry.email}
+													</span>
 												</Typography>
 											</div>{' '}
 											{el.countryInDjib.ambassador !==
@@ -345,48 +494,88 @@ export default function diploMiss() {
 														.ambassador && (
 														<Typography
 															gutterBottom
-															variant='body2'>
-															{' '}
-															Ambassador:{' '}
-															{
-																el.countryInDjib
-																	.ambassador
-															}
+															variant='body1'>
+															<span
+																className={
+																	classes.boldText
+																}>
+																Ambassador:{' '}
+															</span>
+															<span>
+																{
+																	el.countryInDjib
+																		.ambassador
+																}
+															</span>
 														</Typography>
 													)}
 													{el.countryInDjib.tel && (
 														<Typography
 															gutterBottom
-															variant='body2'>
-															{' '}
-															Tel:{' '}
-															{el.countryInDjib.tel}
+															variant='body1'>
+															<span
+																className={
+																	classes.boldText
+																}>
+																Tel:{' '}
+															</span>
+															<span>
+																{el.countryInDjib.tel}
+															</span>
 														</Typography>
 													)}
 													{el.countryInDjib.fax && (
 														<Typography
 															gutterBottom
-															variant='body2'>
-															{' '}
-															Fax:
-															{el.countryInDjib.fax}
+															variant='body1'>
+															<span
+																className={
+																	classes.boldText
+																}>
+																Fax:
+															</span>
+															<span>
+																{el.countryInDjib.fax}
+															</span>
 														</Typography>
 													)}
 
 													{el.countryInDjib.adress && (
 														<Typography
 															gutterBottom
-															variant='body2'>
-															Adress:{' '}
-															{el.countryInDjib.adress}
+															variant='body1'>
+															<span
+																className={
+																	classes.boldText
+																}>
+																{' '}
+																Adress:{' '}
+															</span>
+															<span>
+																{
+																	el.countryInDjib
+																		.adress
+																}
+															</span>
 														</Typography>
 													)}
 													{el.countryInDjib.email && (
 														<Typography
 															gutterBottom
-															variant='body2'>
-															Adress:{' '}
-															{el.countryInDjib.email}
+															variant='body1'>
+															<span
+																className={
+																	classes.boldText
+																}>
+																{' '}
+																Adress:{' '}
+															</span>
+															<span>
+																{
+																	el.countryInDjib
+																		.email
+																}
+															</span>
 														</Typography>
 													)}
 												</div>

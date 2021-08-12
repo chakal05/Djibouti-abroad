@@ -68,7 +68,7 @@ export default function Header() {
 		{
 			id: 2,
 			url: '/forCitizens/',
-			title: 'For Citizens',
+			title: 'For Djiboutians',
 		},
 		{
 			id: 3,
@@ -127,7 +127,7 @@ export default function Header() {
 									color='inherit'
 									align='center'
 									noWrap>
-									Djibouti Abroad
+									DJIBOUTI ABROAD 
 								</Typography>
 							</a>
 						</Link>

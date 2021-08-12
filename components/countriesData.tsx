@@ -2,7 +2,7 @@ export const countriesInfo = [
 	{
 		id: 1,
 		name: 'Kenya',
-		officicalName: 'Republic of Kenya',
+		officialName: 'Republic of Kenya',
 		regime: 'Republic',
 		headOfState: 'H.E Uhuru Kenyatta',
 		area: '580 367 km²',
@@ -52,7 +52,7 @@ export const countriesInfo = [
 	{
 		id: 2,
 		name: 'Ethiopia',
-		officicalName: 'Federal Democratic Republic of Ethiopia',
+		officialName: 'Federal Democratic Republic of Ethiopia',
 		regime: ' Federal Republic',
 		headOfState: 'H.E Abiy Ahmed Ali',
 		area: '1 104 300 km²',
@@ -114,7 +114,7 @@ export const countriesInfo = [
 	{
 		id: 3,
 		name: 'Russia',
-		officicalName: 'Russian Federation',
+		officialName: 'Russian Federation',
 		regime: ' Federal Republic',
 		headOfState: 'H.E Vladimir Poutine',
 		area: '17 100 00 km²',
@@ -173,7 +173,7 @@ export const countriesInfo = [
 	{
 		id: 4,
 		name: 'Belgium',
-		officicalName: 'kingdom of Belgium',
+		officialName: 'kingdom of Belgium',
 		regime: 'Federal state - constitutional monarchy',
 		headOfState: 'H.E  Alexander De Croo ',
 		area: '38 688 km²',
@@ -229,7 +229,7 @@ export const countriesInfo = [
 	{
 		id: 5,
 		name: 'E.A.U',
-		officicalName: 'United Arab Emirates State',
+		officialName: 'United Arab Emirates State',
 		regime: 'Federation of Emirates',
 		headOfState: ' Cheikh Khalifa Bin Zayed Al Nahyan',
 		area: '82 880 km²',
@@ -278,7 +278,7 @@ export const countriesInfo = [
 	{
 		id: 6,
 		name: 'China',
-		officicalName: `People's Republic of China`,
+		officialName: `People's Republic of China`,
 		regime: 'Republic',
 		headOfState: 'President XI Jinping',
 		area: '9 562 911 km²',
@@ -338,7 +338,7 @@ export const countriesInfo = [
 	{
 		id: 7,
 		name: 'Netherland',
-		officicalName: 'Kingdom of the Netherlands',
+		officialName: 'Kingdom of the Netherlands',
 		regime: 'Constitutional monarchy with parliamentary system',
 		headOfState: 'H.E Mark Rutte ',
 		area: '33 690 km²',
@@ -399,7 +399,7 @@ export const countriesInfo = [
 	{
 		id: 8,
 		name: 'Luxemburg',
-		officicalName: 'Grand Duchy of Luxembourg',
+		officialName: 'Grand Duchy of Luxembourg',
 		regime: 'Constitutional monarchy',
 		headOfState: 'H.E Xavier Bettel  ',
 		area: '2.586 km²',
@@ -449,7 +449,7 @@ export const countriesInfo = [
 	{
 		id: 9,
 		name: 'Egypt',
-		officicalName: 'Arab Republic of Egypt',
+		officialName: 'Arab Republic of Egypt',
 		regime: 'Republic',
 		headOfState: 'H.E  Abdel Fattah Al Sissi ',
 		area: '1 002 000 km²',
@@ -505,7 +505,7 @@ export const countriesInfo = [
 	{
 		id: 10,
 		name: 'Eritrea',
-		officicalName: 'State of Eritrea',
+		officialName: 'State of Eritrea',
 		regime: 'Republic',
 		headOfState: 'H.E Issayas Afwerki ',
 		area: '117 600 km²',
@@ -569,7 +569,7 @@ export const countriesInfo = [
 	{
 		id: 11,
 		name: 'France',
-		officicalName: 'Republic of France',
+		officialName: 'Republic of France',
 		regime: 'Republic',
 		headOfState: 'H.E Emmanuel Macron',
 		area: '	640,679 km²',
@@ -624,7 +624,7 @@ export const countriesInfo = [
 	{
 		id: 12,
 		name: 'India',
-		officicalName: 'Republic of India',
+		officialName: 'Republic of India',
 		regime: 'Federal republic',
 		headOfState: 'H.E  Narendra Mod',
 		area: '3 287 263 km²',
@@ -690,7 +690,7 @@ export const countriesInfo = [
 	{
 		id: 13,
 		name: 'Morocco',
-		officicalName: 'Kingdom of Morocco',
+		officialName: 'Kingdom of Morocco',
 		regime: 'Monarchy',
 		headOfState: 'King Mohammed VI ',
 		area: '446.550 km²',
@@ -745,7 +745,7 @@ export const countriesInfo = [
 	{
 		id: 14,
 		name: 'Sudan',
-		officicalName: 'Republic of Sudan',
+		officialName: 'Republic of Sudan',
 		regime: 'Federal government',
 		headOfState:
 			'H.E Abdelfattah al-Burhan (Political transition underway since August 17, 2019) ',
@@ -805,7 +805,7 @@ export const countriesInfo = [
 	{
 		id: 15,
 		name: 'Turkey',
-		officicalName: 'Republic of Turkey',
+		officialName: 'Republic of Turkey',
 		regime: 'Republic',
 		headOfState: 'H.E  Recep Tayyip ERDOĞAN ',
 		area: '780 576  km²',
@@ -861,7 +861,7 @@ export const countriesInfo = [
 	{
 		id: 16,
 		name: 'Yemen',
-		officicalName: 'Republic of Yemen',
+		officialName: 'Republic of Yemen',
 		regime: 'Republic',
 		headOfState: 'H.E Abd Rabbo Mansour Hadi ',
 		area: '527 970 km²',
@@ -909,7 +909,7 @@ export const countriesInfo = [
 	{
 		id: 17,
 		name: 'USA',
-		officicalName: 'United States of America',
+		officialName: 'United States of America',
 		regime: 'Federal republic',
 		headOfState: 'H.E Joseph Robinette Biden Jr',
 		area: ' 9 363 123 km²',
@@ -963,7 +963,7 @@ export const countriesInfo = [
 	{
 		id: 18,
 		name: 'Switzerland',
-		officicalName: 'Swiss Confederation',
+		officialName: 'Swiss Confederation',
 		regime: 'Federal state - semi-direct democracy',
 		headOfState: 'H.E Guy Parmelin',
 		area: '  41 285 km²',
@@ -1021,7 +1021,7 @@ export const countriesInfo = [
 	{
 		id: 19,
 		name: 'Germany',
-		officicalName: 'Federal Republic of Germany',
+		officialName: 'Federal Republic of Germany',
 		regime: 'Parliamentary democracy',
 		headOfState: 'H.E Angela Merkel',
 		area: '357 027 km²',
@@ -1075,7 +1075,7 @@ export const countriesInfo = [
 	{
 		id: 20,
 		name: 'Cuba',
-		officicalName: 'Republic of Cuba',
+		officialName: 'Republic of Cuba',
 		regime: 'one-party socialist regime',
 		headOfState: 'H.E  Miguel Díaz-Canel',
 		area: '106 449 km²',
@@ -1130,7 +1130,7 @@ export const countriesInfo = [
 	{
 		id: 21,
 		name: 'Japon',
-		officicalName: 'Japon',
+		officialName: 'Japon',
 		regime: 'Parliamentary monarchy',
 		headOfState: 'H.E Yoshihide SUGA',
 		area: '377 000 km²',
@@ -1180,7 +1180,7 @@ export const countriesInfo = [
 	{
 		id: 22,
 		name: 'SaudiArabia',
-		officicalName: 'Kingdom of Saudi Arabia',
+		officialName: 'Kingdom of Saudi Arabia',
 		regime: 'Monarchy',
 		headOfState:
 			'His Majesty King Salman bin Abdulaziz Al Saud, Guardian of the Two Holy Places',
@@ -1233,7 +1233,7 @@ export const countriesInfo = [
 	{
 		id: 23,
 		name: 'Qatar',
-		officicalName: 'State of Qatar ',
+		officialName: 'State of Qatar ',
 		regime: 'Emirate',
 		headOfState: 'Cheikh Tamim bin Hamad Al Thani',
 		area: '11.571 km²',
