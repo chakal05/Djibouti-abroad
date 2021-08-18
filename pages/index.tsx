@@ -353,30 +353,29 @@ export default function Home() {
 									{forForeignersLinks.map((item) => {
 										return (
 											<li key={item.id}>
-											
-													<Grid container>
-														<Grid item xs={9}>
+												<Grid container>
+													<Grid item xs={9}>
 														<Typography
 															variant='body1'
 															className={classes.url}>
 															{item.title}
 														</Typography>
-														</Grid>
-														<Grid
-															item
-															xs={3}
-															style={{
-																textAlign: 'right',
-															}}>
-															<FontAwesomeIcon
-																style={{
-																	height: '15px',
-																	width: '15px',
-																}}
-																icon={faCheckCircle}
-															/>
-														</Grid>
 													</Grid>
+													<Grid
+														item
+														xs={3}
+														style={{
+															textAlign: 'right',
+														}}>
+														<FontAwesomeIcon
+															style={{
+																height: '15px',
+																width: '15px',
+															}}
+															icon={faCheckCircle}
+														/>
+													</Grid>
+												</Grid>
 											</li>
 										);
 									})}
@@ -450,6 +449,7 @@ export default function Home() {
 					backgroundColor: '#edf4ed',
 					paddingLeft: '2rem',
 					paddingRight: '2rem',
+                    marginBottom: '5rem' 
 				}}>
 				<Container maxWidth='lg'>
 					<Grid
