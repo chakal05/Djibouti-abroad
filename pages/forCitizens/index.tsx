@@ -147,7 +147,7 @@ export default function forDjiboutian() {
 	return (
 		<>
 			<Head>
-				<title> For Djiboutians  - Djibouti aAbroad</title>
+				<title> For Djiboutians - Djibouti aAbroad</title>
 			</Head>
 			<Container maxWidth='lg'>
 				<Grid container className={classes.topColorWhite}>

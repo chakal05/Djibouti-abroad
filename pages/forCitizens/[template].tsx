@@ -1,6 +1,6 @@
 import React from 'react';
-import Head  from 'next/head'
-import { Container, Grid, Typography, Card } from '@material-ui/core';
+import Head from 'next/head';
+import { Container, Grid, Typography } from '@material-ui/core';
 import {
 	createStyles,
 	Theme,
@@ -8,13 +8,6 @@ import {
 } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import { data } from '../../util/citizensTemplateInfo';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faChevronDown,
-	faArrowAltCircleRight,
-	faArrowCircleDown,
-} from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
 import PagesInfo from '../../components/templateFooter';
 import {
 	helpInfoLinks,
@@ -38,31 +31,15 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 
 		imgContainer: {
-			// backgroundColor: '#edf4ed',
 			marginTop: '1rem',
 			padding: '2rem',
-			// borderBottomRightRadius: '1rem',
-			// borderBottomLeftRadius: '1rem',
-
-			//textAlign: 'center',
-			[theme.breakpoints.up(651)]: {
-				//	width: '50%',
-				// 	position: 'absolute',
-				// 	right: '3rem',
-				// 	top: '30%',
-				// 	marginLeft: '1rem',
-			},
 		},
 
 		formContainer: {
 			display: 'none',
 			width: '70%',
 			margin: '0 auto',
-			// 	padding: '1rem',
 			[theme.breakpoints.down(650)]: {
-				// 		display: 'flex',
-				// 		justifyContent: 'center',
-				// 		alignItems: 'center',
 				width: '100%',
 			},
 		},
@@ -71,7 +48,6 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		carte: {
 			padding: '1rem',
-			//	height: '250px',
 			width: '80%',
 			margin: '0 auto',
 			[theme.breakpoints.down(650)]: {
@@ -145,67 +121,70 @@ export default function Info() {
 	});
 
 	return (
-        <>
-        <Head> <title> 	{info.pageTitle} - Djibouti Abroad </title> </Head>
-		<Container maxWidth='lg'>
-			<Grid container>
-				<Grid item xs={12} className={classes.topColorGreen}>
-					{' '}
-					<Typography
-						variant='h2'
-						style={{
-							fontWeight: 'bold',
-						}}>
-						{info.pageTitle}
-					</Typography>
-				</Grid>
+		<>
+			<Head>
+				{' '}
+				<title> {info.pageTitle} - Djibouti Abroad </title>{' '}
+			</Head>
+			<Container maxWidth='lg'>
+				<Grid container>
+					<Grid item xs={12} className={classes.topColorGreen}>
+						{' '}
+						<Typography
+							variant='h2'
+							style={{
+								fontWeight: 'bold',
+							}}>
+							{info.pageTitle}
+						</Typography>
+					</Grid>
 
-				<Grid item xs={12} className={classes.imgContainer}>
-					<Grid container>
+					<Grid item xs={12} className={classes.imgContainer}>
+						<Grid container>
+							<Grid item xs={12}>
+								<Typography
+									variant='h4'
+									style={{
+										marginBottom: '2rem',
+										textAlign: 'center',
+										fontWeight: 'bold',
+									}}>
+									{info.secondaryTitle}
+								</Typography>
+							</Grid>
+						</Grid>
 						<Grid item xs={12}>
-							<Typography
-								variant='h4'
-								style={{
-									marginBottom: '2rem',
-									textAlign: 'center',
-									fontWeight: 'bold',
-								}}>
-								{info.secondaryTitle}
-							</Typography>
+							{info.content.map((item) => {
+								return (
+									<div key={item.id}>
+										<Typography
+											variant='h6'
+											style={{ fontWeight: 'bold' }}>
+											{item.title}
+										</Typography>
+										<Typography variant='body1'>
+											{item.body}
+										</Typography>
+										<br />
+									</div>
+								);
+							})}
 						</Grid>
 					</Grid>
-					<Grid item xs={12}>
-						{info.content.map((item) => {
-							return (
-								<div key={item.id}>
-									<Typography
-										variant='h6'
-										style={{ fontWeight: 'bold' }}>
-										{item.title}
-									</Typography>
-									<Typography variant='body1'>
-										{item.body}
-									</Typography>
-									<br />
-								</div>
-							);
-						})}
+					<Grid item xs={12} justify='center'>
+						<PagesInfo
+							leftLinks={travelInfoLinks}
+							rightLinks={helpInfoLinks}
+							pageTitle={'Citizens'}
+							leftFirstTitle={'Travel recommendations ?'}
+							leftSecTitle={`Here is some information and recommendations from the Ministry of Foreign Affairs.`}
+							rightFirstTitle={`Emergencies and formalities `}
+							rightSecTitle={`Here is information about the services you
+                        can get abroad.`}
+						/>
 					</Grid>
 				</Grid>
-				<Grid item xs={12} justify='center'>
-					<PagesInfo
-						leftLinks={travelInfoLinks}
-						rightLinks={helpInfoLinks}
-                        pageTitle={'Citizens'}
-						leftFirstTitle={'Travel recommendations ?'}
-						leftSecTitle={`Here is some information and recommendations from the Ministry of Foreign Affairs.`}
-						rightFirstTitle={`Emergencies and formalities `}
-						rightSecTitle={`Here is information about the services you
-                        can get abroad.`}
-					/>
-				</Grid>
-			</Grid>
-		</Container>
-        </>
+			</Container>
+		</>
 	);
 }

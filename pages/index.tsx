@@ -1,4 +1,3 @@
-//import styles from '../styles/index.module.scss';
 import React from 'react';
 import Head from 'next/head';
 import {
@@ -13,15 +12,10 @@ import {
 	Typography,
 	Container,
 } from '@material-ui/core';
-import {
-	faArrowAltCircleDown,
-	faCheckCircle,
-	faCheckDouble,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import Image from 'next/image';
 import Countries from '../components/countries';
+import MyCard from '../components/Card';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -162,36 +156,54 @@ const travelInfoLinks = [
 	{
 		id: 2,
 		title: 'Travel documents',
+		lien: {
+			pathname: '',
+			query: { template: '' },
+		},
 	},
 	{
 		id: 3,
 		title: 'Help abroad for citizens',
+		lien: {
+			pathname: '',
+			query: { template: '' },
+		},
 	},
 	{
 		id: 1,
 		title: 'About the Coronavirus',
+		lien: {
+			pathname: '',
+			query: { template: '' },
+		},
 	},
 ];
 const forForeignersLinks = [
 	{
 		id: '2',
 		title: 'Visiting Djibouti',
-		url: 'https://guide.visitdjibouti.dj/',
-		target: '_blank',
+		lien: {
+			pathname: '',
+			query: { template: '' },
+		},
 	},
 	{
 		id: '3',
 		title: 'Investing in Djibouti',
-		url: '/forForeigners/investInDjib',
-		target: '',
+
+		lien: {
+			pathname: '/forCitizens/[template]',
+			query: { template: 'children' },
+		},
 	},
 	{
 		id: '1',
 		title: 'Working in Djibouti',
-		url: `/forForeigners/${encodeURIComponent(
-			'workingInDjibouti'
-		)}`,
-		target: '',
+
+		lien: {
+			pathname: '',
+			query: { template: '' },
+		},
 	},
 ];
 
@@ -277,121 +289,24 @@ export default function Home() {
 							</Typography>
 						</Grid>
 						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{' '}
-									Traveling abroad ?
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									Here is important information before and
-									during your stay abroad.
-								</Typography>
-
-								<ul className={classes.listContainer}>
-									{travelInfoLinks.map((item) => {
-										return (
-											<li key={item.id}>
-												<Grid container>
-													<Grid item xs={9}>
-														<Typography
-															variant='body1'
-															className={classes.url}>
-															{item.title}
-														</Typography>
-													</Grid>
-													<Grid
-														item
-														xs={3}
-														style={{
-															textAlign: 'right',
-														}}>
-														<FontAwesomeIcon
-															style={{
-																height: '15px',
-																width: '15px',
-															}}
-															icon={faCheckCircle}
-														/>
-													</Grid>
-												</Grid>
-											</li>
-										);
-									})}
-								</ul>
-								<div className={classes.carteBtn}>
-									<Link href='/forCitizens'>
-										<Button
-											size='large'
-											className={classes.btn}
-											variant='contained'>
-											{' '}
-											Read more
-										</Button>
-									</Link>
-								</div>
-							</Card>
+							<MyCard
+								cardTitle={`Traveling abroad ?`}
+								cardText={`	Here is important information before and
+									during your stay abroad.`}
+								listItems={travelInfoLinks}
+								btn={true}
+								btnLink={`/forCitizens`}
+							/>
 						</Grid>
 						<Grid item className={classes.carteContainer}>
-							<Card className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{' '}
-									Going to Djibouti ?
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									Here you will find information about visas
-									and immigration.
-								</Typography>
-								<ul className={classes.listContainer}>
-									{forForeignersLinks.map((item) => {
-										return (
-											<li key={item.id}>
-												<Grid container>
-													<Grid item xs={9}>
-														<Typography
-															variant='body1'
-															className={classes.url}>
-															{item.title}
-														</Typography>
-													</Grid>
-													<Grid
-														item
-														xs={3}
-														style={{
-															textAlign: 'right',
-														}}>
-														<FontAwesomeIcon
-															style={{
-																height: '15px',
-																width: '15px',
-															}}
-															icon={faCheckCircle}
-														/>
-													</Grid>
-												</Grid>
-											</li>
-										);
-									})}
-								</ul>
-								<div className={classes.carteBtn}>
-									<Link href='/forCitizens'>
-										<Button
-											size='large'
-											className={classes.btn}
-											variant='contained'>
-											{' '}
-											Read more
-										</Button>
-									</Link>
-								</div>
-							</Card>
+							<MyCard
+								cardTitle={`Going to Djibouti ?`}
+								cardText={`	Here you will find information about visas
+                                and immigration.`}
+								listItems={forForeignersLinks}
+								btn={true}
+								btnLink={`/forForeigners`}
+							/>
 						</Grid>
 					</Grid>
 				</Container>
@@ -449,7 +364,7 @@ export default function Home() {
 					backgroundColor: '#edf4ed',
 					paddingLeft: '2rem',
 					paddingRight: '2rem',
-                    marginBottom: '5rem' 
+					marginBottom: '5rem',
 				}}>
 				<Container maxWidth='lg'>
 					<Grid

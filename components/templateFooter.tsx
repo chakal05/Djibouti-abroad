@@ -1,23 +1,20 @@
-import { Container, Grid, Typography, Card } from '@material-ui/core';
-import Link from 'next/link';
+import { Container, Grid, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
-
+import Card from './Card';
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		carteContainer: {
-			padding: '1rem',
-			width: '50%',
+			padding: '3rem',
+
 			[theme.breakpoints.down(650)]: {
 				width: '100%',
 				marginBottom: '1rem',
+				padding: '1rem',
 			},
 		},
 
 		carte: {
 			padding: '1rem',
-			//	height: '250px',
 			width: '80%',
 			margin: '0 auto',
 			[theme.breakpoints.down(650)]: {
@@ -45,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function InfoBelow({
-    pageTitle,
+	pageTitle,
 	leftLinks,
 	rightLinks,
 	leftFirstTitle,
@@ -73,118 +70,22 @@ export default function InfoBelow({
 				<Grid item xs={12}>
 					<Grid container justify='center'>
 						<Grid item className={classes.carteContainer}>
-							<Card elevation={3} className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{leftFirstTitle}
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									{leftSecTitle}
-								</Typography>
-								{leftLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link
-												href={{
-													pathname: item.lien.pathname,
-													query: {
-														template:
-															item.lien.query.template,
-													},
-												}}>
-												<a target={item.target}>
-													<Typography
-														variant='body1'
-														className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
-														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
-							</Card>
+							<Card
+								cardTitle={leftFirstTitle}
+								cardText={leftSecTitle}
+								listItems={leftLinks}
+								btn={false}
+								btnLink={``}
+							/>
 						</Grid>
 						<Grid item className={classes.carteContainer}>
-							<Card elevation={3} className={classes.carte}>
-								<Typography
-									variant='h5'
-									className={classes.carteTitle}>
-									{rightFirstTitle}
-								</Typography>
-								<Typography
-									variant='body1'
-									className={classes.carteSecTitle}>
-									{rightSecTitle}
-								</Typography>
-								{rightLinks.map((item) => {
-									return (
-										<div key={item.id}>
-											<Link
-												href={{
-													pathname: item.lien.pathname,
-													query: {
-														template:
-															item.lien.query.template,
-													},
-												}}>
-												<a target={item.target}>
-													<Typography
-														variant='body1'
-														className={classes.url}>
-														<Grid container>
-															<Grid item xs={9}>
-																{item.title}
-															</Grid>
-															<Grid
-																item
-																xs={3}
-																style={{
-																	textAlign: 'right',
-																}}>
-																<FontAwesomeIcon
-																	style={{
-																		marginRight:
-																			'0',
-																		height: '15px',
-																		width: '15px',
-																	}}
-																	icon={
-																		faArrowAltCircleRight
-																	}
-																/>
-															</Grid>
-														</Grid>
-													</Typography>
-												</a>
-											</Link>
-										</div>
-									);
-								})}
-							</Card>
+							<Card
+								cardTitle={rightFirstTitle}
+								cardText={rightSecTitle}
+								listItems={rightLinks}
+								btn={false}
+								btnLink={``}
+							/>
 						</Grid>
 					</Grid>
 				</Grid>
